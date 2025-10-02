@@ -1,0 +1,63 @@
+% Section 5: Design and Architecture
+
+\section{Design and Architecture}
+
+\subsection{Introduction}
+
+This chapter presents the overall architecture of the system, the main design decisions taken, the technologies and tools used, and the UML diagrams that describe the internal structure and behaviour of the system. The objective is to ensure the system is modular, scalable, maintainable, and aligned with the requirements defined in the previous chapter.
+
+\subsection{System Architecture}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth,keepaspectratio]{rapport/media/communication_diag.png}
+\caption{Detailed System Flow}
+\label{fig:systemflow}
+\end{figure}
+
+\subsection{Database Design}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth,keepaspectratio]{rapport/media/erd.png}
+\caption{Complete Database Design and ER Diagram}
+\label{fig:erdatabase}
+\end{figure}
+
+\subsection{Design Principles}
+
+The project followed key software engineering principles:
+
+\begin{itemize}
+\item \textbf{Modularity:} Code is divided into reusable components and services
+\item \textbf{Separation of Concerns:} Frontend, backend, and data layers are separated
+\item \textbf{Security by Design:} All API calls are authenticated; sensitive data is encrypted
+\item \textbf{Scalability:} Designed to scale horizontally by separating backend and database services
+\end{itemize}
+
+\subsection{Product Backlog}
+
+The product backlog was organized into 7 main epics, each containing multiple user stories distributed across the project sprints:
+
+\begin{table}[H]
+\centering
+\caption{Product Backlog Summary by Epic}
+\footnotesize
+\begin{tabular}{|p{4cm}|p{2cm}|p{7cm}|}
+\hline
+\textbf{Epic} & \textbf{Sprint} & \textbf{Key User Stories} \\ \hline
+Backend \& Data Auth & 1 & Setup Go/gRPC backend, PostgreSQL with WAL, Authentication UI, RBAC implementation \\ \hline
+Real-Time Error Capture & 2 & Dashboard metrics UI, Error/Logs UI, API development, Backend integration \\ \hline
+DevOps Foundation & 3 & Pipeline dashboard, API development, CI/CD tools, Pipeline automation \\ \hline
+Error Classification \& AI Fixes & 4 & AI model integration, Error tagging, Automated fixes, Unit test generation \\ \hline
+Alerting \& Notifications & 5 & Tool integrations, Notification system, Billing alerts, Alert throttling \\ \hline
+Data Protection \& Payments & 6 & AES-256 encryption, GDPR compliance, Usage computation, Payment services \\ \hline
+SDKs \& Plugins & 7 & Node.js plugin, Flutter/Dart SDK, Service activation, Documentation \\ \hline
+\end{tabular}
+\end{table}
+
+The complete backlog contained 35 user stories with estimated efforts ranging from 8 to 24 hours per story, totaling approximately 420 hours of development work across the 7 sprints.
+
+\subsection{Summary}
+
+This chapter outlines the system's architecture and design decisions. Technologies were selected to optimise development speed, scalability, and maintainability. UML diagrams and ER models supported a clear technical structure that guided the implementation phase.

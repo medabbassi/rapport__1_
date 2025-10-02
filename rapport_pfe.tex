@@ -1,0 +1,258 @@
+% Main document for ErrorZen PFE Report
+% Author: Mohamed Abbassi
+% Date: October 2025
+
+\documentclass[12pt,a4paper]{article}
+
+% Page layout for A4 paper
+\usepackage[a4paper,margin=2.5cm,top=3cm,bottom=3cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{xcolor}
+\usepackage{amsmath,amssymb}
+\usepackage{amssymb} % For checkmark symbol
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{array}
+\usepackage{longtable,booktabs}
+\usepackage{multirow}
+\usepackage{colortbl}
+\usepackage{hhline}
+\usepackage{hyperref}
+\usepackage{bookmark}
+\usepackage{lmodern}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{enumerate}
+
+% Configure listings for code snippets
+\lstset{
+    basicstyle=\ttfamily\footnotesize,
+    commentstyle=\color{green!40!black},
+    keywordstyle=\color{blue},
+    stringstyle=\color{red},
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    stepnumber=1,
+    numbersep=8pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    frame=single,
+    rulecolor=\color{black},
+    tabsize=2,
+    captionpos=b,
+    breaklines=true,
+    breakatwhitespace=false,
+    escapeinside={\%*}{*)},
+    backgroundcolor=\color{gray!10}
+}
+
+% Define custom language for JavaScript/Vue.js
+\lstdefinelanguage{JavaScript}{
+  keywords={const, let, var, function, return, if, else, for, while, do, break, continue, switch, case, default, try, catch, finally, throw, new, this, typeof, instanceof, in, of, async, await, import, export, from, as, class, extends, super, static, get, set},
+  ndkeywords={Array, Object, String, Number, Boolean, Function, Date, RegExp, Math, JSON, Promise, Map, Set, WeakMap, WeakSet},
+  sensitive=true,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  morestring=[b]",
+  morestring=[b]',
+  morestring=[b]`
+}
+
+% Define custom language for Docker
+\lstdefinelanguage{Docker}{
+  keywords={FROM, RUN, CMD, LABEL, EXPOSE, ENV, ADD, COPY, ENTRYPOINT, VOLUME, USER, WORKDIR, ARG, ONBUILD, STOPSIGNAL, HEALTHCHECK, SHELL},
+  keywordstyle=\color{blue}\bfseries,
+  ndkeywords={},
+  ndkeywordstyle=\color{darkgray}\bfseries,
+  identifierstyle=\color{black},
+  sensitive=false,
+  comment=[l]{\#},
+  morecomment=[s]{/*}{*/},
+  commentstyle=\color{purple}\ttfamily,
+  stringstyle=\color{red}\ttfamily,
+  morestring=[b]',
+  morestring=[b]"
+}
+
+% Enhanced table formatting
+\renewcommand{\arraystretch}{1.2}
+\setlength{\arrayrulewidth}{0.5pt}
+\setlength{\tabcolsep}{6pt}
+
+% Set default figure placement
+\def\fps@figure{htbp}
+
+% Remove section numbering for some sections
+\setcounter{secnumdepth}{3}
+
+% Enhanced packages for better formatting
+\usepackage{tocloft}
+\usepackage{titlesec}
+
+% Configure hyperref
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdfcreator={LaTeX via pandoc}
+}
+
+% Title page information
+\title{ErrorZen: Intelligent Platform for Automated Error Management\\
+\large{Final Year Project Report}}
+\author{Mohamed Abbassi}
+\date{October 2025}
+
+\begin{document}
+
+% Title page
+\maketitle
+\newpage
+
+% Table of contents
+\tableofcontents
+\newpage
+
+% List of figures
+\listoffigures
+\newpage
+
+% List of tables
+\listoftables
+\newpage
+
+% Include all sections
+\input{sections/00_acknowledgments}
+\newpage
+
+% Chapter 1 Separator Page
+\thispagestyle{empty}
+\vspace*{\fill}
+\begin{center}
+\Huge\textbf{Chapter 1}\\
+\vspace{1cm}
+\Large\textbf{Introduction}
+\end{center}
+\vspace*{\fill}
+\newpage
+
+\input{sections/01_introduction}
+\newpage
+
+% Chapter 2 Separator Page
+\thispagestyle{empty}
+\vspace*{\fill}
+\begin{center}
+\Huge\textbf{Chapter 2}\\
+\vspace{1cm}
+\Large\textbf{Methodology}
+\end{center}
+\vspace*{\fill}
+\newpage
+
+\input{sections/02_methodology}
+\newpage
+
+% Chapter 3 Separator Page
+\thispagestyle{empty}
+\vspace*{\fill}
+\begin{center}
+\Huge\textbf{Chapter 3}\\
+\vspace{1cm}
+\Large\textbf{Literature Review}
+\end{center}
+\vspace*{\fill}
+\newpage
+
+\input{sections/03_literature_review}
+\newpage
+
+% Chapter 4 Separator Page
+\thispagestyle{empty}
+\vspace*{\fill}
+\begin{center}
+\Huge\textbf{Chapter 4}\\
+\vspace{1cm}
+\Large\textbf{Requirements Analysis}
+\end{center}
+\vspace*{\fill}
+\newpage
+
+\input{sections/04_requirements}
+\newpage
+
+% Chapter 5 Separator Page
+\thispagestyle{empty}
+\vspace*{\fill}
+\begin{center}
+\Huge\textbf{Chapter 5}\\
+\vspace{1cm}
+\Large\textbf{System Design}
+\end{center}
+\vspace*{\fill}
+\newpage
+
+\input{sections/05_design}
+\newpage
+
+% Chapter 6 Separator Page
+\thispagestyle{empty}
+\vspace*{\fill}
+\begin{center}
+\Huge\textbf{Chapter 6}\\
+\vspace{1cm}
+\Large\textbf{Sprint Implementation}
+\end{center}
+\vspace*{\fill}
+\newpage
+
+\input{sections/06_sprints}
+\newpage
+
+% Chapter 7 Separator Page
+\thispagestyle{empty}
+\vspace*{\fill}
+\begin{center}
+\Huge\textbf{Chapter 7}\\
+\vspace{1cm}
+\Large\textbf{Realization and Development}
+\end{center}
+\vspace*{\fill}
+\newpage
+
+\input{sections/07_realization}
+\newpage
+
+% Chapter 8 Separator Page
+\thispagestyle{empty}
+\vspace*{\fill}
+\begin{center}
+\Huge\textbf{Chapter 8}\\
+\vspace{1cm}
+\Large\textbf{Conclusion}
+\end{center}
+\vspace*{\fill}
+\newpage
+
+\input{sections/08_conclusion}
+\newpage
+
+% Bibliography Separator Page
+\thispagestyle{empty}
+\vspace*{\fill}
+\begin{center}
+\Huge\textbf{Bibliography}\\
+\vspace{1cm}
+\Large\textbf{References and Sources}
+\end{center}
+\vspace*{\fill}
+\newpage
+
+\input{sections/09_bibliography}
+
+\end{document}

@@ -1,0 +1,165 @@
+% Section 4: Requirement Analysis
+
+\section{Requirement Analysis}
+
+\subsection{Introduction}
+
+This chapter outlines the system's requirements, including both functional and non-functional aspects. It is the foundation upon which the system's design and implementation are based. The requirements were collected through meetings with stakeholders, analysis of the domain, and study of existing systems.
+
+\subsection{Client Expectations}
+
+These requirements describe the main functionalities that the system must offer.
+
+\subsubsection{Error Detection and Handling}
+
+\begin{itemize}
+\item Capture real-time errors from the frontend, backend and mobile
+\item Centralise errors in an interactive dashboard
+\item Filter and categorise errors according to their criticality
+\end{itemize}
+
+\subsubsection{AI Error Analysis and Correction}
+
+\begin{itemize}
+\item Automatically analyse detected errors
+\item Propose adapted solutions based on artificial intelligence
+\item Generate unit tests to validate corrections before their integration
+\end{itemize}
+
+\subsubsection{DevOps Automation}
+
+\begin{itemize}
+\item Trigger automated tests after correction
+\item Deploy patched code through a CI/CD pipeline without manual intervention
+\item Ensure follow-up of corrections and production releases
+\end{itemize}
+
+\subsubsection{Integration with Other Tools}
+
+\begin{itemize}
+\item Provide an SDK and plugins to integrate ErrorZen with other technologies (e.g. Firebase Crashlytics, Sentry)
+\item Offer an API to allow businesses to customise the integration
+\end{itemize}
+
+\subsubsection{User Interface and Access Management}
+
+\begin{itemize}
+\item Allow developers to view, filter and analyse errors via a dashboard
+\item Manage roles and permissions to secure access to data
+\end{itemize}
+
+\subsection{Non-functional Requirements}
+
+These needs concern system quality, performance and security.
+
+\subsubsection{Performance and Scalability}
+
+\begin{itemize}
+\item Manage a large volume of logs without slowing down
+\item Ensure rapid system response (<200ms for error recovery)
+\item Support a large number of users and integrations without loss of performance
+\end{itemize}
+
+\subsubsection{Security and Compliance}
+
+\begin{itemize}
+\item Encrypt sensitive user and error data
+\item Authenticate and authorise access via OAuth or JWT
+\item Ensure compliance with security standards (e.g. GDPR, ISO 27001)
+\end{itemize}
+
+\subsubsection{Availability and Reliability}
+
+\begin{itemize}
+\item Ensure high availability (SLA > 99.9\%)
+\item Implement a backup and recovery mechanism in the event of a failure
+\item Have real-time monitoring to prevent any failure
+\end{itemize}
+
+\subsubsection{Compatibility and Integration}
+
+\begin{itemize}
+\item Support different environments (Linux, Windows, macOS)
+\item Ensure compatibility with several languages and frameworks (Python, Node.js, Java, Flutter, etc.)
+\item Use GraphQL for efficient communication with the frontend
+\end{itemize}
+
+\subsubsection{Ease of Use and Maintainability}
+
+\begin{itemize}
+\item Offer an intuitive and accessible interface
+\item Document the API and SDKs for easy integration
+\item Provide technical support and regular updates
+\end{itemize}
+
+\subsection{Constraints}
+
+\begin{itemize}
+\item \textbf{Time-to-Market:} The MVP must be delivered in 17 weeks to meet client onboarding deadlines. Rationale: Rapid Application Development (RAD) and Agile-Scrum methodologies will accelerate iterations.
+\item \textbf{Offline-First Support:} Must cache and sync errors locally for mobile/remote developers with poor connectivity. Rationale: PostgreSQL's write-ahead logging (WAL) and Vue.js's local storage ensure data consistency.
+\item \textbf{Open-Source Priority:} Prefer open-source tools (e.g., PostgreSQL, PyTorch) to minimise licensing costs.
+\item \textbf{Multi-Platform SDKs:} SDKs must support Python, Node.js, Java, and mobile (iOS/Android) for broad compatibility.
+\item \textbf{Zero Manual DevOps:} CI/CD pipelines (GitHub Actions/Jenkins) must fully automate testing/deployment without human intervention.
+\end{itemize}
+
+\subsection{System Diagrams}
+
+\subsubsection{Use Case Diagram}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth,keepaspectratio]{rapport/media/userscasglobal.png}
+\caption{Use Case Diagram}
+\label{fig:usecase}
+\end{figure}
+
+\subsubsection{Class Diagram of the System}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth,keepaspectratio]{rapport/media/diag_class_global.png}
+\caption{Class Diagram of the System}
+\label{fig:classdiagram}
+\end{figure}
+
+\subsubsection{Deployment Diagram}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.6\textwidth,keepaspectratio]{rapport/media/diag_deploy.png}
+\caption{Deployment Architecture}
+\label{fig:components}
+\end{figure}
+
+\subsubsection{Requirement Traceability Matrix}
+
+\begin{table}[H]
+\centering
+\caption{Requirement Traceability Matrix}
+\footnotesize
+\begin{tabular}{|p{1.5cm}|p{5cm}|p{2.5cm}|p{3cm}|p{2cm}|}
+\hline
+\textbf{Req. ID} & \textbf{Requirement Description} & \textbf{Source} & \textbf{Implementation Module} & \textbf{Status} \\
+\hline
+RQ-01 & The system must authenticate all users before access & Business Rule & Auth Module & Implemented \\
+\hline
+RQ-02 & Developer must handle errors & Functional Req. & Error Handling Service & In Testing \\
+\hline
+RQ-03 & Developer must handle analytics & Functional Req. & Analytics Service & Implemented \\
+\hline
+RQ-04 & AI agent must capture real-time errors & Functional Req. & AI Monitoring Module & Pending \\
+\hline
+RQ-05 & AI agent must suggest possible fixes & Functional Req. & AI Recommendation Engine & Planned \\
+\hline
+RQ-06 & System must generate bills automatically & Functional Req. & Billing Service & Implemented \\
+\hline
+RQ-07 & Admin must manage user roles & Functional Req. & User Management Module & Implemented \\
+\hline
+RQ-08 & Manager must monitor deployment processes & Functional Req. & Deployment Service & In Testing \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{Summary}
+
+This chapter defined the expected functionalities and performance characteristics of the system. These requirements guided the design and implementation of the application. The use of diagrams helped visualise user interactions and data flows clearly.

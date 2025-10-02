@@ -1,0 +1,2380 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\documentclass[
+]{article}
+% Page layout for A4 paper
+\usepackage[a4paper,margin=2.5cm,top=3cm,bottom=3cm]{geometry}
+\usepackage{xcolor}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+
+% Enhanced packages for figures and tables
+\usepackage{float}  % Improved float placement
+\usepackage{caption}  % Enhanced captions
+\usepackage{subcaption}  % Subcaptions for figures
+\usepackage{adjustbox}  % Better image scaling
+\usepackage{array}  % Enhanced table formatting
+\usepackage{colortbl}  % Table coloring
+\usepackage{hhline}  % Enhanced table lines
+
+% Enable figure and table numbering
+\setcounter{figure}{0}
+\setcounter{table}{0}
+\renewcommand{\thefigure}{\arabic{figure}}
+\renewcommand{\thetable}{\arabic{table}}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{longtable,booktabs, array}
+\usepackage{multirow}
+\usepackage{calc} % for calculating minipage widths
+
+% Enhanced table formatting with borders
+\renewcommand{\arraystretch}{1.2}  % Increase row spacing
+\setlength{\arrayrulewidth}{0.5pt}  % Set border width
+\setlength{\tabcolsep}{8pt}  % Increase column padding
+
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\author{}
+\date{}
+
+\begin{document}
+
+\begin{enumerate}
+\def\labelenumi{\Roman{enumi}.}
+\item
+  \textbf{Introduction}
+\end{enumerate}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Background and Context}
+\end{enumerate}
+
+In the field of software development, error handling represents a major
+challenge. Bugs and anomalies, whether detected during the development
+phase or in production, require rapid and effective intervention to
+avoid service interruptions and financial losses. However, traditional
+approaches rely on manual detection, complex diagnosis and often
+time-consuming remediation, slowing down the development cycle.
+Additionally, the integration of DevOps and CI/CD solutions remains a
+manual process, requiring constant monitoring and human intervention.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\item
+  \textbf{Problem Statement}
+\end{enumerate}
+
+Errors and bugs are common in software development and can slow down
+production cycles. Manually identifying, analysing, and correcting these
+errors takes time, consumes resources, and can impact the quality of the
+final product. Additionally, DevOps integration necessitates continuous
+monitoring and manual interventions, which can make it challenging to
+deploy applications quickly and securely.
+
+ErrorZen is an intelligent platform that automatically detects, analyses
+and fixes errors in backend, frontend and mobile applications. Thanks to
+artificial intelligence and advanced DevOps integration, ErrorZen:\\
+✅ Identifies errors and anomalies in real time.\\
+✅ Offers AI-based auto-correction solutions.\\
+✅ Integrates CI/CD pipelines to automate testing and deployments.\\
+✅ Notify developers in real-time via Slack, email, or webhook.
+
+This solution helps reduce bug-fixing time, improve application quality,
+and speed up the development cycle.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\item
+  \textbf{Objectives of the Project}
+\end{enumerate}
+
+This project aims to design and develop ErrorZen, an intelligent
+platform for automating error management in web and mobile applications.
+The main objectives are:
+
+\begin{itemize}
+\item
+  Automatic error detection in real time on different platforms
+  (frontend, backend, mobile).
+\item
+  Automated analysis and correction of anomalies using artificial
+  intelligence models.
+\item
+  Advanced DevOps integration, enabling automation of testing and
+  deployment after patching.
+\item
+  Centralisation and visualisation of errors via an interactive
+  dashboard, optimised with   and gRPC for effective
+  communication.
+\item
+  Instant notification to development teams via tools such as Slack,
+  email or webhooks.
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\item
+  \textbf{Agile Methodology: Why Scrum/RAD?}
+\end{enumerate}
+
+The project will follow a RAD (Rapid Application Development) approach
+to ensure rapid and iterative development and will respect the
+Agile-Scrum development cycle. The platform will be built with:
+
+\begin{itemize}
+\item
+  Backend: Go, PostgreSQL, gRPC/Rest API for
+  communication between services.
+\item
+  Frontend: Vue.js with   Client for integration.
+\item
+  Artificial Intelligence: Models based on deepseek api for
+  automatic error correction.
+\item
+  DevOps: CI/CD via GitHub Actions/Jenkins, deployment with Docker, and
+  Kubernetes on AWS
+\end{itemize}
+
+Expected Results
+
+\begin{itemize}
+\item
+  A significant reduction in error correction time in the development
+  cycle.
+\item
+  Improved application reliability through self-correction and automated
+  testing.
+\item
+  Acceleration of the production process via DevOps automation.
+\item
+  An intuitive interface allows developers to track and manage errors in
+  real time.
+\end{itemize}
+
+ErrorZen will provide an innovative solution to optimise error handling
+and automate DevOps cycles, thereby reducing developer workload and
+improving software quality.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{4}
+\item
+  \textbf{Overview of Sprints}
+\end{enumerate}
+
+The project was divided into \textbf{7 sprints}, each lasting
+\textbf{two weeks}:
+
+\begin{itemize}
+\item
+  \textbf{Sprint 1}: Project setup, requirements gathering, and initial
+  architecture.
+\item
+  \textbf{Sprint 2}: Development of core modules (e.g., user
+  authentication, data models).
+\item
+  \textbf{Sprint 3}: Integration with back-end, user interface refinements, testing.
+\item
+  \textbf{Sprint 4}: Final features, deployment, documentation, and user
+  training.
+\end{itemize}
+
+Each sprint had its backlog, planning session, and review meeting. This
+structure helped ensure that the development process was both flexible
+and measurable, with tangible results delivered at each iteration.
+
+\textbf{II. Project Management \& Methodology}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Overview of Agile and Scrum}
+\end{enumerate}
+
+Agile is a flexible software development methodology that emphasises
+iterative progress, collaboration, and user feedback. Scrum is a widely
+used Agile framework characterised by short, time-boxed development
+cycles called sprints, daily team meetings, and continuous delivery of
+value.
+
+In this project, Scrum was adopted to manage changing requirements and
+ensure a structured yet adaptable development process.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\item
+  \textbf{Adapting Scrum Roles in a RAD Context:}
+\end{enumerate}
+
+\begin{quote}
+In a traditional Scrum team, roles are clearly defined:
+\end{quote}
+
+\begin{itemize}
+\item
+  Product Owner: Represents the client, prioritises the product backlog,
+  and validates features.
+\item
+  Scrum Master: Ensures adherence to Agile principles, removes blockers,
+  and facilitates ceremonies.
+\item
+  Development Team: Delivers functional increments each sprint.
+\end{itemize}
+
+My RAD (Rapid Application Development) Adaptation (Solo/Small Team):
+
+Working in a fast-paced, iterative RAD environment (where speed and
+client feedback are critical), I merged these roles to maximise
+efficiency:
+
+\begin{itemize}
+\item
+  Product Owner + RAD Analyst
+\item
+  Direct client collaboration to capture just-in-time requirements and
+  dynamically adjust the backlog.
+\item
+  MVP-driven prioritisation (typical of RAD cycles), with client
+  feedback integrated after each prototype.
+\item
+  Use of visual tools (e.g., Miro, clickable mockups) for rapid
+  requirement validation.
+\item
+  Scrum Master + Technical Coordinator
+\item
+  Self-facilitated ceremonies (e.g., solo planning poker via relative
+  effort points, retrospectives focused on continuous improvement).
+\item
+  Proactive risk/blocker management with strict timeboxing (e.g.,
+  capping technical spikes at 2 hours).
+\item
+  Leveraged RAD tools (low-code platforms, code generators) to
+  accelerate development cycles.
+\item
+  Full-Stack Developer + Integrator
+\item
+  Feature-driven implementation with technical spikes for Proof of
+  Concepts (POCs).
+\item
+  Automated testing and CI/CD pipelines for real-time validation of each
+  increment.
+\item
+  Incremental documentation via living docs (e.g., updated README.md per
+  commit).
+\item
+  Benefits of This Hybrid Approach:
+\item
+  Faster time-to-market by eliminating role synchronisation delays.
+\item
+  Greater flexibility to pivot based on client feedback (core RAD
+  principle).
+\item
+  Stronger ownership across the entire development lifecycle.
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\item
+  \textbf{Scrum Ceremonies}
+\end{enumerate}
+
+\begin{quote}
+The following ceremonies were adopted:
+\end{quote}
+
+\begin{itemize}
+\item
+  \textbf{Sprint Planning}: Defined sprint goals and selected backlog
+  items.
+\item
+  \textbf{Daily Stand-ups}: Brief updates on progress and blockers
+  (documented if solo).
+\item
+  \textbf{Sprint Review}: Demonstrated completed features to
+  stakeholders or self-evaluated.
+\item
+  \textbf{Sprint Retrospective}: Identified improvements to apply in the
+  next sprint.
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\item
+  \textbf{Tools Used}
+\end{enumerate}
+
+\begin{itemize}
+\item
+  Project Management: Trello (backlog, sprint boards)
+\item
+  Version Control: Git + GitHub
+\item
+  Documentation: Notion / Google Docs
+\item
+  Design \& Wireframing: Figma / Draw.io
+\item
+  Code Editor: VS Code / Android Studio / GoLand /PgAdmin/Docker Desktop
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{4}
+\item
+  \textbf{Sprint Length and Structure }
+\end{enumerate}
+
+Each sprint lasted \textbf{two weeks} and followed this structure:
+
+\begin{itemize}
+\item
+  Day 1: Sprint Planning
+\item
+  Day 2--12: Development + Daily Stand-ups
+\item
+  Day 13: Sprint Review (demo or milestone check)
+\item
+  Day 14: Sprint Retrospective
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{5}
+\item
+  \textbf{Project Timeline}
+\end{enumerate}
+
+A total of \textbf{7 sprints} were conducted, as shown in the timeline
+below:
+
+\begin{table}[H]
+\centering
+\caption{Sprint Timeline and Goals}
+\label{tab:sprints}
+\small
+\begin{tabular}{|p{2cm}|p{3cm}|p{8cm}|}
+\hline
+\textbf{Sprint} & \textbf{Duration} & \textbf{Goal} \\ \hline
+Sprint 1 & Week 1--2 & Core Infrastructure Setup: Backend (Go/gRPC), PostgreSQL, CI/CD pipeline. \\ \hline
+Sprint 2 & Week 3--4 & Error Ingestion \& Dashboard MVP: Real-time error capture + Vue.js UI. \\ \hline
+Sprint 3 & Week 5--6 & AI Integration: PyTorch model training for error classification. \\ \hline
+Sprint 4 & Week 7--8 & Auto-Correction Engine: AI-driven fixes + unit test generation. \\ \hline
+Sprint 5 & Week 9--10 & DevOps Automation: GitHub Actions workflows, K8S deployment. \\ \hline
+Sprint 6 & Week 11--12 & SDK \& Integrations: Sentry/Firebase compatibility, Slack alerts. \\ \hline
+Sprint 7 & Week 13--14 & Polish \& Scalability: Load testing, security audits, documentation. \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{6}
+\item
+  \textbf{Gantt}
+\end{enumerate}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth,height=0.6\textheight,keepaspectratio]{media/image4.png}
+\caption{Gantt Chart - Project Timeline}
+\label{fig:gantt}
+\end{figure}
+
+\textbf{III.} \textbf{Literature Review / State of the Art}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Introduction}
+\end{enumerate}
+
+Before implementing any technical solution, it is essential to review
+existing work, approaches, and technologies related to the problem being
+addressed. This review of the literature aims to provide an overview of similar
+systems, tools, and frameworks and to justify the technical choices
+made during this project.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\item
+  Existing Solutions
+\end{enumerate}
+
+Several platforms and tools have been developed to address error/bug
+logging and detection. Each offers different features and uses various
+technologies.\\
+\strut \\
+A- Sentry\\
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth,keepaspectratio]{media/image1.png}
+\caption{System Architecture Overview}
+\label{fig:architecture}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth,keepaspectratio]{media/image3.png}
+\caption{System Design Diagram}
+\label{fig:design}
+\end{figure}
+
+The Sentry platform is a popular error monitoring and performance
+tracking tool used by developers to diagnose, fix, and optimise
+applications. Below are some of its \textbf{pros} and \textbf{cons}:
+
+Pros
+
+\begin{itemize}
+\item
+  Real-Time Error Monitoring -- Quickly detects and alerts developers
+  about crashes and exceptions.
+\item
+  Wide Language Support -- Works with JavaScript,  , Ruby, Java,
+  Go, PHP, .NET, and more.
+\item
+  Detailed Error Reports -- Provides stack traces, environment data, and
+  user context for debugging.
+\item
+  Performance Monitoring -- Tracks latency, slow transactions, and
+  bottlenecks in applications.
+\item
+  Integrations -- Supports GitHub, Slack, Jira, and other DevOps tools
+  for streamlined workflows.
+\item
+  Open-Source Option -- A self-hosted version is available for greater
+  control over data.
+\item
+  User-Friendly UI -- Intuitive dashboard with filtering and search
+  capabilities.
+\item
+  Release Tracking -- Correlates errors with specific code deployments.
+\end{itemize}
+
+Cons
+
+\begin{itemize}
+\item
+  Cost for High Volume -- Can become expensive for large-scale
+  applications with many events.
+\item
+  Limited Free Tier -- The free plan has restricted features and event
+  limits.
+\item
+  Complex Setup for Self-Hosting -- Requires maintenance and
+  infrastructure if deployed on-premise.
+\item
+  No Built-In APM (Advanced Performance Monitoring) -- Lags behind
+  competitors like Datadog in full APM capabilities.
+\item
+  Steep Learning Curve -- Some features (like performance tracing) may
+  require deeper configuration.
+\item
+  Limited Log Management -- Primarily focused on errors, not a full log
+  analytics solution.
+\end{itemize}
+
+B- Dynatrace
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth,keepaspectratio]{media/image5.png}
+\caption{Database Schema Design}
+\label{fig:database}
+\end{figure}
+
+Dynatrace is an AI-powered, full-stack observability platform that
+provides application performance monitoring (APM), infrastructure
+monitoring, real-user monitoring (RUM), and cloud automation. It's known
+for its automatic and intelligent insights, making it a favourite for
+enterprises. Below are some of its \textbf{pros} and \textbf{cons}:
+
+\begin{itemize}
+\item
+  AI-Powered Root Cause Analysis (Davis AI)
+\item
+  Automatically detects anomalies, pinpoints failures, and suggests
+  fixes.
+\item
+  Significantly reduces mean time to resolution (MTTR).
+\item
+  Full-Stack Observability
+\item
+  Tracks applications, microservices, containers, cloud infra,
+  databases, and network performance in one place.
+\item
+  Supports OpenTelemetry, Prometheus, and Kubernetes natively.
+\item
+  Automatic Discovery \& Dependency Mapping
+\item
+  Dynamically maps application dependencies without manual
+  configuration.
+\item
+  Real User Monitoring (RUM) \& Synthetic Monitoring
+\item
+  Tracks real user experience (browser/mobile) and simulates synthetic
+  transactions.
+\item
+  Cloud-Native \& Multi-Cloud Support
+\item
+  Works seamlessly with AWS, Azure, GCP, and hybrid environments.
+\end{itemize}
+
+Cons:
+
+\begin{itemize}
+\item
+  Very Expensive
+\item
+  One of the most costly APM tools, making it less accessible for SMBs.
+\item
+  Complex Setup \& Learning Curve
+\item
+  Overwhelming for beginners due to its advanced features.
+\item
+  Requires training to utilise AI-driven insights fully.
+\item
+  Limited Customisation in Dashboards
+\item
+  Some users find dashboarding less flexible compared to Grafana or
+  Datadog.
+\item
+  Heavy Resource Consumption (On-Premise)
+\item
+  Self-hosted deployments require significant infrastructure.
+\item
+  No Built-In Log Management (Requires Grail)
+\item
+  Log analytics is a separate module (Dynatrace Grail), adding to costs.
+\item
+  Vendor Lock-In Risk
+\item
+  Proprietary agents and data models make migration difficult.
+\end{itemize}
+
+\begin{table}[H]
+\centering
+\caption{Comparison of Sentry vs Dynatrace}
+\footnotesize
+\begin{tabular}{|p{4.5cm}|p{4.5cm}|p{4.5cm}|}
+\hline
+\textbf{Feature/Capability} & \textbf{Sentry} & \textbf{Dynatrace} \\ \hline
+Primary Use Case & Error \& Performance Monitoring & Full-Stack APM \& AI Observability \\ \hline
+Scalability & Poor at large-scale event volumes & Highly scalable (enterprise-grade) \\ \hline
+Offline Support & No offline error tracking & No offline monitoring \\ \hline
+User Interface (UI) & Modern but simple & Powerful but complex \\ \hline
+Key Missing Features & No infra/cloud monitoring & No built-in log management (Grail add-on) \\ \hline
+Root Cause Analysis & Manual (basic traces) & AI-powered (Davis AI) \\ \hline
+Real User Monitoring & Limited (frontend-focused) & Advanced (RUM + Synthetic) \\ \hline
+Performance Monitoring & Basic (transactions, latency) & Full APM (code-level, DB, infra) \\ \hline
+Cloud/Serverless & Limited & AWS Lambda, Azure Functions, etc. \\ \hline
+Cost & Affordable for startups & Very expensive (enterprise pricing) \\ \hline
+Best For & Dev teams need error tracking & Enterprises needing AI-driven APM \\ \hline
+\end{tabular}
+\end{table}
+
+Conclusion: Why ErrorZen will Outperform Existing Solutions
+
+This analysis of Sentry and Dynatrace highlights critical gaps in
+current error monitoring and observability tools, reinforcing the need
+for a custom, AI-driven solution like ErrorZen. While traditional
+platforms excel in specific areas (Sentry for error tracking, Dynatrace
+for APM), they suffer from:
+
+\begin{itemize}
+\item
+  Limited automation (manual triaging, no auto-fixing).
+\item
+  Poor scalability for high-frequency errors.
+\item
+  No seamless DevOps/CI/CD integration (requiring manual intervention).
+\item
+  Lack of AI-powered remediation is delaying root cause analysis.
+\item
+  How ErrorZen Solves These Challenges
+\item
+  AI-Powered Auto-Correction
+\item
+  Unlike Sentry (manual debugging) or Dynatrace (AI alerts only),
+  ErrorZen proactively fixes errors using machine learning, slashing
+  MTTR.
+\item
+  End-to-End DevOps Automation
+\item
+  Integrates directly with CI/CD pipelines to auto-test and deploy
+  patches, eliminating manual steps that Dynatrace and Sentry can't
+  address.
+\item
+  Unified Cross-Platform Monitoring
+\item
+  Tracks frontend, backend, and mobile in one dashboard, while
+  competitors silo data (e.g., Sentry lacks infra insights).
+\item
+  Real-Time Notifications \& Collaboration
+\item
+  Combines Slack/email alerts with actionable fixes, unlike passive
+  Dynatrace alerts or Sentry's basic notifications.
+\item
+  Scalable \& Cost-Effective
+\item
+  Avoid Dynatrace's enterprise pricing and Sentry's volume limits via
+  optimised event processing.
+\item
+  The Future of Error Management
+\item
+  ErrorZen doesn't just monitor---it resolves. By merging AI-driven
+  diagnostics, automated remediation, and deep DevOps integration, it
+  bridges the gaps left by legacy tools, offering:
+\item
+  Faster deployments (reduced manual reviews).
+\item
+  Higher reliability (auto-patched errors).
+\item
+  Lower costs (no overprovisioning for scale).
+\item
+  For teams prioritising speed, automation, and intelligence, ErrorZen
+  isn't an alternative---it's the next evolution.
+\end{itemize}
+
+\textbf{2. Technology Choices Justification}
+
+The platform will be built with:
+
+\begin{itemize}
+\item
+  Backend: Go/ / , PostgreSQL/ , gRPC/Rest API for
+  communication between services.
+\item
+  Frontend: Vue.js with   Client for   integration.
+\item
+  Artificial Intelligence: Models based on deepseek api for
+  automatic error correction.
+\item
+  DevOps: CI/CD via GitHub Actions/Jenkins, deployment with Docker and
+  Kubernetes on AWS
+\end{itemize}
+
+\begin{table}[H]
+\centering
+\caption{Technology Stack Justification}
+\footnotesize
+\begin{tabular}{|p{3cm}|p{3.5cm}|p{7.5cm}|}
+\hline
+\textbf{Component} & \textbf{Technology Selected} & \textbf{Why Chosen? (Advantages Over Alternatives)} \\ \hline
+Backend Language & Go (Primary) & Go: High performance, concurrency (ideal for real-time error processing). Python: Async I/O for event-driven tasks, AI/ML integration ease. \\ \hline
+Database & PostgreSQL (Primary), MongoDB & PostgreSQL: ACID compliance, scalability, JSON support. MongoDB: Flexible schema for unstructured error logs. \\ \hline
+API Communication & gRPC (Internal), REST (External) & gRPC: Low-latency, high-throughput microservices communication. REST: Simplicity for client integrations. \\ \hline
+Frontend & Vue.js + GraphQL Client & Vue.js: Lightweight, reactive UI for dashboards. GraphQL Client: Efficient state management. \\ \hline
+AI/ML Framework & PyTorch (Primary), TensorFlow & PyTorch: Dynamic graphs, better for iterative AI model tuning. TensorFlow: Backup for production-scale deployments. \\ \hline
+DevOps CI/CD & GitHub Actions (Primary), Jenkins (Legacy) & GitHub Actions: Native Git integration, faster workflows. Jenkins: Fallback for complex pipelines. \\ \hline
+Deployment & Docker + Kubernetes (AWS/GCP) & Docker: Consistency across environments. Kubernetes: Auto-scaling for error spike handling. AWS/GCP: Global reliability. \\ \hline
+\end{tabular}
+\end{table}
+
+\subsubsection{\texorpdfstring{\textbf{3.
+Summary}}{3. Summary}}\label{summary}
+
+The literature and technology review provided essential insights into:
+
+\begin{itemize}
+\item
+  The current state of the market
+\item
+  Common limitations in existing systems
+\item
+  Best practices in selecting modern, scalable technologies
+\end{itemize}
+
+This helped shape a solution that is both technically sound and aligned
+with the client\textquotesingle s real-world needs.
+
+\textbf{IV. Requirement Analysis}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Introduction}
+\end{enumerate}
+
+This chapter outlines the system\textquotesingle s requirements,
+including both functional and non-functional aspects. It is the
+foundation upon which the system\textquotesingle s design and
+implementation are based. The requirements were collected through
+meetings with stakeholders, analysis of the domain, and study of
+existing systems.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\item
+  \textbf{Client Expectations}
+\end{enumerate}
+
+These requirements describe the main functionalities that the system
+must offer.
+
+\textbf{Error detection and handling}
+
+\begin{itemize}
+\item
+  Capture real-time errors from the frontend, backend and mobile.
+\item
+  Centralise errors in an interactive dashboard.
+\item
+  Filter and categorise errors according to their criticality.
+\end{itemize}
+
+\textbf{AI error analysis and correction}
+
+\begin{itemize}
+\item
+  Automatically analyse detected errors.
+\item
+  Propose adapted solutions based on artificial intelligence.
+\item
+  Generate unit tests to validate corrections before their integration.
+\end{itemize}
+
+\textbf{DevOps Automation}
+
+\begin{itemize}
+\item
+  Trigger automated tests after correction.
+\item
+  Deploy patched code through a CI/CD pipeline without manual
+  intervention.
+\item
+  Ensure follow-up of corrections and production releases.
+\end{itemize}
+
+\textbf{Integration with other tools}
+
+\begin{itemize}
+\item
+  Provide an SDK and plugins to integrate ErrorZen with other
+  technologies (e.g. Firebase Crashlytics, Sentry).
+\item
+  Offer an API to allow businesses to customise the integration.
+\end{itemize}
+
+\textbf{User interface and access management}
+
+\begin{itemize}
+\item
+  Allow developers to view, filter and analyse errors via a dashboard.
+\item
+  Manage roles and permissions to secure access to data.
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\item
+  \textbf{Non-functional Requirements}
+\end{enumerate}
+
+These needs concern system quality, performance and security.
+
+\textbf{Performance and scalability}
+
+\begin{itemize}
+\item
+  Manage a large volume of logs without slowing down.
+\item
+  Ensure rapid system response (\textless200ms for error recovery).
+\item
+  Support a large number of users and integrations without loss of
+  performance.
+\end{itemize}
+
+\textbf{Security and Compliance}
+
+\begin{itemize}
+\item
+  Encrypt sensitive user and error data.
+\item
+  Authenticate and authorise access via OAuth or JWT.
+\item
+  Ensure compliance with security standards (e.g. GDPR, ISO 27001).
+\end{itemize}
+
+\textbf{Availability and reliability}
+
+\begin{itemize}
+\item
+  Ensure high availability (SLA \textgreater{} 99.9\%).
+\item
+  Implement a backup and recovery mechanism in the event of a failure.
+\item
+  Have real-time monitoring to prevent any failure.
+\end{itemize}
+
+\textbf{Compatibility and integration}
+
+\begin{itemize}
+\item
+  Support different environments (Linux, Windows, macOS).
+\item
+  Ensure compatibility with several languages
+  \hspace{0pt}\hspace{0pt}and frameworks ( ,  , Java,
+  Flutter, etc.).
+\item
+  Use   for efficient communication with the frontend.
+\end{itemize}
+
+\textbf{Ease of use and maintainability}
+
+\begin{itemize}
+\item
+  Offer an intuitive and accessible interface.
+\item
+  Document the API and SDKs for easy integration.
+\item
+  Provide technical support and regular updates.
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\item
+  \textbf{Constraints}
+\end{enumerate}
+
+\begin{itemize}
+\item
+  Time-to-Market
+\item
+  The MVP must be delivered in 17 weeks to meet client onboarding
+  deadlines.
+\item
+  Rationale: Rapid Application Development (RAD) and Agile-Scrum
+  methodologies will accelerate iterations.
+\item
+  Offline-First Support
+\item
+  Must cache and sync errors locally for mobile/remote developers with
+  poor connectivity.
+\item
+  Rationale: PostgreSQL's write-ahead logging (WAL) and Vue.js's local
+  storage ensure data consistency.
+\item
+  Open-Source Priority
+\item
+  Prefer open-source tools (e.g., PostgreSQL, PyTorch) to minimise
+  licensing costs.
+\item
+  Rationale: Aligns with non-functional need for cost-effective
+  scalability.
+\item
+  Multi-Platform SDKs
+\item
+  SDKs must support  ,  , Java, and mobile (iOS/Android) for
+  broad compatibility.
+\item
+  Rationale: Ensures seamless integration with diverse client stacks
+  (functional need: "Integration with other tools").
+\item
+  Zero Manual DevOps
+\item
+  CI/CD pipelines (GitHub Actions/Jenkins) must fully automate
+  testing/deployment without human intervention.
+\item
+  Rationale: Addresses the problematic emphasis on eliminating manual
+  DevOps processes.
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{4}
+\item
+  \textbf{Diagrams}
+\end{enumerate}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\item
+  \textbf{Uses-case diagram}
+\end{enumerate}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth,keepaspectratio]{rapport/media/userscasglobal.png}
+\caption{Use Case Diagram}
+\label{fig:usecase}
+\end{figure}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\setcounter{enumi}{1}
+\item
+  \textbf{Class diagram of the system}
+\end{enumerate}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth,keepaspectratio]{rapport/media/diag_class_global.png}
+\caption{Class Diagram of the System}
+\label{fig:classdiagram}
+\end{figure}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\setcounter{enumi}{2}
+\item
+  Deployment diagram
+\end{enumerate}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.6\textwidth,keepaspectratio]{rapport/media/diag_deploy.png}
+\caption{Deployment Architecture}
+\label{fig:components}
+\end{figure}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\setcounter{enumi}{3}
+\item
+  Requirement Traceability Matrix
+
+  \begin{table}[H]
+  \centering
+  \caption{Requirement Traceability Matrix}
+  \footnotesize
+  \begin{tabular}{|p{1.5cm}|p{5cm}|p{2.5cm}|p{3cm}|p{2cm}|}
+    \hline
+    \textbf{Req. ID} & \textbf{Requirement Description} & \textbf{Source} & \textbf{Implementation Module} & \textbf{Status} \\
+    \hline
+    RQ-01 & The system must authenticate all users before access & Business Rule & Auth Module & Implemented \\
+    \hline
+    RQ-02 & Developer must handle errors & Functional Req. & Error Handling Service & In Testing \\
+    \hline
+    RQ-03 & Developer must handle analytics & Functional Req. & Analytics Service & Implemented \\
+    \hline
+    RQ-04 & AI agent must capture real-time errors & Functional Req. & AI Monitoring Module & Pending \\
+    \hline
+    RQ-05 & AI agent must suggest possible fixes & Functional Req. & AI Recommendation Engine & Planned \\
+    \hline
+    RQ-06 & System must generate bills automatically & Functional Req. & Billing Service & Implemented \\
+    \hline
+    RQ-07 & Admin must manage user roles & Functional Req. & User Management Module & Implemented \\
+    \hline
+    RQ-08 & Manager must monitor deployment processes & Functional Req. & Deployment Service & In Testing \\
+    \hline
+  \end{tabular}
+  \end{table}
+
+\end{enumerate}
+
+\textbf{6. Summary}
+
+This chapter defined the expected functionalities and performance
+characteristics of the system. These requirements guided the design and
+implementation of the application. The use of diagrams helped visualise
+user interactions and data flows clearly.
+
+
+\textbf{V. Design and Architecture\\
+1. Introduction}
+
+This chapter presents the overall architecture of the system, the main
+design decisions taken, the technologies and tools used, and the UML
+diagrams that describe the internal structure and behaviour of the
+system. The objective is to ensure the system is modular, scalable,
+maintainable, and aligned with the requirements defined in the previous
+chapter\textbf{.\\
+\strut \\
+2. System architecture}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth,keepaspectratio]{rapport/media/communication_diag.png}
+\caption{Detailed System Flow}
+\label{fig:systemflow}
+\end{figure}
+
+\textbf{3. Database Design}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth,keepaspectratio]{rapport/media/erd.png}
+\caption{Complete Database Design and ER Diagram}
+\label{fig:erdatabase}
+\end{figure}
+
+\textbf{4. Design Principles}
+
+The project followed key software engineering principles:
+
+\begin{itemize}
+\item
+  Modularity: Code is divided into reusable components and services.
+\item
+  Separation of Concerns: Frontend, backend, and data layers are
+  separated.
+\item
+  Security by Design: All API calls are authenticated; sensitive data is
+  encrypted.
+\item
+  Scalability: Designed to scale horizontally by separating backend and
+  database services.
+\end{itemize}
+
+5. Product Backlog
+
+The product backlog was organized into 7 main epics, each containing multiple user stories distributed across the project sprints:
+
+\begin{table}[H]
+\centering
+\caption{Product Backlog Summary by Epic}
+\footnotesize
+\begin{tabular}{|p{4cm}|p{2cm}|p{7cm}|}
+\hline
+\textbf{Epic} & \textbf{Sprint} & \textbf{Key User Stories} \\ \hline
+Backend \& Data Auth & 1 & Setup Go/gRPC backend, PostgreSQL with WAL, Authentication UI, RBAC implementation \\ \hline
+Real-Time Error Capture & 2 & Dashboard metrics UI, Error/Logs UI, API development, Backend integration \\ \hline
+DevOps Foundation & 3 & Pipeline dashboard, API development, CI/CD tools, Pipeline automation \\ \hline
+Error Classification \& AI Fixes & 4 & AI model integration, Error tagging, Automated fixes, Unit test generation \\ \hline
+Alerting \& Notifications & 5 & Tool integrations, Notification system, Billing alerts, Alert throttling \\ \hline
+Data Protection \& Payments & 6 & AES-256 encryption, GDPR compliance, Usage computation, Payment services \\ \hline
+SDKs \& Plugins & 7 & Node.js plugin, Flutter/Dart SDK, Service activation, Documentation \\ \hline
+\end{tabular}
+\end{table}
+
+The complete backlog contained 35 user stories with estimated efforts ranging from 8 to 24 hours per story, totaling approximately 420 hours of development work across the 7 sprints.
+
+\textbf{5. Summary}
+
+This chapter outlines the system\textquotesingle s architecture and
+design decisions. Technologies were selected to optimise development
+speed, scalability, and maintainability. UML diagrams and ER models
+supported a clear technical structure that guided the implementation
+phase.
+
+\textbf{VI. Sprints}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Sprint 1: Project Setup \& Initial Design}
+\end{enumerate}
+
+\begin{quote}
+\textbf{1.1 Sprint Duration}
+
+Start date: March 25, 2025
+
+End date: April 7, 2025
+
+Sprint length: 2 weeks
+
+1.2 Sprint Goal
+
+The primary objective of this sprint was to establish the project
+structure, select the technology stack, create initial wireframes, and
+define the initial version of the product backlog.
+\end{quote}
+
+{\def\LTcaptype{} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1194}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.3788}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.0627}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.3486}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.0905}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\centering
+UserStoryId
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+UserStory
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+TaskId
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Task
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Est. effort
+\end{minipage} \\
+\multirow{5}{=}{\begin{minipage}[b]{\linewidth}\centering
+US001
+\end{minipage}} &
+\multirow{5}{=}{\begin{minipage}[b]{\linewidth}\centering
+Set up Go/gRPC /RestfulApi backend
+
+for time error ingestion
+\end{minipage}} & \begin{minipage}[b]{\linewidth}\centering
+T1.1
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Initialise Go module and workspace
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+3
+\end{minipage} \\
+& & \begin{minipage}[b]{\linewidth}\centering
+T1.2
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Set up a gRPC server and define a proto
+
+files
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+3
+\end{minipage} \\
+& & \begin{minipage}[b]{\linewidth}\centering
+T1.3
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Create a basic REST API router
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+2
+\end{minipage} \\
+& & \begin{minipage}[b]{\linewidth}\centering
+T1.4
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Add error logging middleware
+
+(e.g., interceptors, logging libs)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+5
+\end{minipage} \\
+& & \begin{minipage}[b]{\linewidth}\centering
+T1.5
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Test local gRPC and REST endpoints
+
+using Postman and grpcurl
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+3
+\end{minipage} \\
+\multirow{5}{=}{\begin{minipage}[b]{\linewidth}\centering
+US002
+\end{minipage}} &
+\multirow{5}{=}{\begin{minipage}[b]{\linewidth}\centering
+Implement PostgreSQL for structured error
+
+storagewith WAL(Write-Ahead logging)
+\end{minipage}} & \begin{minipage}[b]{\linewidth}\centering
+T2.1
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Install and configure PostgreSQL locally
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+1
+\end{minipage} \\
+& & \begin{minipage}[b]{\linewidth}\centering
+T2.2
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Design an initial schema for error logs
+
+(e.g., errors, services, projects)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+5
+\end{minipage} \\
+& & \begin{minipage}[b]{\linewidth}\centering
+T2.3
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Configure Write-Ahead Logging (WAL)
+
+for safe/error-tolerant write operations
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+2
+\end{minipage} \\
+& & \begin{minipage}[b]{\linewidth}\centering
+T2.4
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Create a migration script for the schema
+
+initialisation using Go
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+4
+\end{minipage} \\
+& & \begin{minipage}[b]{\linewidth}\centering
+T2.5
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Write DB connection logic in Go with
+
+retry and health-check capabilities
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+2
+\end{minipage} \\
+\multirow{3}{=}{\begin{minipage}[b]{\linewidth}\centering
+US003
+\end{minipage}} &
+\multirow{3}{=}{\begin{minipage}[b]{\linewidth}\centering
+Design RestApi for external integration
+\end{minipage}} & \begin{minipage}[b]{\linewidth}\centering
+T3.1
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Define OpenAPI spec (Swagger) for
+
+public-facing endpoints
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+4
+\end{minipage} \\
+& & \begin{minipage}[b]{\linewidth}\centering
+T3.2
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Implement one sample REST endpoint
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+1
+\end{minipage} \\
+& & \begin{minipage}[b]{\linewidth}\centering
+T3.3
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Add basic input validation and error
+
+handling
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+2
+\end{minipage} \\
+\multirow{4}{=}{\begin{minipage}[b]{\linewidth}\centering
+US004
+\end{minipage}} &
+\multirow{4}{=}{\begin{minipage}[b]{\linewidth}\centering
+Implement Authentification UI with VueJs
+\end{minipage}} & \begin{minipage}[b]{\linewidth}\centering
+T4.1
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Initialise the Vue project and routing
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+4
+\end{minipage} \\
+& & \begin{minipage}[b]{\linewidth}\centering
+T4.2
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Create forms
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+5
+\end{minipage} \\
+& & \begin{minipage}[b]{\linewidth}\centering
+T4.3
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Style UI and validate fields
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+3
+\end{minipage} \\
+& & \begin{minipage}[b]{\linewidth}\centering
+T4.4
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Connect the frontend with the backend Auth
+
+API
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+2
+\end{minipage} \\
+\multirow{4}{=}{\begin{minipage}[b]{\linewidth}\centering
+US005
+\end{minipage}} &
+\multirow{4}{=}{\begin{minipage}[b]{\linewidth}\centering
+Handle authentication logic
+\end{minipage}} & \begin{minipage}[b]{\linewidth}\centering
+T5.1
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Set up authentication middleware in Go
+
+(JWT-based)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+2
+\end{minipage} \\
+& & \begin{minipage}[b]{\linewidth}\centering
+T5.2
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Create login/signup API endpoints
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+2
+\end{minipage} \\
+& & \begin{minipage}[b]{\linewidth}\centering
+T5.3
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Secure routes using middleware
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+3
+\end{minipage} \\
+& & \begin{minipage}[b]{\linewidth}\centering
+T5.4
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Test authentication flow (manual +
+
+Postman)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+2
+\end{minipage} \\
+\multirow{3}{=}{\begin{minipage}[b]{\linewidth}\centering
+US006
+\end{minipage}} &
+\multirow{3}{=}{\begin{minipage}[b]{\linewidth}\centering
+RBAC (Role-Based Access Control)
+\end{minipage}} & \begin{minipage}[b]{\linewidth}\centering
+T6.1
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Define roles: admin, developer, viewer
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+1
+\end{minipage} \\
+& & \begin{minipage}[b]{\linewidth}\centering
+T6.2
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Add RBAC checks to middleware
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+3
+\end{minipage} \\
+& & \begin{minipage}[b]{\linewidth}\centering
+T6.3
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Test access restrictions based on role
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+1
+\end{minipage} \\
+\multirow{3}{=}{\begin{minipage}[b]{\linewidth}\centering
+US007
+\end{minipage}} &
+\multirow{3}{=}{\begin{minipage}[b]{\linewidth}\centering
+Implement Authentication tools
+\end{minipage}} & \begin{minipage}[b]{\linewidth}\centering
+T7.1
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Implement password hashing
+
+(e.g., bcrypt)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+1
+\end{minipage} \\
+& & \begin{minipage}[b]{\linewidth}\centering
+T7.2
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Add an email format validator and strong
+
+password policy
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+1
+\end{minipage} \\
+& & \begin{minipage}[b]{\linewidth}\centering
+T7.3
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Write unit tests for the auth logic
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+3
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\end{longtable}
+}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\item
+  Sprint 2:
+\end{enumerate}
+
+{\def\LTcaptype{} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.0921}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.3048}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1058}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.3915}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1058}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\end{minipage} \\
+\begin{minipage}[b]{\linewidth}\centering
+UserStoryId
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+UserStory
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+TaskId
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Task
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Est. effort
+\end{minipage} \\
+\multirow{4}{=}{\begin{minipage}[b]{\linewidth}\centering
+US008
+\end{minipage}} &
+\multirow{4}{=}{\begin{minipage}[b]{\linewidth}\centering
+Implement dashboard metrics UI
+\end{minipage}} & \begin{minipage}[b]{\linewidth}\centering
+T8.1
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Design wireframe for metrics layout
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+1
+\end{minipage} \\
+& & \begin{minipage}[b]{\linewidth}\centering
+T8.2
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Create Vue.js components for KPI cards
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+2
+\end{minipage} \\
+& & \begin{minipage}[b]{\linewidth}\centering
+T8.3
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Integrate static data for testing UI rendering
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+2
+\end{minipage} \\
+& & \begin{minipage}[b]{\linewidth}\centering
+T8.4
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Setup responsive layout with basic CSS/utility
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+1
+\end{minipage} \\
+\multirow{4}{=}{\begin{minipage}[b]{\linewidth}\centering
+US009
+\end{minipage}} &
+\multirow{4}{=}{\begin{minipage}[b]{\linewidth}\centering
+Develop neccessary API\textquotesingle s
+\end{minipage}} & \begin{minipage}[b]{\linewidth}\centering
+T9.1
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Define API endpoints for dashboard metrics (OpenAPI)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+3
+\end{minipage} \\
+& & \begin{minipage}[b]{\linewidth}\centering
+T9.2
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Implement GET endpoints (e.g., /metrics, /summary)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+1
+\end{minipage} \\
+& & \begin{minipage}[b]{\linewidth}\centering
+T9.3
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Connect to database to fetch live data
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+1
+\end{minipage} \\
+& & \begin{minipage}[b]{\linewidth}\centering
+T9.4
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Add error handling and logging
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+2
+\end{minipage} \\
+\multirow{4}{=}{\begin{minipage}[b]{\linewidth}\centering
+US010
+\end{minipage}} &
+\multirow{4}{=}{\begin{minipage}[b]{\linewidth}\centering
+Implement Errors /Logs UI
+\end{minipage}} & \begin{minipage}[b]{\linewidth}\centering
+T10.1
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Design UI layout for error/logs panel
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+1
+\end{minipage} \\
+& & \begin{minipage}[b]{\linewidth}\centering
+T10.2
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Build Vue components for logs table + error viewer
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+2
+\end{minipage} \\
+& & \begin{minipage}[b]{\linewidth}\centering
+T10.3
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Add pagination, filters (by service, level, timestamp, etc.)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+1
+\end{minipage} \\
+& & \begin{minipage}[b]{\linewidth}\centering
+T10.4
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Connect frontend to API
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+1
+\end{minipage} \\
+\multirow{4}{=}{\begin{minipage}[b]{\linewidth}\centering
+US011
+\end{minipage}} &
+\multirow{4}{=}{\begin{minipage}[b]{\linewidth}\centering
+Integrate Dashboard with Backend Services
+\end{minipage}} & \begin{minipage}[b]{\linewidth}\centering
+T11.1
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Connect frontend dashboard with real-time APIs
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+2
+\end{minipage} \\
+& & \begin{minipage}[b]{\linewidth}\centering
+T11.2
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Implement periodic refresh of metrics/logs
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+2
+\end{minipage} \\
+& & \begin{minipage}[b]{\linewidth}\centering
+T11.3
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Integrate WebSocket/RMQ or polling mechanism
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+5
+\end{minipage} \\
+& & \begin{minipage}[b]{\linewidth}\centering
+T11.4
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Test and debug data sync between backend and UI
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+2
+\end{minipage} \\
+\multirow{4}{=}{\begin{minipage}[b]{\linewidth}\centering
+US012
+\end{minipage}} &
+\multirow{4}{=}{\begin{minipage}[b]{\linewidth}\centering
+Handle Dashboard Active Services
+\end{minipage}} & \begin{minipage}[b]{\linewidth}\centering
+T12.1
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Build API to track active services (status, heartbeat)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+3
+\end{minipage} \\
+& & \begin{minipage}[b]{\linewidth}\centering
+T12.2
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Create UI indicators for live/inactive service states
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+2
+\end{minipage} \\
+& & \begin{minipage}[b]{\linewidth}\centering
+T12.3
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Sync service status with backend in real-time
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+1
+\end{minipage} \\
+& & \begin{minipage}[b]{\linewidth}\centering
+T12.4
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Add error handling for disconnected/missing services
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+2
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\end{longtable}
+}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\item
+  Sprint3:
+\end{enumerate}
+
+{\def\LTcaptype{} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1127}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2188}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.0902}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.4761}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1021}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\centering
+UserStoryId
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+UserStory
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+TaskId
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Task
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Est. effort
+\end{minipage} \\
+\multirow{7}{=}{\begin{minipage}[b]{\linewidth}\centering
+US013
+\end{minipage}} &
+\multirow{7}{=}{\begin{minipage}[b]{\linewidth}\centering
+Implement Dashboard
+
+Options of Pipeline
+\end{minipage}} & \begin{minipage}[b]{\linewidth}\centering
+T13.1
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Define UI/UX requirements for pipeline dashboard
+
+(wireframes, user flow)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+4
+\end{minipage} \\
+& & \begin{minipage}[b]{\linewidth}\centering
+T13.2
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Set up frontend components for pipeline visualization
+
+(jobs, stages, status)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+2
+\end{minipage} \\
+& & \begin{minipage}[b]{\linewidth}\centering
+T13.3
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Implement backend endpoints to fetch pipeline data
+
+(status, logs, history).
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+4
+\end{minipage} \\
+& & \begin{minipage}[b]{\linewidth}\centering
+T13.4
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Integrate real-time updates (WebSockets or polling).
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+3
+\end{minipage} \\
+& & \begin{minipage}[b]{\linewidth}\centering
+T13.5
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Add role-based access for dashboard visibility.
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+4
+\end{minipage} \\
+& & \begin{minipage}[b]{\linewidth}\centering
+T13.6
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Testing \& validation of dashboard metrics.
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+3
+\end{minipage} \\
+& & \begin{minipage}[b]{\linewidth}\centering
+T13.7
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Documentation of usage and configuration.
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+2
+\end{minipage} \\
+\multirow{8}{=}{\begin{minipage}[b]{\linewidth}\centering
+US014
+\end{minipage}} &
+\multirow{8}{=}{\begin{minipage}[b]{\linewidth}\centering
+Develop Necessary APIs
+\end{minipage}} & \begin{minipage}[b]{\linewidth}\centering
+T14.1
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Define API contract (OpenAPI/Swagger specification)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+2
+\end{minipage} \\
+& & \begin{minipage}[b]{\linewidth}\centering
+T14.2
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Implement API for pipeline creation
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+4
+\end{minipage} \\
+& & \begin{minipage}[b]{\linewidth}\centering
+T14.3
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Implement API for pipeline execution trigger
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+4
+\end{minipage} \\
+& & \begin{minipage}[b]{\linewidth}\centering
+T14.4
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Implement API for pipeline status retrieval.
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+4
+\end{minipage} \\
+& & \begin{minipage}[b]{\linewidth}\centering
+T14.5
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Implement API for pipeline history retrieval
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+4
+\end{minipage} \\
+& & \begin{minipage}[b]{\linewidth}\centering
+T14.6
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Apply authentication \& authorization middleware.
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+4
+\end{minipage} \\
+& & \begin{minipage}[b]{\linewidth}\centering
+T14.7
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Unit testing of API endpoints
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+4
+\end{minipage} \\
+& & \begin{minipage}[b]{\linewidth}\centering
+T14.8
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Write API documentation.
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+3
+\end{minipage} \\
+\multirow{8}{=}{\begin{minipage}[b]{\linewidth}\centering
+US015
+\end{minipage}} &
+\multirow{8}{=}{\begin{minipage}[b]{\linewidth}\centering
+Implement Pipeline Tools
+\end{minipage}} & \begin{minipage}[b]{\linewidth}\centering
+T15.1
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Evaluate and choose CI/CD tools (Jenkins,
+
+GitHub Actions, GitLab CI, etc.).
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+4
+\end{minipage} \\
+& & \begin{minipage}[b]{\linewidth}\centering
+T15.2
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Configure chosen CI/CD tool with project repository
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+4
+\end{minipage} \\
+& & \begin{minipage}[b]{\linewidth}\centering
+T15.3
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Define pipeline stages (build, test, deploy)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+3
+\end{minipage} \\
+& & \begin{minipage}[b]{\linewidth}\centering
+T15.4
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Integrate automated testing into pipeline
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+3
+\end{minipage} \\
+& & \begin{minipage}[b]{\linewidth}\centering
+T15.5
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Integrate build artifact storage (e.g., Docker registry)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+4
+\end{minipage} \\
+& & \begin{minipage}[b]{\linewidth}\centering
+T15.6
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Set up environment variables \& secrets securely
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+3
+\end{minipage} \\
+& & \begin{minipage}[b]{\linewidth}\centering
+T15.7
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Write deployment scripts.
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+3
+\end{minipage} \\
+& & \begin{minipage}[b]{\linewidth}\centering
+T15.8
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Test end-to-end pipeline execution.
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+3
+\end{minipage} \\
+\multirow{7}{=}{\begin{minipage}[b]{\linewidth}\centering
+US016
+\end{minipage}} &
+\multirow{7}{=}{\begin{minipage}[b]{\linewidth}\centering
+Handle Pipeline Active
+
+Actions
+\end{minipage}} & \begin{minipage}[b]{\linewidth}\centering
+T16.1
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Implement ability to start/stop/restart pipelines from
+
+dashboard.
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+4
+\end{minipage} \\
+& & \begin{minipage}[b]{\linewidth}\centering
+T16.2
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Add rollback functionality for failed pipelines
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+4
+\end{minipage} \\
+& & \begin{minipage}[b]{\linewidth}\centering
+T16.3
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Add logs viewer (streaming logs for running pipeline)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+4
+\end{minipage} \\
+& & \begin{minipage}[b]{\linewidth}\centering
+T16.4
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Handle error reporting \& notifications
+
+(email/Slack/webhook).
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+4
+\end{minipage} \\
+& & \begin{minipage}[b]{\linewidth}\centering
+T16.5
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Audit trail for pipeline actions (who did what, when).
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+3
+\end{minipage} \\
+& & \begin{minipage}[b]{\linewidth}\centering
+T16.6
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Testing of active actions on different scenarios.
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+3
+\end{minipage} \\
+& & \begin{minipage}[b]{\linewidth}\centering
+T16.7
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Document troubleshooting guidelines
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+3
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\end{longtable}
+}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\item
+  Sprint4:
+\end{enumerate}
+
+{\def\LTcaptype{} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1353}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2582}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.0800}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.4149}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1116}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\centering
+UserStoryId
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+UserStory
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+TaskId
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Task
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Est. effort
+\end{minipage} \\
+\multirow{2}{=}{\begin{minipage}[b]{\linewidth}\centering
+US017
+\end{minipage}} &
+\multirow{2}{=}{\begin{minipage}[b]{\linewidth}\centering
+Implment An AI model
+\end{minipage}} & \begin{minipage}[b]{\linewidth}\centering
+T17.1
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Integrate DeepSeek API
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+2
+\end{minipage} \\
+& & \begin{minipage}[b]{\linewidth}\centering
+T17.2
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Integrate retrun model inference into the backend
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+4
+\end{minipage} \\
+\multirow{2}{=}{\begin{minipage}[b]{\linewidth}\centering
+US018
+\end{minipage}} &
+\multirow{2}{=}{\begin{minipage}[b]{\linewidth}\centering
+Tag Errors with suggests fixes
+\end{minipage}} & \begin{minipage}[b]{\linewidth}\centering
+T18.1
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Implement a tagging system to link errors with potential fixes.
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+4
+\end{minipage} \\
+& & \begin{minipage}[b]{\linewidth}\centering
+T18.2
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Provide structured metadata for developers.
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+4
+\end{minipage} \\
+\multirow{2}{=}{\begin{minipage}[b]{\linewidth}\centering
+US019
+\end{minipage}} &
+\multirow{2}{=}{\begin{minipage}[b]{\linewidth}\centering
+Implement automated code fixes
+\end{minipage}} & \begin{minipage}[b]{\linewidth}\centering
+T19.1
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Build a mechanism to apply code fixes automatically.
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+4
+\end{minipage} \\
+& & \begin{minipage}[b]{\linewidth}\centering
+T19.2
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Ensure rollback or safe-guarding strategy in case of incorrect fixes
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+2
+\end{minipage} \\
+\multirow{2}{=}{\begin{minipage}[b]{\linewidth}\centering
+US020
+\end{minipage}} &
+\multirow{2}{=}{\begin{minipage}[b]{\linewidth}\centering
+Generate unit tests for proposed fixes
+\end{minipage}} & \begin{minipage}[b]{\linewidth}\centering
+T20.1
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Automatically generate unit tests for every proposed code fix.
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+2
+\end{minipage} \\
+& & \begin{minipage}[b]{\linewidth}\centering
+T20.2
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Validate fixes against the existing test suite.
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+2
+\end{minipage} \\
+\multirow{2}{=}{\begin{minipage}[b]{\linewidth}\centering
+US021
+\end{minipage}} &
+\multirow{2}{=}{\begin{minipage}[b]{\linewidth}\centering
+Generate history of crash list
+\end{minipage}} & \begin{minipage}[b]{\linewidth}\centering
+T21.1
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Record and archive all crash/error events.
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+3
+\end{minipage} \\
+& & \begin{minipage}[b]{\linewidth}\centering
+T21.2
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Provide a searchable history for analysis and audits.
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+2
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\end{longtable}
+}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{4}
+\item
+  Sprint 5:
+\end{enumerate}
+
+{\def\LTcaptype{} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1022}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.3167}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.0942}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.3734}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1135}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\centering
+UserStoryId
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+UserStory
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+TaskId
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Task
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Est. effort
+\end{minipage} \\
+\multirow{6}{=}{\begin{minipage}[b]{\linewidth}\centering
+US022
+\end{minipage}} &
+\multirow{6}{=}{\begin{minipage}[b]{\linewidth}\centering
+Configure Tools integrations
+\end{minipage}} & \begin{minipage}[b]{\linewidth}\centering
+T22.1
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Analyze required monitoring/alerting tools (PagerDuty, Slack, MS Teams,
+etc.)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+2
+\end{minipage} \\
+& & \begin{minipage}[b]{\linewidth}\centering
+T22.2
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Set up API keys and authentication for selected tools
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+1
+\end{minipage} \\
+& & \begin{minipage}[b]{\linewidth}\centering
+T22.3
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Implement integration adapters (e.g., webhook handlers)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+1
+\end{minipage} \\
+& & \begin{minipage}[b]{\linewidth}\centering
+T22.4
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Configure environment variables for integration endpoints
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+2
+\end{minipage} \\
+& & \begin{minipage}[b]{\linewidth}\centering
+T22.5
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Test sending a sample alert to each tool
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+2
+\end{minipage} \\
+& & \begin{minipage}[b]{\linewidth}\centering
+T22.6
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Document integration setup
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+2
+\end{minipage} \\
+\multirow{6}{=}{\begin{minipage}[b]{\linewidth}\centering
+US023
+\end{minipage}} &
+\multirow{6}{=}{\begin{minipage}[b]{\linewidth}\centering
+Integrations notifications System
+\end{minipage}} & \begin{minipage}[b]{\linewidth}\centering
+T23.1
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Design notification service architecture (centralized dispatcher)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+1
+\end{minipage} \\
+& & \begin{minipage}[b]{\linewidth}\centering
+T23.2
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Implement notification templates (success, warning, error)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+2
+\end{minipage} \\
+& & \begin{minipage}[b]{\linewidth}\centering
+T23.3
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Add routing logic (choose tool/channel based on rules)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+2
+\end{minipage} \\
+& & \begin{minipage}[b]{\linewidth}\centering
+T23.4
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Build retry mechanism for failed notifications
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+1
+\end{minipage} \\
+& & \begin{minipage}[b]{\linewidth}\centering
+T23.5
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Unit test notification service
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+1
+\end{minipage} \\
+& & \begin{minipage}[b]{\linewidth}\centering
+T23.6
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Verify end-to-end delivery to integrated tools
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+1
+\end{minipage} \\
+\multirow{5}{=}{\begin{minipage}[b]{\linewidth}\centering
+US024
+\end{minipage}} &
+\multirow{5}{=}{\begin{minipage}[b]{\linewidth}\centering
+Implement Billing Alerts
+\end{minipage}} & \begin{minipage}[b]{\linewidth}\centering
+T24.1
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Identify billing thresholds (quota, over-usage, abnormal costs)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+2
+\end{minipage} \\
+& & \begin{minipage}[b]{\linewidth}\centering
+T24.2
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Implement rule engine for billing alerts
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+1
+\end{minipage} \\
+& & \begin{minipage}[b]{\linewidth}\centering
+T24.3
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Connect billing system data to alert service
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+2
+\end{minipage} \\
+& & \begin{minipage}[b]{\linewidth}\centering
+T24.4
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Create alert templates (email/SMS/integration)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+2
+\end{minipage} \\
+& & \begin{minipage}[b]{\linewidth}\centering
+T24.5
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Test alert triggering with simulated billing events
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+2
+\end{minipage} \\
+\multirow{5}{=}{\begin{minipage}[b]{\linewidth}\centering
+US025
+\end{minipage}} &
+\multirow{5}{=}{\begin{minipage}[b]{\linewidth}\centering
+Throttle Alerts
+\end{minipage}} & \begin{minipage}[b]{\linewidth}\centering
+T25.1
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Analyze alert flood scenarios
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+2
+\end{minipage} \\
+& & \begin{minipage}[b]{\linewidth}\centering
+T25.2
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Implement throttling middleware in alert pipeline
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+3
+\end{minipage} \\
+& & \begin{minipage}[b]{\linewidth}\centering
+T25.3
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Store last-sent timestamp per error type (Redis/DB cache)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+2
+\end{minipage} \\
+& & \begin{minipage}[b]{\linewidth}\centering
+T25.4
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Enforce max frequency (1/min per type)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+1
+\end{minipage} \\
+& & \begin{minipage}[b]{\linewidth}\centering
+T25.5
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Add logging for suppressed alerts
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+2
+\end{minipage} \\
+\multirow{6}{=}{\begin{minipage}[b]{\linewidth}\centering
+US026
+\end{minipage}} &
+\multirow{6}{=}{\begin{minipage}[b]{\linewidth}\centering
+Handle Alerting Rules
+\end{minipage}} & \begin{minipage}[b]{\linewidth}\centering
+T26.1
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Design rules schema (conditions, thresholds, channels)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+2
+\end{minipage} \\
+& & \begin{minipage}[b]{\linewidth}\centering
+T26.2
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Build CRUD API for alert rules (create/update/delete)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+2
+\end{minipage} \\
+& & \begin{minipage}[b]{\linewidth}\centering
+T26.3
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Implement rules evaluation engine
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+1
+\end{minipage} \\
+& & \begin{minipage}[b]{\linewidth}\centering
+T26.4
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Store rules in DB
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+3
+\end{minipage} \\
+& & \begin{minipage}[b]{\linewidth}\centering
+T26.5
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Integrate rules engine with notification dispatcher
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+2
+\end{minipage} \\
+& & \begin{minipage}[b]{\linewidth}\centering
+T26.4
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Build UI (basic or API endpoints) to manage rules
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+4
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\end{longtable}
+}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{5}
+\item
+  Sprint 6:
+\end{enumerate}  
+{\def\LTcaptype{} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1022}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.3167}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.0942}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.3734}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1135}}@{}}
+\toprule\noalign{}
+\begin{tabular}{@{}lllll@{}}
+UserStoryId & UserStory & TaskId & Task & Est. Effort \\
+\midrule
+US027 & Encrypt sensitive data using (AES-256) & T02701 & Analyze and identify sensitive data fields requiring encryption & 8 \\
+ &  & T02702 & Implement AES-256 encryption for database fields & 12 \\
+ &  & T02703 & Develop key management system for encryption keys & 10 \\
+ &  & T02704 & Create data encryption/decryption utilities & 8 \\
+ &  & T02705 & Test encryption implementation and performance & 7 \\
+US028 & Implement GDPR-compliant audit logging & T02801 & Define GDPR audit logging requirements and data scope & 4 \\
+ &  & T02802 & Design audit log schema and storage structure & 5 \\
+ &  & T02803 & Implement audit logging middleware/interceptors & 8 \\
+ &  & T02804 & Create log retrieval and export functionality & 6 \\
+ &  & T02805 & Implement log retention and deletion policies & 5 \\
+US029 & Compute the usage of system & T02901 & Define usage metrics and tracking requirements & 10 \\
+ &  & T02902 & Implement usage data collection mechanisms & 12 \\
+ &  & T02903 & Create usage analytics and reporting module & 15 \\
+ &  & T02904 & Develop usage dashboard and visualization & 8 \\
+ &  & T02905 & Implement usage alerts and notifications & 5 \\
+US030 & Handle payments services & T03001 & Research and select payment gateway integration & 6 \\
+ &  & T03002 & Implement payment processing workflow & 10 \\
+ &  & T03003 & Create payment transaction logging and tracking & 8 \\
+ &  & T03004 & Develop refund and cancellation handling & 6 \\
+ &  & T03005 & Implement payment security and PCI compliance measures & 12 \\
+ &  & T03006 & Test payment integration end-to-end & 8 \\
+US031 & Implement role-based permissions & T03101 & Define role hierarchy and permission matrix & 8 \\
+ &  & T03102 & Create database schema for roles and permissions & 6 \\
+ &  & T03103 & Implement permission checking middleware & 10 \\
+ &  & T03104 & Develop user-role assignment interface & 8 \\
+ &  & T03105 & Create permission testing and validation suite & 6 \\
+\bottomrule
+\end{tabular}
+\end{longtable}
+\item
+  Sprint 7:
+\end{enumerate}
+{\def\LTcaptype{} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1022}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.3167}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.0942}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.3734}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1135}}@{}}
+\toprule\noalign{}
+\begin{tabular}{@{}lllll@{}}
+UserStoryId & UserStory & TaskId & Task & Est. Effort \\
+\midrule
+US032 & Create Plugin for NodeJs & T03201 & Design plugin architecture and API interface & 6 \\
+ &  & T03202 & Implement core plugin functionality and methods & 10 \\
+ &  & T03203 & Write unit tests and integration tests for the plugin & 8 \\
+ &  & T03204 & Package and publish plugin to NPM registry & 4 \\
+ &  & T03205 & Create basic usage examples and README & 4 \\
+US033 & Create SDK for Flutter/Dart & T03301 & Design SDK architecture and data models (Dart Classes) & 8 \\
+ &  & T03302 & Implement API client and network communication layer & 10 \\
+ &  & T03303 & Develop core SDK features and methods & 10 \\
+ &  & T03304 & Write comprehensive unit and widget tests & 8 \\
+ &  & T03305 & Document the SDK API and publish to pub.dev & 6 \\
+US034 & Handle Service Activation & T03401 & Design service activation workflow (trial, paid, etc.) & 6 \\
+ &  & T03402 & Implement activation endpoint and status tracking & 8 \\
+ &  & T03403 & Develop license key generation and validation logic & 8 \\
+ &  & T03404 & Create admin interface for managing activations & 6 \\
+ &  & T03405 & Test activation/deactivation scenarios end-to-end & 6 \\
+US035 & Create Documentation for exploring Service & T03501 & Outline documentation structure and user journeys & 5 \\
+ &  & T03502 & Write "Getting Started" guide and installation instructions & 6 \\
+ &  & T03503 & Create comprehensive API reference documentation & 12 \\
+ &  & T03504 & Develop tutorials and code samples for common use cases & 10 \\
+ &  & T03505 & Set up and deploy documentation site (e.g., GitBook, Docusaurus) & 5 \\
+\bottomrule
+\end{tabular}
+\end{longtable}
+\textbf{\hfill\break
+}
+
+\end{document}

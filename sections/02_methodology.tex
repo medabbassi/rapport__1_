@@ -1,0 +1,114 @@
+% Section 2: Project Management & Methodology
+
+\section{Project Management \& Methodology}
+
+\subsection{Overview of Agile and Scrum}
+
+Agile is a flexible software development methodology that emphasises iterative progress, collaboration, and user feedback. Scrum is a widely used Agile framework characterised by short, time-boxed development cycles called sprints, daily team meetings, and continuous delivery of value.
+
+In this project, Scrum was adopted to manage changing requirements and ensure a structured yet adaptable development process.
+
+\subsection{Adapting Scrum Roles in a RAD Context}
+
+In a traditional Scrum team, roles are clearly defined:
+
+\begin{itemize}
+\item \textbf{Product Owner:} Represents the client, prioritises the product backlog, and validates features
+\item \textbf{Scrum Master:} Ensures adherence to Agile principles, removes blockers, and facilitates ceremonies
+\item \textbf{Development Team:} Delivers functional increments each sprint
+\end{itemize}
+
+\subsubsection{My RAD (Rapid Application Development) Adaptation (Solo/Small Team)}
+
+Working in a fast-paced, iterative RAD environment (where speed and client feedback are critical), I merged these roles to maximise efficiency:
+
+\textbf{Product Owner + RAD Analyst}
+\begin{itemize}
+\item Direct client collaboration to capture just-in-time requirements and dynamically adjust the backlog
+\item MVP-driven prioritisation (typical of RAD cycles), with client feedback integrated after each prototype
+\item Use of visual tools (e.g., Miro, clickable mockups) for rapid requirement validation
+\end{itemize}
+
+\textbf{Scrum Master + Technical Coordinator}
+\begin{itemize}
+\item Self-facilitated ceremonies (e.g., solo planning poker via relative effort points, retrospectives focused on continuous improvement)
+\item Proactive risk/blocker management with strict timeboxing (e.g., capping technical spikes at 2 hours)
+\item Leveraged RAD tools (low-code platforms, code generators) to accelerate development cycles
+\end{itemize}
+
+\textbf{Full-Stack Developer + Integrator}
+\begin{itemize}
+\item Feature-driven implementation with technical spikes for Proof of Concepts (POCs)
+\item Automated testing and CI/CD pipelines for real-time validation of each increment
+\item Incremental documentation via living docs (e.g., updated README.md per commit)
+\end{itemize}
+
+\textbf{Benefits of This Hybrid Approach:}
+\begin{itemize}
+\item Faster time-to-market by eliminating role synchronisation delays
+\item Greater flexibility to pivot based on client feedback (core RAD principle)
+\item Stronger ownership across the entire development lifecycle
+\end{itemize}
+
+\subsection{Scrum Ceremonies}
+
+The following ceremonies were adopted:
+
+\begin{itemize}
+\item \textbf{Sprint Planning:} Defined sprint goals and selected backlog items
+\item \textbf{Daily Stand-ups:} Brief updates on progress and blockers (documented if solo)
+\item \textbf{Sprint Review:} Demonstrated completed features to stakeholders or self-evaluated
+\item \textbf{Sprint Retrospective:} Identified improvements to apply in the next sprint
+\end{itemize}
+
+\subsection{Tools Used}
+
+\begin{itemize}
+\item \textbf{Project Management:} Trello (backlog, sprint boards)
+\item \textbf{Version Control:} Git + GitHub
+\item \textbf{Documentation:} Notion / Google Docs
+\item \textbf{Design \& Wireframing:} Figma / Draw.io
+\item \textbf{Code Editor:} VS Code / Android Studio / GoLand / PgAdmin / Docker Desktop
+\end{itemize}
+
+\subsection{Sprint Length and Structure}
+
+Each sprint lasted \textbf{two weeks} and followed this structure:
+
+\begin{itemize}
+\item Day 1: Sprint Planning
+\item Day 2--12: Development + Daily Stand-ups
+\item Day 13: Sprint Review (demo or milestone check)
+\item Day 14: Sprint Retrospective
+\end{itemize}
+
+\subsection{Project Timeline}
+
+A total of \textbf{7 sprints} were conducted, as shown in the timeline below:
+
+\begin{table}[H]
+\centering
+\caption{Sprint Timeline and Goals}
+\label{tab:sprints}
+\small
+\begin{tabular}{|p{2cm}|p{3cm}|p{8cm}|}
+\hline
+\textbf{Sprint} & \textbf{Duration} & \textbf{Goal} \\ \hline
+Sprint 1 & Week 1--2 & Core Infrastructure Setup: Backend (Go/gRPC), PostgreSQL, CI/CD pipeline \\ \hline
+Sprint 2 & Week 3--4 & Error Ingestion \& Dashboard MVP: Real-time error capture + Vue.js UI \\ \hline
+Sprint 3 & Week 5--6 & AI Integration: PyTorch model training for error classification \\ \hline
+Sprint 4 & Week 7--8 & Auto-Correction Engine: AI-driven fixes + unit test generation \\ \hline
+Sprint 5 & Week 9--10 & DevOps Automation: GitHub Actions workflows, K8S deployment \\ \hline
+Sprint 6 & Week 11--12 & SDK \& Integrations: Sentry/Firebase compatibility, Slack alerts \\ \hline
+Sprint 7 & Week 13--14 & Polish \& Scalability: Load testing, security audits, documentation \\ \hline
+\end{tabular}
+\end{table}
+
+\subsection{Gantt Chart}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth,keepaspectratio]{rapport/media/image4.png}
+\caption{Gantt Chart - Project Timeline}
+\label{fig:gantt}
+\end{figure}

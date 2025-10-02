@@ -1,0 +1,112 @@
+\contentsline {section}{Acknowledgments}{7}{Doc-Start}%
+\contentsline {subsection}{University Presentation}{7}{Doc-Start}%
+\contentsline {subsection}{Company Presentation}{7}{Doc-Start}%
+\contentsline {subsection}{Gratitude}{8}{Doc-Start}%
+\contentsline {section}{\numberline {1}Introduction}{11}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Background and Context}{11}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Problem Statement}{11}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Objectives of the Project}{11}{subsection.1.3}%
+\contentsline {subsection}{\numberline {1.4}Agile Methodology: Why Scrum/RAD?}{12}{subsection.1.4}%
+\contentsline {subsection}{\numberline {1.5}Expected Results}{12}{subsection.1.5}%
+\contentsline {subsection}{\numberline {1.6}Overview of Sprints}{12}{subsection.1.6}%
+\contentsline {section}{\numberline {2}Project Management \& Methodology}{14}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Overview of Agile and Scrum}{14}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Adapting Scrum Roles in a RAD Context}{14}{subsection.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.1}My RAD (Rapid Application Development) Adaptation (Solo/Small Team)}{14}{subsubsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.3}Scrum Ceremonies}{15}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Tools Used}{15}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}Sprint Length and Structure}{15}{subsection.2.5}%
+\contentsline {subsection}{\numberline {2.6}Project Timeline}{16}{subsection.2.6}%
+\contentsline {subsection}{\numberline {2.7}Gantt Chart}{16}{subsection.2.7}%
+\contentsline {section}{\numberline {3}Literature Review / State of the Art}{18}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Introduction}{18}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Existing Solutions}{18}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Sentry}{18}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}Dynatrace}{20}{subsubsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.3}Comparison of Existing Solutions}{21}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Why ErrorZen Will Outperform Existing Solutions}{22}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}Technology Choices Justification}{22}{subsection.3.5}%
+\contentsline {subsection}{\numberline {3.6}Summary}{23}{subsection.3.6}%
+\contentsline {section}{\numberline {4}Requirement Analysis}{25}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Introduction}{25}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Client Expectations}{25}{subsection.4.2}%
+\contentsline {subsubsection}{\numberline {4.2.1}Error Detection and Handling}{25}{subsubsection.4.2.1}%
+\contentsline {subsubsection}{\numberline {4.2.2}AI Error Analysis and Correction}{25}{subsubsection.4.2.2}%
+\contentsline {subsubsection}{\numberline {4.2.3}DevOps Automation}{25}{subsubsection.4.2.3}%
+\contentsline {subsubsection}{\numberline {4.2.4}Integration with Other Tools}{25}{subsubsection.4.2.4}%
+\contentsline {subsubsection}{\numberline {4.2.5}User Interface and Access Management}{25}{subsubsection.4.2.5}%
+\contentsline {subsection}{\numberline {4.3}Non-functional Requirements}{26}{subsection.4.3}%
+\contentsline {subsubsection}{\numberline {4.3.1}Performance and Scalability}{26}{subsubsection.4.3.1}%
+\contentsline {subsubsection}{\numberline {4.3.2}Security and Compliance}{26}{subsubsection.4.3.2}%
+\contentsline {subsubsection}{\numberline {4.3.3}Availability and Reliability}{26}{subsubsection.4.3.3}%
+\contentsline {subsubsection}{\numberline {4.3.4}Compatibility and Integration}{26}{subsubsection.4.3.4}%
+\contentsline {subsubsection}{\numberline {4.3.5}Ease of Use and Maintainability}{26}{subsubsection.4.3.5}%
+\contentsline {subsection}{\numberline {4.4}Constraints}{27}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}System Diagrams}{28}{subsection.4.5}%
+\contentsline {subsubsection}{\numberline {4.5.1}Use Case Diagram}{28}{subsubsection.4.5.1}%
+\contentsline {subsubsection}{\numberline {4.5.2}Class Diagram of the System}{29}{subsubsection.4.5.2}%
+\contentsline {subsubsection}{\numberline {4.5.3}Deployment Diagram}{29}{subsubsection.4.5.3}%
+\contentsline {subsubsection}{\numberline {4.5.4}Requirement Traceability Matrix}{30}{subsubsection.4.5.4}%
+\contentsline {subsection}{\numberline {4.6}Summary}{30}{subsection.4.6}%
+\contentsline {section}{\numberline {5}Design and Architecture}{32}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Introduction}{32}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}System Architecture}{32}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Database Design}{33}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Design Principles}{33}{subsection.5.4}%
+\contentsline {subsection}{\numberline {5.5}Product Backlog}{34}{subsection.5.5}%
+\contentsline {subsection}{\numberline {5.6}Summary}{34}{subsection.5.6}%
+\contentsline {section}{\numberline {6}Sprint Implementation}{36}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Sprint 1: Project Setup \& Initial Design}{36}{subsection.6.1}%
+\contentsline {subsubsection}{\numberline {6.1.1}Sprint 1 Diagrams}{36}{subsubsection.6.1.1}%
+\contentsline {subsection}{\numberline {6.2}Sprint 2: Real-Time Error Capture}{39}{subsection.6.2}%
+\contentsline {subsubsection}{\numberline {6.2.1}Sprint 2 Diagrams}{40}{subsubsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.3}Sprint 3: DevOps Foundation}{42}{subsection.6.3}%
+\contentsline {subsubsection}{\numberline {6.3.1}Sprint 3 Diagrams}{43}{subsubsection.6.3.1}%
+\contentsline {subsection}{\numberline {6.4}Sprint 4: Error Classification \& AI Fixes}{45}{subsection.6.4}%
+\contentsline {subsubsection}{\numberline {6.4.1}Sprint 4 Diagrams}{46}{subsubsection.6.4.1}%
+\contentsline {subsection}{\numberline {6.5}Sprint 5: Alerting \& Notifications}{48}{subsection.6.5}%
+\contentsline {subsubsection}{\numberline {6.5.1}Sprint 5 Diagrams}{48}{subsubsection.6.5.1}%
+\contentsline {subsection}{\numberline {6.6}Sprint 6: Data Protection \& Payments}{51}{subsection.6.6}%
+\contentsline {subsubsection}{\numberline {6.6.1}Sprint 6 Diagrams}{52}{subsubsection.6.6.1}%
+\contentsline {subsection}{\numberline {6.7}Sprint 7: SDKs \& Plugins}{55}{subsection.6.7}%
+\contentsline {subsubsection}{\numberline {6.7.1}Sprint 7 Diagrams}{56}{subsubsection.6.7.1}%
+\contentsline {subsection}{\numberline {6.8}Sprint Summary and Metrics}{60}{subsection.6.8}%
+\contentsline {subsection}{\numberline {6.9}Lessons Learned}{60}{subsection.6.9}%
+\contentsline {subsubsection}{\numberline {6.9.1}Technical Insights}{60}{subsubsection.6.9.1}%
+\contentsline {subsubsection}{\numberline {6.9.2}Process Improvements}{60}{subsubsection.6.9.2}%
+\contentsline {subsubsection}{\numberline {6.9.3}Challenges Overcome}{60}{subsubsection.6.9.3}%
+\contentsline {subsection}{\numberline {6.10}Future Enhancements}{61}{subsection.6.10}%
+\contentsline {section}{\numberline {7}Realization and Development}{63}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Development Environment Setup}{63}{subsection.7.1}%
+\contentsline {subsubsection}{\numberline {7.1.1}Development Stack}{63}{subsubsection.7.1.1}%
+\contentsline {subsection}{\numberline {7.2}Application Screenshots}{63}{subsection.7.2}%
+\contentsline {subsubsection}{\numberline {7.2.1}Dashboard Interface}{64}{subsubsection.7.2.1}%
+\contentsline {subsubsection}{\numberline {7.2.2}Error Analysis Interface}{65}{subsubsection.7.2.2}%
+\contentsline {subsubsection}{\numberline {7.2.3}Notification Configuration}{66}{subsubsection.7.2.3}%
+\contentsline {subsection}{\numberline {7.3}Code Implementation Examples}{66}{subsection.7.3}%
+\contentsline {subsubsection}{\numberline {7.3.1}Backend API Implementation}{66}{subsubsection.7.3.1}%
+\contentsline {subsubsection}{\numberline {7.3.2}Frontend Vue.js Component}{67}{subsubsection.7.3.2}%
+\contentsline {subsubsection}{\numberline {7.3.3}Database Schema Implementation}{70}{subsubsection.7.3.3}%
+\contentsline {subsection}{\numberline {7.4}Development Challenges and Solutions}{71}{subsection.7.4}%
+\contentsline {subsubsection}{\numberline {7.4.1}Challenge 1: Real-time Data Synchronization}{71}{subsubsection.7.4.1}%
+\contentsline {subsubsection}{\numberline {7.4.2}Challenge 2: AI Model Integration Latency}{71}{subsubsection.7.4.2}%
+\contentsline {subsection}{\numberline {7.5}Testing and Quality Assurance}{72}{subsection.7.5}%
+\contentsline {subsubsection}{\numberline {7.5.1}Automated Testing Implementation}{72}{subsubsection.7.5.1}%
+\contentsline {subsection}{\numberline {7.6}Deployment and Production Setup}{73}{subsection.7.6}%
+\contentsline {subsubsection}{\numberline {7.6.1}Docker Configuration}{73}{subsubsection.7.6.1}%
+\contentsline {subsection}{\numberline {7.7}Performance Metrics and Results}{74}{subsection.7.7}%
+\contentsline {section}{\numberline {8}Conclusion}{77}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Project Summary}{77}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Key Achievements}{77}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.3}Technical Impact}{77}{subsection.8.3}%
+\contentsline {subsection}{\numberline {8.4}Methodology Validation}{78}{subsection.8.4}%
+\contentsline {subsection}{\numberline {8.5}Future Work}{78}{subsection.8.5}%
+\contentsline {subsubsection}{\numberline {8.5.1}Short-term Improvements (3-6 months)}{78}{subsubsection.8.5.1}%
+\contentsline {subsubsection}{\numberline {8.5.2}Medium-term Features (6-12 months)}{78}{subsubsection.8.5.2}%
+\contentsline {subsubsection}{\numberline {8.5.3}Long-term Vision (12+ months)}{78}{subsubsection.8.5.3}%
+\contentsline {subsection}{\numberline {8.6}Lessons Learned}{79}{subsection.8.6}%
+\contentsline {subsubsection}{\numberline {8.6.1}Technical Lessons}{79}{subsubsection.8.6.1}%
+\contentsline {subsubsection}{\numberline {8.6.2}Project Management Lessons}{79}{subsubsection.8.6.2}%
+\contentsline {subsection}{\numberline {8.7}Final Remarks}{79}{subsection.8.7}%
+\contentsline {subsection}{\numberline {8.8}Acknowledgments}{79}{subsection.8.8}%
+\contentsline {section}{Bibliography}{81}{subsection.8.8}%

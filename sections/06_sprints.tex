@@ -1,0 +1,680 @@
+% Section 6: Sprints Implementation
+
+\section{Sprint Implementation}
+
+\subsection{Sprint 1: Project Setup \& Initial Design}
+
+\textbf{Duration:} March 25, 2025 - April 7, 2025 (2 weeks)
+
+\textbf{Sprint Goal:} Establish project foundation, technology stack, and initial architecture.
+
+\begin{table}[H]
+\centering
+\caption{Sprint 1 - Detailed Task Breakdown}
+\scriptsize
+\begin{tabular}{|p{1cm}|>{\raggedright\arraybackslash}p{3.5cm}|p{1cm}|>{\raggedright\arraybackslash}p{7cm}|p{1cm}|}
+\hline
+\textbf{Story} & \textbf{Description} & \textbf{Task} & \textbf{Task Description} & \textbf{Hours} \\ \hline
+\multirow{5}{*}{US001} & \multirow{5}{*}{Set up Go/gRPC /RestfulApi \newline backend for time \newline error ingestion} & T1.1 & Initialize Go module and workspace & 3h \\
+\cline{3-5}
+& & T1.2 & Set up gRPC server and define proto files & 3h \\
+\cline{3-5}
+& & T1.3 & Create basic REST API router & 2h \\
+\cline{3-5}
+& & T1.4 & Add error logging middleware (e.g., interceptors, logging libs) & 5h \\
+\cline{3-5}
+& & T1.5 & Test local gRPC and REST endpoints using Postman and grpcurl & 3h \\ \hline
+\multirow{5}{*}{US002} & \multirow{5}{*}{Implement PostgresSQL for \newline structured error storage \newline with WAL(Write-Ahead logging)} & T2.1 & Install and configure PostgreSQL locally & 1h \\
+\cline{3-5}
+& & T2.2 & Design initial schema for error logs (e.g., errors, services, projects) & 5h \\
+\cline{3-5}
+& & T2.3 & Configure Write-Ahead Logging (WAL) for safe/error-tolerant write operations & 2h \\
+\cline{3-5}
+& & T2.4 & Create migration script for schema initialization using Go & 4h \\
+\cline{3-5}
+& & T2.5 & Write DB connection logic in Go with retry and health-check capabilities & 2h \\ \hline
+\multirow{3}{*}{US003} & \multirow{3}{*}{Design RestApi for \newline external integration} & T3.1 & Define OpenAPI spec (Swagger) for public-facing endpoints & 4h \\
+\cline{3-5}
+& & T3.2 & Implement one sample REST endpoint & 1h \\
+\cline{3-5}
+& & T3.3 & Add basic input validation and error handling & 2h \\ \hline
+\multirow{4}{*}{US004} & \multirow{4}{*}{Implement Authentification \newline UI with VueJs} & T4.1 & Initialize Vue project and routing & 4h \\
+\cline{3-5}
+& & T4.2 & Create forms & 5h \\
+\cline{3-5}
+& & T4.3 & Style UI and validate fields & 3h \\
+\cline{3-5}
+& & T4.4 & Connect frontend with backend Auth API & 2h \\ \hline
+\multirow{4}{*}{US005} & \multirow{4}{*}{Handle authentication \newline logic} & T5.1 & Set up authentication middleware in Go (JWT-based) & 2h \\
+\cline{3-5}
+& & T5.2 & Create login/signup API endpoints & 2h \\
+\cline{3-5}
+& & T5.3 & Secure routes using middleware & 3h \\
+\cline{3-5}
+& & T5.4 & Test authentication flow (manual + Postman) & 2h \\ \hline
+\multirow{3}{*}{US006} & \multirow{3}{*}{RBAC (Role-Based \newline Access Control)} & T6.1 & Define roles: admin, developer, viewer & 1h \\
+\cline{3-5}
+& & T6.2 & Add RBAC checks to middleware & 3h \\
+\cline{3-5}
+& & T6.3 & Test access restrictions based on role & 1h \\ \hline
+\multirow{3}{*}{US007} & \multirow{3}{*}{Implement Authentification \newline tools} & T7.1 & Implement password hashing (e.g., bcrypt) & 1h \\
+\cline{3-5}
+& & T7.2 & Add email format validator and strong password policy & 1h \\
+\cline{3-5}
+& & T7.3 & Write unit tests for auth logic & 3h \\ \hline
+\end{tabular}
+\end{table}
+
+\textbf{Outcomes:} Successfully established the core technology foundation with 66 hours of development work completed across 7 main user stories covering backend setup, authentication, and database implementation.
+
+\subsubsection{Sprint 1 Diagrams}
+
+\textbf{a) Use Case Diagram:}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth,height=0.4\textheight,keepaspectratio]{rapport/media/sprint1_usecase.png}
+\caption{Sprint 1a - Use Case Diagram}
+\label{fig:sprint1a_usecase}
+\end{figure}
+\textbf{Summary:} This use case diagram illustrates the core interactions between users (admin, developer) and the system during the initial setup phase, highlighting authentication, database configuration, and API design processes.
+
+\textbf{b) Sequence Diagram 1:}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth,height=0.35\textheight,keepaspectratio]{rapport/media/sprint1_sequence1.png}
+\caption{Sprint 1b - Sequence Diagram: Authentication Flow}
+\label{fig:sprint1b_sequence1}
+\end{figure}
+\textbf{Summary:} This sequence diagram demonstrates the JWT-based authentication workflow, showing the interaction between the frontend, backend middleware, and database for secure user login and role-based access control.
+
+\textbf{c) Sequence Diagram 2:}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth,height=0.35\textheight,keepaspectratio]{rapport/media/sprint1_sequence2.png}
+\caption{Sprint 1c - Sequence Diagram: Database Connection}
+\label{fig:sprint1c_sequence2}
+\end{figure}
+\textbf{Summary:} This sequence diagram shows the PostgreSQL connection establishment process with WAL configuration, including retry mechanisms and health checks for robust database connectivity.
+
+\textbf{d) Activity Diagram:}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.6\textwidth,height=0.6\textheight,keepaspectratio]{rapport/media/sprint1_activity.png}
+\caption{Sprint 1d - Activity Diagram: Project Setup Process}
+\label{fig:sprint1d_activity}
+\end{figure}
+\textbf{Summary:} This activity diagram outlines the complete project initialization workflow, from Go module setup through gRPC server configuration, database schema creation, and authentication system implementation.
+
+\subsection{Sprint 2: Real-Time Error Capture}
+
+\textbf{Duration:} April 8, 2025 - April 21, 2025 (2 weeks)
+
+\textbf{Sprint Goal:} Implement error ingestion and dashboard MVP for real-time monitoring.
+
+\begin{table}[H]
+\centering
+\caption{Sprint 2 - Dashboard and Error Management}
+\scriptsize
+\begin{tabular}{|p{1cm}|>{\raggedright\arraybackslash}p{3.5cm}|p{1cm}|>{\raggedright\arraybackslash}p{7cm}|p{1cm}|}
+\hline
+\textbf{Story} & \textbf{Description} & \textbf{Task} & \textbf{Task Description} & \textbf{Hours} \\ \hline
+\multirow{4}{*}{US008} & \multirow{4}{*}{Implement dashboard \newline metrics UI} & T8.1 & Design wireframe for metrics layout & 1h \\
+\cline{3-5}
+& & T8.2 & Create Vue.js components for KPI cards & 2h \\
+\cline{3-5}
+& & T8.3 & Integrate static data for testing UI & 2h \\
+\cline{3-5}
+& & T8.4 & Setup responsive layout with CSS & 1h \\ \hline
+\multirow{4}{*}{US009} & \multirow{4}{*}{Develop necessary \newline APIs} & T9.1 & Define API endpoints for dashboard metrics & 3h \\
+\cline{3-5}
+& & T9.2 & Implement GET endpoints (/metrics, /summary) & 1h \\
+\cline{3-5}
+& & T9.3 & Connect to database to fetch live data & 1h \\
+\cline{3-5}
+& & T9.4 & Add error handling and logging & 2h \\ \hline
+\multirow{4}{*}{US010} & \multirow{4}{*}{Implement Errors/Logs \newline UI} & T10.1 & Design UI layout for error/logs panel & 1h \\
+\cline{3-5}
+& & T10.2 & Build Vue components for logs table & 2h \\
+\cline{3-5}
+& & T10.3 & Add pagination and filters & 1h \\
+\cline{3-5}
+& & T10.4 & Connect frontend to API & 1h \\ \hline
+\end{tabular}
+\end{table}
+
+\textbf{Outcomes:} Delivered a functional dashboard capable of real-time error monitoring with 22 hours of development work across 3 user stories.
+
+\subsubsection{Sprint 2 Diagrams}
+
+\textbf{a) Use Case Diagram:}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth,height=0.4\textheight,keepaspectratio]{rapport/media/sprint2_usecase.png}
+\caption{Sprint 2a - Use Case Diagram}
+\label{fig:sprint2a_usecase}
+\end{figure}
+\textbf{Summary:} This use case diagram depicts the real-time error monitoring capabilities, showing how developers and administrators interact with the dashboard to view metrics, analyze error logs, and monitor system performance.
+
+\textbf{b) Sequence Diagram 1:}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth,height=0.35\textheight,keepaspectratio]{rapport/media/sprint2_sequence1.png}
+\caption{Sprint 2b - Sequence Diagram: Dashboard Data Flow}
+\label{fig:sprint2b_sequence1}
+\end{figure}
+\textbf{Summary:} This sequence diagram illustrates the data flow from the backend APIs to the Vue.js dashboard components, showing how real-time metrics and KPIs are fetched and displayed to users.
+
+\textbf{c) Sequence Diagram 2:}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth,height=0.35\textheight,keepaspectratio]{rapport/media/sprint2_sequence2.png}
+\caption{Sprint 2c - Sequence Diagram: Error Log Retrieval}
+\label{fig:sprint2c_sequence2}
+\end{figure}
+\textbf{Summary:} This sequence diagram demonstrates the error log retrieval process, including pagination, filtering, and real-time updates for the error monitoring interface.
+
+\textbf{d) Activity Diagram:}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.6\textwidth,height=0.6\textheight,keepaspectratio]{rapport/media/sprint2_activity.png}
+\caption{Sprint 2d - Activity Diagram: Real-Time Error Monitoring}
+\label{fig:sprint2d_activity}
+\end{figure}
+\textbf{Summary:} This activity diagram shows the complete workflow for implementing real-time error monitoring, from dashboard UI design through API development and data integration.
+
+\subsection{Sprint 3: DevOps Foundation}
+
+\textbf{Duration:} April 22, 2025 - May 5, 2025 (2 weeks)
+
+\textbf{Sprint Goal:} Establish CI/CD pipeline and DevOps automation infrastructure.
+
+\begin{table}[H]
+\centering
+\caption{Sprint 3 - DevOps Pipeline Implementation}
+\scriptsize
+\begin{tabular}{|p{1cm}|>{\raggedright\arraybackslash}p{3.5cm}|p{1cm}|>{\raggedright\arraybackslash}p{7cm}|p{1cm}|}
+\hline
+\textbf{Story} & \textbf{Description} & \textbf{Task} & \textbf{Task Description} & \textbf{Hours} \\ \hline
+\multirow{4}{*}{US013} & \multirow{4}{*}{Implement pipeline \newline dashboard} & T13.1 & Define UI/UX requirements for pipeline dashboard & 4h \\
+\cline{3-5}
+& & T13.2 & Set up frontend components for pipeline visualization & 2h \\
+\cline{3-5}
+& & T13.3 & Implement backend endpoints for pipeline data & 4h \\
+\cline{3-5}
+& & T13.4 & Integrate real-time updates (WebSockets) & 3h \\ \hline
+\multirow{4}{*}{US015} & \multirow{4}{*}{Implement pipeline \newline tools} & T15.1 & Evaluate and choose CI/CD tools & 4h \\
+\cline{3-5}
+& & T15.2 & Configure GitHub Actions with repository & 4h \\
+\cline{3-5}
+& & T15.3 & Define pipeline stages (build, test, deploy) & 3h \\
+\cline{3-5}
+& & T15.4 & Integrate automated testing & 3h \\ \hline
+\end{tabular}
+\end{table}
+
+\textbf{Outcomes:} Achieved full DevOps automation with 27 hours of development work across 2 main user stories.
+
+\subsubsection{Sprint 3 Diagrams}
+
+\textbf{a) Use Case Diagram:}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth,height=0.4\textheight,keepaspectratio]{rapport/media/sprint3_usecase.png}
+\caption{Sprint 3a - Use Case Diagram}
+\label{fig:sprint3a_usecase}
+\end{figure}
+\textbf{Summary:} This use case diagram shows the DevOps automation interactions, illustrating how developers and administrators manage CI/CD pipelines, monitor deployments, and configure automated testing workflows.
+
+\textbf{b) Sequence Diagram 1:}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth,height=0.35\textheight,keepaspectratio]{rapport/media/sprint3_sequence1.png}
+\caption{Sprint 3b - Sequence Diagram: CI/CD Pipeline Execution}
+\label{fig:sprint3b_sequence1}
+\end{figure}
+\textbf{Summary:} This sequence diagram demonstrates the CI/CD pipeline execution flow using GitHub Actions, showing the interaction between repository commits, build processes, testing phases, and deployment stages.
+
+\textbf{c) Sequence Diagram 2:}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth,height=0.35\textheight,keepaspectratio]{rapport/media/sprint3_sequence2.png}
+\caption{Sprint 3c - Sequence Diagram: Pipeline Monitoring}
+\label{fig:sprint3c_sequence2}
+\end{figure}
+\textbf{Summary:} This sequence diagram illustrates the real-time pipeline monitoring system, showing how WebSockets enable live updates of build status, test results, and deployment progress.
+
+\textbf{d) Activity Diagram:}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.6\textwidth,height=0.6\textheight,keepaspectratio]{rapport/media/sprint3_activity.png}
+\caption{Sprint 3d - Activity Diagram: DevOps Pipeline Setup}
+\label{fig:sprint3d_activity}
+\end{figure}
+\textbf{Summary:} This activity diagram outlines the complete DevOps pipeline setup process, from tool evaluation and GitHub Actions configuration to automated testing integration and monitoring dashboard implementation.
+
+\subsection{Sprint 4: Error Classification \& AI Fixes}
+
+\textbf{Duration:} May 6, 2025 - May 19, 2025 (2 weeks)
+
+\textbf{Sprint Goal:} Integrate AI-powered error analysis and automated correction capabilities.
+
+\begin{table}[H]
+\centering
+\caption{Sprint 4 - AI Integration and Error Correction}
+\scriptsize
+\begin{tabular}{|p{1cm}|>{\raggedright\arraybackslash}p{3.5cm}|p{1cm}|>{\raggedright\arraybackslash}p{7cm}|p{1cm}|}
+\hline
+\textbf{Story} & \textbf{Description} & \textbf{Task} & \textbf{Task Description} & \textbf{Hours} \\ \hline
+\multirow{2}{*}{US017} & \multirow{2}{*}{Implement AI \newline model} & T17.1 & Integrate DeepSeek API & 2h \\
+\cline{3-5}
+& & T17.2 & Integrate model inference into backend & 4h \\ \hline
+\multirow{2}{*}{US018} & \multirow{2}{*}{Tag errors with \newline suggested fixes} & T18.1 & Implement tagging system for errors & 4h \\
+\cline{3-5}
+& & T18.2 & Provide structured metadata for developers & 4h \\ \hline
+\multirow{2}{*}{US019} & \multirow{2}{*}{Implement automated \newline code fixes} & T19.1 & Build mechanism to apply code fixes & 4h \\
+\cline{3-5}
+& & T19.2 & Ensure rollback strategy for incorrect fixes & 2h \\ \hline
+\end{tabular}
+\end{table}
+
+\textbf{Outcomes:} Successfully implemented AI-driven error correction with 22 hours of development work across 3 user stories.
+
+\subsubsection{Sprint 4 Diagrams}
+
+\textbf{a) Use Case Diagram:}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth,height=0.4\textheight,keepaspectratio]{rapport/media/sprint4_usecase.png}
+\caption{Sprint 4a - Use Case Diagram}
+\label{fig:sprint4a_usecase}
+\end{figure}
+\textbf{Summary:} This use case diagram illustrates the AI-powered error analysis system, showing how developers interact with automated error classification, fix suggestions, and code correction capabilities.
+
+\textbf{b) Sequence Diagram 1:}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth,height=0.35\textheight,keepaspectratio]{rapport/media/sprint4_sequence1.png}
+\caption{Sprint 4b - Sequence Diagram: AI Model Integration}
+\label{fig:sprint4b_sequence1}
+\end{figure}
+\textbf{Summary:} This sequence diagram shows the DeepSeek API integration process, demonstrating how error data is sent to the AI model, processed for analysis, and returned with classification results and fix suggestions.
+
+\textbf{c) Sequence Diagram 2:}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth,height=0.35\textheight,keepaspectratio]{rapport/media/sprint4_sequence2.png}
+\caption{Sprint 4c - Sequence Diagram: Automated Code Fixes}
+\label{fig:sprint4c_sequence2}
+\end{figure}
+\textbf{Summary:} This sequence diagram illustrates the automated code fix application process, including the rollback mechanism for incorrect fixes and the validation workflow for successful corrections.
+
+\textbf{d) Activity Diagram:}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.6\textwidth,height=0.6\textheight,keepaspectratio]{rapport/media/sprint4_activity.png}
+\caption{Sprint 4d - Activity Diagram: Error Classification \& AI Fixes}
+\label{fig:sprint4d_activity}
+\end{figure}
+\textbf{Summary:} This activity diagram details the complete AI-driven error correction workflow, from error detection and classification through automated fix generation and rollback strategy implementation.
+
+\subsection{Sprint 5: Alerting \& Notifications}
+
+\textbf{Duration:} May 20, 2025 - June 2, 2025 (2 weeks)
+
+\textbf{Sprint Goal:} Implement comprehensive notification and alerting system.
+
+\begin{table}[H]
+\centering
+\caption{Sprint 5 - Notifications and Alert Management}
+\scriptsize
+\begin{tabular}{|p{1cm}|>{\raggedright\arraybackslash}p{3.5cm}|p{1cm}|>{\raggedright\arraybackslash}p{7cm}|p{1cm}|}
+\hline
+\textbf{Story} & \textbf{Description} & \textbf{Task} & \textbf{Task Description} & \textbf{Hours} \\ \hline
+\multirow{6}{*}{US022} & \multirow{6}{*}{Configure Tools \newline integrations} & T22.1 & Design integration architecture with external tools & 2h \\
+\cline{3-5}
+& & T22.2 & Implement Slack webhook API & 1h \\
+\cline{3-5}
+& & T22.3 & Implement Teams webhook API & 1h \\
+\cline{3-5}
+& & T22.4 & Implement Discord webhook integration & 2h \\
+\cline{3-5}
+& & T22.5 & Create generic webhook interface & 2h \\
+\cline{3-5}
+& & T22.6 & Test webhook delivery reliability & 2h \\ \hline
+\multirow{6}{*}{US023} & \multirow{6}{*}{Integrations notifications \newline System} & T23.1 & Design notification dispatcher architecture & 1h \\
+\cline{3-5}
+& & T23.2 & Create notification templates engine & 2h \\
+\cline{3-5}
+& & T23.3 & Implement routing logic per integration type & 2h \\
+\cline{3-5}
+& & T23.4 & Build retry mechanism for failed notifications & 1h \\
+\cline{3-5}
+& & T23.5 & Unit test notification service & 1h \\
+\cline{3-5}
+& & T23.6 & Verify end-to-end delivery to integrated tools & 1h \\ \hline
+\multirow{5}{*}{US024} & \multirow{5}{*}{Implement Billing \newline Alerts} & T24.1 & Identify billing thresholds (quota, over-usage, abnormal costs) & 2h \\
+\cline{3-5}
+& & T24.2 & Implement rule engine for billing alerts & 1h \\
+\cline{3-5}
+& & T24.3 & Connect billing system data to alert service & 2h \\
+\cline{3-5}
+& & T24.4 & Create alert templates (email/SMS/integration) & 2h \\
+\cline{3-5}
+& & T24.5 & Test alert triggering with simulated billing events & 2h \\ \hline
+\multirow{5}{*}{US025} & \multirow{5}{*}{Throttle \newline Alerts} & T25.1 & Analyze alert flood scenarios & 2h \\
+\cline{3-5}
+& & T25.2 & Implement throttling middleware in alert pipeline & 3h \\
+\cline{3-5}
+& & T25.3 & Store last-sent timestamp per error type (Redis/DB cache) & 2h \\
+\cline{3-5}
+& & T25.4 & Enforce max frequency (1/min per type) & 1h \\
+\cline{3-5}
+& & T25.5 & Add logging for suppressed alerts & 2h \\ \hline
+\multirow{6}{*}{US026} & \multirow{6}{*}{Handle Alerting \newline Rules} & T26.1 & Design rules schema (conditions, thresholds, channels) & 2h \\
+\cline{3-5}
+& & T26.2 & Build CRUD API for alert rules (create/update/delete) & 2h \\
+\cline{3-5}
+& & T26.3 & Implement rules evaluation engine & 1h \\
+\cline{3-5}
+& & T26.4 & Store rules in DB & 3h \\
+\cline{3-5}
+& & T26.5 & Integrate rules engine with notification dispatcher & 2h \\
+\cline{3-5}
+& & T26.6 & Build UI (basic or API endpoints) to manage rules & 4h \\ \hline
+\end{tabular}
+\end{table}
+
+\textbf{Outcomes:} Successfully implemented comprehensive notification system with 48 hours of development work across 5 user stories.
+
+\subsubsection{Sprint 5 Diagrams}
+
+\textbf{a) Use Case Diagram:}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth,height=0.4\textheight,keepaspectratio]{rapport/media/sprint5_usecase.png}
+\caption{Sprint 5a - Use Case Diagram}
+\label{fig:sprint5a_usecase}
+\end{figure}
+\textbf{Summary:} This use case diagram demonstrates the comprehensive notification and alerting system, showing how administrators configure alert rules, manage integrations, and users receive notifications through multiple channels.
+
+\textbf{b) Sequence Diagram 1:}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth,height=0.35\textheight,keepaspectratio]{rapport/media/sprint5_sequence1.png}
+\caption{Sprint 5b - Sequence Diagram: Notification System Flow}
+\label{fig:sprint5b_sequence1}
+\end{figure}
+\textbf{Summary:} This sequence diagram illustrates the multi-channel notification flow, showing how alerts are processed through the dispatcher, routed to appropriate channels (Slack, Teams, Discord), and delivered with retry mechanisms.
+
+\textbf{c) Sequence Diagram 2:}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth,height=0.35\textheight,keepaspectratio]{rapport/media/sprint5_sequence2.png}
+\caption{Sprint 5c - Sequence Diagram: Alert Rules Management}
+\label{fig:sprint5c_sequence2}
+\end{figure}
+\textbf{Summary:} This sequence diagram shows the alert rules management process, including CRUD operations for rules configuration, threshold evaluation, and billing alert implementation with throttling mechanisms.
+
+\textbf{d) Activity Diagram:}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.6\textwidth,height=0.6\textheight,keepaspectratio]{rapport/media/sprint5_activity.png}
+\caption{Sprint 5d - Activity Diagram: Alerting \& Notifications}
+\label{fig:sprint5d_activity}
+\end{figure}
+\textbf{Summary:} This activity diagram outlines the complete alerting and notification implementation workflow, from tools integration setup through billing alerts and throttling mechanisms to comprehensive rule management.
+
+\subsection{Sprint 6: Data Protection \& Payments}
+
+\textbf{Duration:} June 3, 2025 - June 16, 2025 (2 weeks)
+
+\textbf{Sprint Goal:} Implement security, compliance, and billing functionality.
+
+\begin{table}[H]
+\centering
+\caption{Sprint 6 - Security and Payment Integration}
+\scriptsize
+\begin{tabular}{|p{1cm}|>{\raggedright\arraybackslash}p{3.5cm}|p{1cm}|>{\raggedright\arraybackslash}p{7cm}|p{1cm}|}
+\hline
+\textbf{Story} & \textbf{Description} & \textbf{Task} & \textbf{Task Description} & \textbf{Hours} \\ \hline
+\multirow{5}{*}{US027} & \multirow{5}{*}{Encrypt sensitive data \newline using (AES-256)} & T027.1 & Analyze and identify sensitive data fields requiring encryption & 8h \\
+\cline{3-5}
+& & T027.2 & Implement AES-256 encryption for database fields & 12h \\
+\cline{3-5}
+& & T027.3 & Develop key management system for encryption keys & 10h \\
+\cline{3-5}
+& & T027.4 & Create data encryption/decryption utilities & 8h \\
+\cline{3-5}
+& & T027.5 & Test encryption implementation and performance & 7h \\ \hline
+\multirow{5}{*}{US028} & \multirow{5}{*}{Implement GDPR-compliant \newline audit logging} & T028.1 & Define GDPR audit logging requirements and data scope & 4h \\
+\cline{3-5}
+& & T028.2 & Design audit log schema and storage structure & 5h \\
+\cline{3-5}
+& & T028.3 & Implement audit logging middleware/interceptors & 8h \\
+\cline{3-5}
+& & T028.4 & Create log retrieval and export functionality & 6h \\
+\cline{3-5}
+& & T028.5 & Implement log retention and deletion policies & 5h \\ \hline
+\multirow{5}{*}{US029} & \multirow{5}{*}{Compute the usage \newline of system} & T029.1 & Define usage metrics and tracking requirements & 10h \\
+\cline{3-5}
+& & T029.2 & Implement usage data collection mechanisms & 12h \\
+\cline{3-5}
+& & T029.3 & Create usage analytics and reporting module & 15h \\
+\cline{3-5}
+& & T029.4 & Develop usage dashboard and visualization & 8h \\
+\cline{3-5}
+& & T029.5 & Implement usage alerts and notifications & 5h \\ \hline
+\multirow{6}{*}{US030} & \multirow{6}{*}{Handle payments \newline services} & T030.1 & Research and select payment gateway integration & 6h \\
+\cline{3-5}
+& & T030.2 & Implement payment processing workflow & 10h \\
+\cline{3-5}
+& & T030.3 & Create payment transaction logging and tracking & 8h \\
+\cline{3-5}
+& & T030.4 & Develop refund and cancellation handling & 6h \\
+\cline{3-5}
+& & T030.5 & Implement payment security and PCI compliance measures & 12h \\
+\cline{3-5}
+& & T030.6 & Test payment integration end-to-end & 8h \\ \hline
+\multirow{5}{*}{US031} & \multirow{5}{*}{Implement role-based \newline permissions} & T031.1 & Define role hierarchy and permission matrix & 8h \\
+\cline{3-5}
+& & T031.2 & Create database schema for roles and permissions & 6h \\
+\cline{3-5}
+& & T031.3 & Implement permission checking middleware & 10h \\
+\cline{3-5}
+& & T031.4 & Develop user-role assignment interface & 8h \\
+\cline{3-5}
+& & T031.5 & Create permission testing and validation suite & 6h \\ \hline
+\end{tabular}
+\end{table}
+
+\textbf{Outcomes:} Achieved enterprise-grade security and compliance with 183 hours of development work across 5 user stories.
+
+\subsubsection{Sprint 6 Diagrams}
+
+\textbf{a) Use Case Diagram:}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth,height=0.4\textheight,keepaspectratio]{rapport/media/sprint6_usecase.png}
+\caption{Sprint 6a - Use Case Diagram}
+\label{fig:sprint6a_usecase}
+\end{figure}
+\textbf{Summary:} This use case diagram illustrates the enterprise security and compliance features, showing how administrators manage data encryption, GDPR compliance, payment processing, and role-based permissions within the system.
+
+\textbf{b) Sequence Diagram 1:}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth,height=0.35\textheight,keepaspectratio]{rapport/media/sprint6_sequence1.png}
+\caption{Sprint 6b - Sequence Diagram: Data Encryption Process}
+\label{fig:sprint6b_sequence1}
+\end{figure}
+\textbf{Summary:} This sequence diagram demonstrates the AES-256 encryption implementation, showing how sensitive data is encrypted/decrypted, key management processes, and secure storage mechanisms for data protection.
+
+\textbf{c) Sequence Diagram 2:}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth,height=0.35\textheight,keepaspectratio]{rapport/media/sprint6_sequence2.png}
+\caption{Sprint 6c - Sequence Diagram: Payment Processing}
+\label{fig:sprint6c_sequence2}
+\end{figure}
+\textbf{Summary:} This sequence diagram illustrates the secure payment processing workflow, including gateway integration, transaction logging, PCI compliance measures, and refund/cancellation handling mechanisms.
+
+\textbf{d) Activity Diagram:}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.6\textwidth,height=0.6\textheight,keepaspectratio]{rapport/media/sprint6_activity.png}
+\caption{Sprint 6d - Activity Diagram: Data Protection \& Payments}
+\label{fig:sprint6d_activity}
+\end{figure}
+\textbf{Summary:} This activity diagram details the comprehensive security implementation process, covering data encryption, GDPR audit logging, usage tracking, payment integration, and role-based access control setup.
+
+\subsection{Sprint 7: SDKs \& Plugins}
+
+\textbf{Duration:} June 17, 2025 - June 30, 2025 (2 weeks)
+
+\textbf{Sprint Goal:} Develop client SDKs and comprehensive documentation.
+
+\begin{table}[H]
+\centering
+\caption{Sprint 7 - SDK Development and Documentation}
+\scriptsize
+\begin{tabular}{|p{1cm}|>{\raggedright\arraybackslash}p{3.5cm}|p{1cm}|>{\raggedright\arraybackslash}p{7cm}|p{1cm}|}
+\hline
+\textbf{Story} & \textbf{Description} & \textbf{Task} & \textbf{Task Description} & \textbf{Hours} \\ \hline
+\multirow{5}{*}{US032} & \multirow{5}{*}{Create Plugin \newline for NodeJs} & T032.1 & Design plugin architecture and API interface & 6h \\
+\cline{3-5}
+& & T032.2 & Implement core plugin functionality and methods & 10h \\
+\cline{3-5}
+& & T032.3 & Write unit tests and integration tests for the plugin & 8h \\
+\cline{3-5}
+& & T032.4 & Package and publish plugin to NPM registry & 4h \\
+\cline{3-5}
+& & T032.5 & Create basic usage examples and README & 4h \\ \hline
+\multirow{5}{*}{US033} & \multirow{5}{*}{Create SDK for \newline Flutter/Dart} & T033.1 & Design SDK architecture and data models (Dart Classes) & 8h \\
+\cline{3-5}
+& & T033.2 & Implement API client and network communication layer & 10h \\
+\cline{3-5}
+& & T033.3 & Develop core SDK features and methods & 10h \\
+\cline{3-5}
+& & T033.4 & Write comprehensive unit and widget tests & 8h \\
+\cline{3-5}
+& & T033.5 & Document the SDK API and publish to pub.dev & 6h \\ \hline
+\multirow{5}{*}{US034} & \multirow{5}{*}{Handle Service \newline Activation} & T034.1 & Design service activation workflow (trial, paid, etc.) & 6h \\
+\cline{3-5}
+& & T034.2 & Implement activation endpoint and status tracking & 8h \\
+\cline{3-5}
+& & T034.3 & Develop license key generation and validation logic & 8h \\
+\cline{3-5}
+& & T034.4 & Create admin interface for managing activations & 6h \\
+\cline{3-5}
+& & T034.5 & Test activation/deactivation scenarios end-to-end & 6h \\ \hline
+\multirow{5}{*}{US035} & \multirow{5}{*}{Create Documentation for \newline exploring Service} & T035.1 & Outline documentation structure and user journeys & 5h \\
+\cline{3-5}
+& & T035.2 & Write "Getting Started" guide and installation instructions & 6h \\
+\cline{3-5}
+& & T035.3 & Create comprehensive API reference documentation & 12h \\
+\cline{3-5}
+& & T035.4 & Develop tutorials and code samples for common use cases & 10h \\
+\cline{3-5}
+& & T035.5 & Set up and deploy documentation site (e.g., GitBook, Docusaurus) & 5h \\ \hline
+\end{tabular}
+\end{table}
+
+\textbf{Outcomes:} Delivered complete SDK ecosystem and documentation with 142 hours of development work across 4 user stories.
+
+\subsubsection{Sprint 7 Diagrams}
+
+\textbf{a) Use Case Diagram:}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth,height=0.4\textheight,keepaspectratio]{rapport/media/sprint7_usecase.png}
+\caption{Sprint 7a - Use Case Diagram}
+\label{fig:sprint7a_usecase}
+\end{figure}
+\textbf{Summary:} This use case diagram shows the SDK and plugin ecosystem, illustrating how developers integrate Node.js plugins, Flutter/Dart SDKs, manage service activation, and access comprehensive documentation for system integration.
+
+\textbf{b) Sequence Diagram 1:}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth,height=0.35\textheight,keepaspectratio]{rapport/media/sprint7_sequence1.png}
+\caption{Sprint 7b - Sequence Diagram: SDK Integration}
+\label{fig:sprint7b_sequence1}
+\end{figure}
+\textbf{Summary:} This sequence diagram demonstrates the SDK integration process, showing how external applications use the Node.js plugin and Flutter/Dart SDK to communicate with the ErrorZen API endpoints.
+
+\textbf{c) Sequence Diagram 2:}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth,height=0.35\textheight,keepaspectratio]{rapport/media/sprint7_sequence2.png}
+\caption{Sprint 7c - Sequence Diagram: Service Activation}
+\label{fig:sprint7c_sequence2}
+\end{figure}
+\textbf{Summary:} This sequence diagram illustrates the service activation workflow, including license key generation, validation logic, trial/paid service management, and admin interface interactions.
+
+\textbf{d) Activity Diagram:}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.6\textwidth,height=0.6\textheight,keepaspectratio]{rapport/media/sprint7_activity.png}
+\caption{Sprint 7d - Activity Diagram: SDK Development \& Documentation}
+\label{fig:sprint7d_activity}
+\end{figure}
+\textbf{Summary:} This activity diagram outlines the complete SDK development and documentation process, from plugin architecture design through testing, publishing, and comprehensive documentation site deployment.
+
+\subsection{Sprint Summary and Metrics}
+
+\begin{table}[H]
+\centering
+\caption{Sprint Summary and Effort Distribution}
+\footnotesize
+\begin{tabular}{|p{1.5cm}|p{1.5cm}|p{1.5cm}|>{\raggedright\arraybackslash}p{3cm}|>{\raggedright\arraybackslash}p{4cm}|}
+\hline
+\textbf{Sprint} & \textbf{Stories} & \textbf{Hours} & \textbf{Focus Area} & \textbf{Key Achievement} \\ \hline
+Sprint 1 & 7 & 66 & Infrastructure & Backend and auth foundation \\ \hline
+Sprint 2 & 3 & 22 & Frontend & Real-time dashboard \\ \hline
+Sprint 3 & 2 & 27 & DevOps & CI/CD automation \\ \hline
+Sprint 4 & 3 & 22 & AI/ML & Error auto-correction \\ \hline
+Sprint 5 & 5 & 48 & Notifications & Multi-channel alerts \\ \hline
+Sprint 6 & 5 & 183 & Security & Enterprise compliance \\ \hline
+Sprint 7 & 4 & 142 & Integration & SDK ecosystem \\ \hline
+\textbf{Total} & \textbf{29} & \textbf{510} & \textbf{Complete} & \textbf{Production-ready MVP} \\ \hline
+\end{tabular}
+\end{table}
+
+\subsection{Lessons Learned}
+
+\subsubsection{Technical Insights}
+\begin{itemize}
+\item Go's concurrency model proved excellent for real-time error processing
+\item PostgreSQL's WAL feature was crucial for reliable error logging
+\item Vue.js provided the right balance of simplicity and functionality for the dashboard
+\item DeepSeek API integration exceeded expectations for AI-powered error correction
+\end{itemize}
+
+\subsubsection{Process Improvements}
+\begin{itemize}
+\item Two-week sprints provided optimal balance between planning and flexibility
+\item RAD methodology acceleration reduced time-to-market by approximately 30\%
+\item Continuous integration prevented integration issues and maintained code quality
+\item Regular retrospectives led to meaningful process improvements
+\end{itemize}
+
+
+
+\subsubsection{Challenges Overcome}
+\begin{itemize}
+\item Initial complexity of gRPC configuration - resolved through better documentation
+\item AI model integration latency - optimized through caching and async processing
+\item Multi-platform SDK compatibility - addressed through comprehensive testing
+\item DevOps pipeline stability - improved through better error handling and monitoring
+\end{itemize}
+
+\subsection{Future Enhancements}
+
+Based on the sprint outcomes and user feedback, the following enhancements are planned for future iterations:
+
+\begin{itemize}
+\item Advanced machine learning models for better error prediction
+\item Extended language support for additional programming frameworks
+\item Enhanced mobile application monitoring capabilities
+\item Integration with more third-party development tools
+\item Advanced analytics and reporting features
+\end{itemize}

@@ -1,0 +1,165 @@
+% Section 3: Literature Review / State of the Art
+
+\section{Literature Review / State of the Art}
+
+\subsection{Introduction}
+
+Before implementing any technical solution, it is essential to review existing work, approaches, and technologies related to the problem being addressed. This review of the literature aims to provide an overview of similar systems, tools, and frameworks and to justify the technical choices made during this project.
+
+\subsection{Existing Solutions}
+
+Several platforms and tools have been developed to address error/bug logging and detection. Each offers different features and uses various technologies.
+
+\subsubsection{Sentry}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth,keepaspectratio]{rapport/media/image1.png}
+\caption{Sentry Architecture Overview}
+\label{fig:sentry_architecture}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth,keepaspectratio]{rapport/media/image3.png}
+\caption{Sentry System Design}
+\label{fig:sentry_design}
+\end{figure}
+
+The Sentry platform is a popular error monitoring and performance tracking tool used by developers to diagnose, fix, and optimise applications. Below are some of its \textbf{pros} and \textbf{cons}:
+
+\textbf{Pros:}
+\begin{itemize}
+\item Real-Time Error Monitoring -- Quickly detects and alerts developers about crashes and exceptions
+\item Wide Language Support -- Works with JavaScript, Python, Ruby, Java, Go, PHP, .NET, and more
+\item Detailed Error Reports -- Provides stack traces, environment data, and user context for debugging
+\item Performance Monitoring -- Tracks latency, slow transactions, and bottlenecks in applications
+\item Integrations -- Supports GitHub, Slack, Jira, and other DevOps tools for streamlined workflows
+\item Open-Source Option -- A self-hosted version is available for greater control over data
+\item User-Friendly UI -- Intuitive dashboard with filtering and search capabilities
+\item Release Tracking -- Correlates errors with specific code deployments
+\end{itemize}
+
+\textbf{Cons:}
+\begin{itemize}
+\item Cost for High Volume -- Can become expensive for large-scale applications with many events
+\item Limited Free Tier -- The free plan has restricted features and event limits
+\item Complex Setup for Self-Hosting -- Requires maintenance and infrastructure if deployed on-premise
+\item No Built-In APM (Advanced Performance Monitoring) -- Lags behind competitors like Datadog in full APM capabilities
+\item Steep Learning Curve -- Some features (like performance tracing) may require deeper configuration
+\item Limited Log Management -- Primarily focused on errors, not a full log analytics solution
+\end{itemize}
+
+\subsubsection{Dynatrace}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth,keepaspectratio]{rapport/media/image5.png}
+\caption{Dynatrace Database Schema}
+\label{fig:dynatrace_schema}
+\end{figure}
+
+Dynatrace is an AI-powered, full-stack observability platform that provides application performance monitoring (APM), infrastructure monitoring, real-user monitoring (RUM), and cloud automation. It's known for its automatic and intelligent insights, making it a favourite for enterprises.
+
+\textbf{Pros:}
+\begin{itemize}
+\item AI-Powered Root Cause Analysis (Davis AI) -- Automatically detects anomalies, pinpoints failures, and suggests fixes
+\item Full-Stack Observability -- Tracks applications, microservices, containers, cloud infra, databases, and network performance in one place
+\item Automatic Discovery \& Dependency Mapping -- Dynamically maps application dependencies without manual configuration
+\item Real User Monitoring (RUM) \& Synthetic Monitoring -- Tracks real user experience (browser/mobile) and simulates synthetic transactions
+\item Cloud-Native \& Multi-Cloud Support -- Works seamlessly with AWS, Azure, GCP, and hybrid environments
+\end{itemize}
+
+\textbf{Cons:}
+\begin{itemize}
+\item Very Expensive -- One of the most costly APM tools, making it less accessible for SMBs
+\item Complex Setup \& Learning Curve -- Overwhelming for beginners due to its advanced features
+\item Limited Customisation in Dashboards -- Some users find dashboarding less flexible compared to Grafana or Datadog
+\item Heavy Resource Consumption (On-Premise) -- Self-hosted deployments require significant infrastructure
+\item No Built-In Log Management (Requires Grail) -- Log analytics is a separate module (Dynatrace Grail), adding to costs
+\item Vendor Lock-In Risk -- Proprietary agents and data models make migration difficult
+\end{itemize}
+
+\subsection{Comparison of Existing Solutions}
+
+\begin{table}[H]
+\centering
+\caption{Comparison of Sentry vs Dynatrace}
+\footnotesize
+\begin{tabular}{|p{4.5cm}|p{4.5cm}|p{4.5cm}|}
+\hline
+\textbf{Feature/Capability} & \textbf{Sentry} & \textbf{Dynatrace} \\ \hline
+Primary Use Case & Error \& Performance Monitoring & Full-Stack APM \& AI Observability \\ \hline
+Scalability & Poor at large-scale event volumes & Highly scalable (enterprise-grade) \\ \hline
+Offline Support & No offline error tracking & No offline monitoring \\ \hline
+User Interface (UI) & Modern but simple & Powerful but complex \\ \hline
+Key Missing Features & No infra/cloud monitoring & No built-in log management (Grail add-on) \\ \hline
+Root Cause Analysis & Manual (basic traces) & AI-powered (Davis AI) \\ \hline
+Real User Monitoring & Limited (frontend-focused) & Advanced (RUM + Synthetic) \\ \hline
+Performance Monitoring & Basic (transactions, latency) & Full APM (code-level, DB, infra) \\ \hline
+Cloud/Serverless & Limited & AWS Lambda, Azure Functions, etc. \\ \hline
+Cost & Affordable for startups & Very expensive (enterprise pricing) \\ \hline
+Best For & Dev teams need error tracking & Enterprises needing AI-driven APM \\ \hline
+\end{tabular}
+\end{table}
+
+\subsection{Why ErrorZen Will Outperform Existing Solutions}
+
+This analysis of Sentry and Dynatrace highlights critical gaps in current error monitoring and observability tools, reinforcing the need for a custom, AI-driven solution like ErrorZen. While traditional platforms excel in specific areas (Sentry for error tracking, Dynatrace for APM), they suffer from:
+
+\begin{itemize}
+\item Limited automation (manual triaging, no auto-fixing)
+\item Poor scalability for high-frequency errors
+\item No seamless DevOps/CI/CD integration (requiring manual intervention)
+\item Lack of AI-powered remediation delaying root cause analysis
+\end{itemize}
+
+\textbf{How ErrorZen Solves These Challenges:}
+
+\begin{itemize}
+\item \textbf{AI-Powered Auto-Correction:} Unlike Sentry (manual debugging) or Dynatrace (AI alerts only), ErrorZen proactively fixes errors using machine learning, slashing MTTR
+\item \textbf{End-to-End DevOps Automation:} Integrates directly with CI/CD pipelines to auto-test and deploy patches, eliminating manual steps that Dynatrace and Sentry can't address
+\item \textbf{Unified Cross-Platform Monitoring:} Tracks frontend, backend, and mobile in one dashboard, while competitors silo data (e.g., Sentry lacks infra insights)
+\item \textbf{Real-Time Notifications \& Collaboration:} Combines Slack/email alerts with actionable fixes, unlike passive Dynatrace alerts or Sentry's basic notifications
+\item \textbf{Scalable \& Cost-Effective:} Avoid Dynatrace's enterprise pricing and Sentry's volume limits via optimised event processing
+\end{itemize}
+
+\subsection{Technology Choices Justification}
+
+The platform will be built with:
+
+\begin{itemize}
+\item \textbf{Backend:} Go/Python/Node.js, PostgreSQL/MongoDB, gRPC/Rest API for communication between services
+\item \textbf{Frontend:} Vue.js with GraphQL Client for GraphQL integration
+\item \textbf{Artificial Intelligence:} Models based on deepseek api for automatic error correction
+\item \textbf{DevOps:} CI/CD via GitHub Actions/Jenkins, deployment with Docker and Kubernetes on AWS
+\end{itemize}
+
+\begin{table}[H]
+\centering
+\caption{Technology Stack Justification}
+\footnotesize
+\begin{tabular}{|p{3cm}|p{3.5cm}|p{7.5cm}|}
+\hline
+\textbf{Component} & \textbf{Technology Selected} & \textbf{Why Chosen? (Advantages Over Alternatives)} \\ \hline
+Backend Language & Go (Primary) & Go: High performance, concurrency (ideal for real-time error processing). Python: Async I/O for event-driven tasks, AI/ML integration ease \\ \hline
+Database & PostgreSQL (Primary), MongoDB & PostgreSQL: ACID compliance, scalability, JSON support. MongoDB: Flexible schema for unstructured error logs \\ \hline
+API Communication & gRPC (Internal), REST (External) & gRPC: Low-latency, high-throughput microservices communication. REST: Simplicity for client integrations \\ \hline
+Frontend & Vue.js + GraphQL Client & Vue.js: Lightweight, reactive UI for dashboards. GraphQL Client: Efficient state management \\ \hline
+AI/ML Framework & PyTorch (Primary), TensorFlow & PyTorch: Dynamic graphs, better for iterative AI model tuning. TensorFlow: Backup for production-scale deployments \\ \hline
+DevOps CI/CD & GitHub Actions (Primary), Jenkins (Legacy) & GitHub Actions: Native Git integration, faster workflows. Jenkins: Fallback for complex pipelines \\ \hline
+Deployment & Docker + Kubernetes (AWS/GCP) & Docker: Consistency across environments. Kubernetes: Auto-scaling for error spike handling. AWS/GCP: Global reliability \\ \hline
+\end{tabular}
+\end{table}
+
+\subsection{Summary}
+
+The literature and technology review provided essential insights into:
+
+\begin{itemize}
+\item The current state of the market
+\item Common limitations in existing systems
+\item Best practices in selecting modern, scalable technologies
+\end{itemize}
+
+This helped shape a solution that is both technically sound and aligned with the client's real-world needs.
