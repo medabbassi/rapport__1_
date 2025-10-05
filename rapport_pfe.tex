@@ -1,11 +1,12 @@
 % Main document for ErrorZen PFE Report
 % Author: Mohamed Abbassi
 % Date: October 2025
+% Formatting compliant with academic regulations
 
 \documentclass[12pt,a4paper]{article}
 
-% Page layout for A4 paper
-\usepackage[a4paper,margin=2.5cm,top=3cm,bottom=3cm]{geometry}
+% Page layout for A4 paper - 2.5cm margins as per regulations
+\usepackage[a4paper,margin=2.5cm]{geometry}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{xcolor}
@@ -22,7 +23,33 @@
 \usepackage{hhline}
 \usepackage{hyperref}
 \usepackage{bookmark}
-\usepackage{lmodern}
+
+% Times New Roman font as per regulations
+\usepackage{times}
+
+% Set line spacing to 1.15 as per regulations
+\usepackage{setspace}
+\setstretch{1.15}
+
+% Set paragraph indentation to 0.5cm as per regulations
+\usepackage{indentfirst}
+\setlength{\parindent}{0.5cm}
+
+% Enhanced table formatting
+\renewcommand{\arraystretch}{1.2}
+\setlength{\arrayrulewidth}{0.5pt}
+\setlength{\tabcolsep}{6pt}
+
+% Figure and table numbering format as per regulations (Tab. 1, Fig. 1, etc.)
+\captionsetup[table]{name=Tab.}
+\captionsetup[figure]{name=Fig.}
+
+% Content emphasis formatting as per regulations
+% Examples in italics, definitions can be framed, essential elements in bold
+\newcommand{\example}[1]{\textit{#1}}
+\newcommand{\definition}[1]{\fbox{\parbox{0.9\textwidth}{#1}}}
+\newcommand{\essential}[1]{\textbf{#1}}
+
 \usepackage{listings}
 \usepackage{xcolor}
 \usepackage{enumerate}
@@ -78,11 +105,6 @@
   morestring=[b]"
 }
 
-% Enhanced table formatting
-\renewcommand{\arraystretch}{1.2}
-\setlength{\arrayrulewidth}{0.5pt}
-\setlength{\tabcolsep}{6pt}
-
 % Set default figure placement
 \def\fps@figure{htbp}
 
@@ -93,6 +115,19 @@
 \usepackage{tocloft}
 \usepackage{titlesec}
 
+% Section formatting as per regulations - bold titles with decreasing sizes
+\titleformat{\section}
+  {\normalfont\Large\bfseries}{\thesection}{0.2cm}{}
+\titleformat{\subsection}
+  {\normalfont\large\bfseries}{\thesubsection}{0.2cm}{}
+\titleformat{\subsubsection}
+  {\normalfont\normalsize\bfseries}{\thesubsubsection}{0.2cm}{}
+
+% Spacing for titles as per regulations
+\titlespacing*{\section}{0.2cm}{0.3cm}{0.2cm}
+\titlespacing*{\subsection}{0.2cm}{0.3cm}{0.2cm}
+\titlespacing*{\subsubsection}{0.2cm}{0.3cm}{0.2cm}
+
 % Configure hyperref
 \hypersetup{
     colorlinks=true,
@@ -102,8 +137,21 @@
     pdfcreator={LaTeX via pandoc}
 }
 
-% Title page information
-\title{ErrorZen: Intelligent Platform for Automated Error Management\\
+% Page numbering format as per regulations (bottom right)
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[R]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Ensure proper page breaks and avoid orphan lines as per regulations
+\widowpenalty=10000
+\clubpenalty=10000
+\raggedbottom
+
+% Title page information - 24pt centered as per regulations
+\title{\fontsize{24}{28}\selectfont\textbf{ErrorZen: Intelligent Platform for Automated Error Management}\\[0.5cm]
 \large{Final Year Project Report}}
 \author{Mohamed Abbassi}
 \date{October 2025}
@@ -112,6 +160,39 @@
 
 % Title page
 \maketitle
+\newpage
+
+% Personal Acknowledgments Page
+\thispagestyle{empty}
+\vspace*{2cm}
+\begin{center}
+\Huge\textbf{Personal Acknowledgments}
+\end{center}
+\vspace{1.5cm}
+
+\large
+\begin{itemize}
+\item My beloved family, whose unwavering love, support, and encouragement have been the cornerstone of my academic journey. I am deeply grateful to each family member who stood by me through every challenge and celebrated every achievement throughout this significant life step. Their constant belief in my abilities, their sacrifices, and their emotional support provided me with the strength and motivation to pursue my dreams and complete this engineering degree. Without their dedication and understanding, this milestone would not have been possible.
+
+\item My parents, who provided not only financial support but also the moral foundation that guided me through difficult times, always encouraging me to persevere and reach for excellence in my studies and personal development.
+
+\item My siblings and extended family members, who offered encouragement, understanding, and patience during the demanding periods of this academic journey, creating a supportive environment that allowed me to focus on my goals.
+
+\item Friends and peers who provided motivation, shared experiences, and valuable feedback during the project development, making this journey more meaningful and enjoyable.
+
+\item Everyone who participated in testing and validating the ErrorZen platform during its development phases, contributing to the practical success of this project.
+\end{itemize}
+
+\vspace{1cm}
+This project represents the culmination of my undergraduate studies and would not have been possible without the collective support, guidance, and expertise of all the mentioned individuals and institutions. Their contributions have been instrumental in both my personal growth and the successful realization of the ErrorZen platform.
+
+\vspace*{\fill}
+\begin{center}
+\textit{With deep gratitude and appreciation}\\
+\vspace{0.5cm}
+\textbf{Mohamed Abbassi}\\
+October 2025
+\end{center}
 \newpage
 
 % Table of contents

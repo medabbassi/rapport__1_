@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package proto;
+
+option go_package = "github.com/medabbassi/go_server/pkg/proto";
+
+message ErrorLogRequest {
+  string id = 1;
+  string system_id = 2;
+  string reporter_id = 3;
+  string message = 4;
+  string stack_trace = 5;
+  string severity = 6;
+  string project_id = 7;
+  string organization_id = 8;
+}
+
+message ErrorLogResponse {
+  string status = 1;
+  string error_id = 2;
+}
+
+service ErrorService {
+  rpc LogError (ErrorLogRequest) returns (ErrorLogResponse);
+}

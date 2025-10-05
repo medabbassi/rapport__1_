@@ -42,7 +42,7 @@ This section presents the key interfaces and functionalities of the ErrorZen app
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.9\textwidth,height=0.5\textheight,keepaspectratio]{rapport/media/dashboard_main.png}
+\includegraphics[width=0.9\textwidth,height=0.5\textheight,keepaspectratio]{rapport/screenshots/Screenshot_dashboard.png}
 \caption{ErrorZen Main Dashboard - Real-time Error Monitoring}
 \label{fig:dashboard_main}
 \end{figure}
@@ -55,38 +55,72 @@ The main dashboard provides a comprehensive overview of system health, error sta
 \item Quick access to recent error logs
 \end{itemize}
 
-\subsubsection{Error Analysis Interface}
+\subsubsection{Error Detection Interface}
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.9\textwidth,height=0.5\textheight,keepaspectratio]{rapport/media/error_analysis.png}
-\caption{Error Analysis and AI-Powered Fix Suggestions}
-\label{fig:error_analysis}
+\includegraphics[width=0.9\textwidth,height=0.5\textheight,keepaspectratio]{rapport/screenshots/Screenshot_error_detection.png}
+\caption{Error Detection and AI-Powered Analysis}
+\label{fig:error_detection}
 \end{figure}
 
-The error analysis interface demonstrates the AI-powered error classification and fix suggestion system, featuring:
+The error detection interface demonstrates the AI-powered error classification and analysis system, featuring:
 \begin{itemize}
 \item Detailed error stack traces and context
-\item AI-generated fix suggestions with confidence ratings
-\item Code diff visualization for proposed fixes
-\item One-click fix application with rollback capabilities
+\item AI-generated analysis with confidence ratings
+\item Real-time error classification
+\item Automated error categorization
 \end{itemize}
 
-\subsubsection{Notification Configuration}
+\subsubsection{Project Configuration Interface}
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.9\textwidth,height=0.5\textheight,keepaspectratio]{rapport/media/notification_config.png}
-\caption{Multi-channel Notification Configuration Interface}
-\label{fig:notification_config}
+\includegraphics[width=0.9\textwidth,height=0.5\textheight,keepaspectratio]{rapport/screenshots/Screenshot_project_config.png}
+\caption{Project Configuration and Management}
+\label{fig:project_config}
 \end{figure}
 
-The notification configuration interface allows administrators to set up and manage various alert channels:
+The project configuration interface allows administrators to set up and manage project settings:
 \begin{itemize}
-\item Integration setup for Slack, Teams, and Discord
-\item Alert rule configuration with custom thresholds
-\item Notification template customization
-\item Testing and validation of notification delivery
+\item Project setup and configuration
+\item Integration management
+\item Environment variable configuration
+\item Access control and permissions
+\end{itemize}
+
+\subsubsection{AI Usage Analytics}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth,height=0.5\textheight,keepaspectratio]{rapport/screenshots/Screenshot_ai_usage.png}
+\caption{AI Usage Analytics and Performance Metrics}
+\label{fig:ai_usage}
+\end{figure}
+
+The AI usage analytics interface provides insights into AI system performance:
+\begin{itemize}
+\item AI model usage statistics
+\item Processing time analytics
+\item Accuracy metrics and trends
+\item Resource utilization monitoring
+\end{itemize}
+
+\subsubsection{Pipeline Configuration}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth,height=0.5\textheight,keepaspectratio]{rapport/screenshots/Screenshot _pipline.png}
+\caption{CI/CD Pipeline Configuration Interface}
+\label{fig:pipeline_config}
+\end{figure}
+
+The pipeline configuration interface enables setup of automated workflows:
+\begin{itemize}
+\item Build and deployment pipeline setup
+\item Environment variable management
+\item Job configuration and scheduling
+\item Integration with CI/CD tools
 \end{itemize}
 
 \subsection{Code Implementation Examples}
@@ -95,180 +129,268 @@ This section showcases key code implementations that demonstrate the technical a
 
 \subsubsection{Backend API Implementation}
 
-\textbf{Go REST API Endpoint for Error Ingestion:}
+\textbf{Go gRPC Server Implementation for Error Processing:}
 
-\begin{lstlisting}[language=Go, caption=Error Ingestion API Handler, label=lst:error_ingestion]
-package handlers
+\begin{lstlisting}[language=Go, caption=gRPC Error Service Server, label=lst:grpc_server]
+package grpc_server
 
 import (
-    "net/http"
-    "time"
-    
-    "github.com/gin-gonic/gin"
-    "github.com/errorzen/internal/models"
-    "github.com/errorzen/internal/services"
+	"context"
+	"database/sql"
+	"github.com/medabbassi/go_server/cmd/grpc_server/servers"
+	"log"
+	"net"
+
+	"github.com/medabbassi/go_server/pkg/config"
+	pb "github.com/medabbassi/go_server/pkg/proto"
+	"google.golang.org/grpc"
 )
 
-// ErrorIngestionHandler handles incoming error reports
-type ErrorIngestionHandler struct {
-    errorService *services.ErrorService
-    logger      *log.Logger
+type server struct {
+	pb.UnimplementedErrorServiceServer
 }
 
-// IngestError processes and stores incoming error data
-func (h *ErrorIngestionHandler) IngestError(c *gin.Context) {
-    var errorData models.ErrorReport
-    
-    // Bind and validate incoming JSON
-    if err := c.ShouldBindJSON(&errorData); err != nil {
-        c.JSON(http.StatusBadRequest, gin.H{
-            "error": "Invalid error data format",
-            "details": err.Error(),
-        })
-        return
-    }
-    
-    // Add metadata
-    errorData.Timestamp = time.Now()
-    errorData.IPAddress = c.ClientIP()
-    errorData.UserAgent = c.GetHeader("User-Agent")
-    
-    // Process error through service layer
-    processedError, err := h.errorService.ProcessError(&errorData)
-    if err != nil {
-        h.logger.Error("Failed to process error", err)
-        c.JSON(http.StatusInternalServerError, gin.H{
-            "error": "Failed to process error",
-        })
-        return
-    }
-    
-    // Trigger AI analysis asynchronously
-    go h.errorService.AnalyzeErrorWithAI(processedError.ID)
-    
-    c.JSON(http.StatusCreated, gin.H{
-        "message": "Error ingested successfully",
-        "error_id": processedError.ID,
-        "status": "processing",
-    })
+func (s *server) LogError(ctx context.Context, in *pb.ErrorLogRequest) (*pb.ErrorLogResponse, error) {
+	log.Printf("Received error log - ID: %s, Message: %s", in.Id, in.Message)
+	return &pb.ErrorLogResponse{Status: "received"}, nil
+}
+
+func Start(db *sql.DB) {
+	lis, err := net.Listen("tcp", ":"+config.GetConfig().GRPCPort)
+	if err != nil {
+		log.Printf("Failed to start gRPC server on port %s: %v", config.GetConfig().GRPCPort, err)
+		log.Printf("gRPC server will not be available, but REST API will continue running")
+		return
+	}
+
+	s := grpc.NewServer()
+
+	// Register the DB-backed implementation
+	pb.RegisterErrorServiceServer(s, servers.NewErrorServiceServer(db))
+
+	log.Printf("gRPC server started on port %s", config.GetConfig().GRPCPort)
+
+	if err := s.Serve(lis); err != nil {
+		log.Printf("gRPC server stopped: %v", err)
+	}
+}
+\end{lstlisting}
+
+\textbf{Protocol Buffers Definition for Error Service:}
+
+\begin{lstlisting}[language=Go, caption=Error Service Proto Definition, label=lst:error_proto]
+syntax = "proto3";
+
+package proto;
+
+option go_package = "github.com/medabbassi/go_server/pkg/proto";
+
+message ErrorLogRequest {
+  string id = 1;
+  string system_id = 2;
+  string reporter_id = 3;
+  string message = 4;
+  string stack_trace = 5;
+  string severity = 6;
+  string project_id = 7;
+  string organization_id = 8;
+}
+
+message ErrorLogResponse {
+  string status = 1;
+  string error_id = 2;
+}
+
+service ErrorService {
+  rpc LogError (ErrorLogRequest) returns (ErrorLogResponse);
+}
+\end{lstlisting}
+
+\textbf{AI Agent Model Implementation:}
+
+\begin{lstlisting}[language=Go, caption=AI Agent Database Model, label=lst:ai_agent]
+package model
+
+import (
+	"database/sql"
+	"time"
+)
+
+type AIAgent struct {
+	ID        string    `json:"id"`
+	Name      string    `json:"name"`
+	Active    bool      `json:"active"`
+	CreatedAt time.Time `json:"created_at"`
+}
+
+type Prompt struct {
+	ID        string    `json:"id"`
+	AgentID   string    `json:"agent_id"` // FK -> ai_agents.id
+	UserID    string    `json:"user_id"`  // FK -> users.id
+	ErrorID   string    `json:"error_id"` // FK -> errors.id (nullable)
+	Content   string    `json:"content"`
+	CreatedAt time.Time `json:"created_at"`
+}
+
+func (m *AIAgentModel) CreateTableIfNotExists() error {
+	_, err := m.DB.Exec(`
+		CREATE TABLE IF NOT EXISTS ai_agents (
+			id UUID PRIMARY KEY,
+			name VARCHAR(60) NOT NULL,
+			active BOOLEAN DEFAULT TRUE,
+			created_at TIMESTAMP NOT NULL
+		);
+	`)
+	return err
 }
 \end{lstlisting}
 
 \subsubsection{Frontend Vue.js Component}
 
-\textbf{Real-time Dashboard Component Implementation:}
+\textbf{Vue.js Pipeline Configuration Component:}
 
-\begin{lstlisting}[language=JavaScript, caption=Vue.js Dashboard Component, label=lst:vue_dashboard]
+\begin{lstlisting}[language=JavaScript, caption=Pipeline Configuration Vue Component, label=lst:vue_pipeline]
 <template>
-  <div class="dashboard-container">
-    <div class="metrics-grid">
-      <MetricCard
-        v-for="metric in metrics"
-        :key="metric.id"
-        :title="metric.title"
-        :value="metric.value"
-        :trend="metric.trend"
-        :color="metric.color"
-      />
+  <AdminLayout>
+    <div class="min-h-screen rounded-2xl border border-gray-200 bg-white px-5 py-7 dark:border-gray-800 dark:bg-white/[0.03] xl:px-10 xl:py-12">
+      <!-- Header -->
+      <h2 class="mb-2 text-2xl font-semibold text-gray-800 dark:text-white/90">
+        Configure Pipeline Steps
+      </h2>
+      <p class="mb-8 text-sm text-gray-500 dark:text-gray-400">
+        Customize the steps in your pipeline to ensure efficient error detection and resolution.
+      </p>
+
+      <!-- Build Tools -->
+      <div class="mb-6">
+        <label class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-300">
+          Select Build Tool
+        </label>
+        <select v-model="buildTool" class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm dark:border-gray-700 dark:bg-white/[0.05] dark:text-white">
+          <option value="">Choose</option>
+          <option value="maven">Maven</option>
+          <option value="gradle">Gradle</option>
+          <option value="npm">NPM</option>
+          <option value="yarn">Yarn</option>
+        </select>
+      </div>
+
+      <!-- Environment Variables -->
+      <div class="mb-8">
+        <h3 class="mb-3 text-base font-semibold text-gray-700 dark:text-gray-300">Environment Variables</h3>
+        <div class="overflow-hidden rounded-xl border border-gray-200 dark:border-gray-700">
+          <table class="w-full text-sm">
+            <thead class="bg-gray-50 dark:bg-white/[0.05]">
+            <tr>
+              <th class="px-4 py-3 text-left">Variable Name</th>
+              <th class="px-4 py-3 text-left">Value</th>
+              <th class="px-4 py-3 text-left"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr v-for="(env, i) in envVars" :key="i" class="border-t border-gray-200 dark:border-gray-700">
+              <td class="px-4 py-3">
+                <input
+                  v-model="env.name"
+                  class="w-full rounded border border-gray-300 px-2 py-1 text-sm dark:border-gray-700 dark:bg-white/[0.05] dark:text-white"
+                  placeholder="Variable Name"
+                />
+              </td>
+              <td class="px-4 py-3">
+                <input
+                  v-model="env.value"
+                  class="w-full rounded border border-gray-300 px-2 py-1 text-sm dark:border-gray-700 dark:bg-white/[0.05] dark:text-white"
+                  placeholder="Value"
+                />
+              </td>
+              <td class="px-4 py-3">
+                <button
+                  @click="removeEnvVar(i)"
+                  class="text-red-500 hover:underline"
+                  type="button"
+                >Remove</button>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
-    
-    <div class="charts-section">
-      <ErrorTrendChart :data="errorTrendData" />
-      <ServiceHealthChart :services="serviceHealth" />
-    </div>
-    
-    <div class="recent-errors">
-      <h3>Recent Errors</h3>
-      <ErrorList
-        :errors="recentErrors"
-        :loading="loading"
-        @error-selected="handleErrorSelection"
-      />
-    </div>
-  </div>
+  </AdminLayout>
 </template>
 
-<script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
-import { useDashboardStore } from '@/stores/dashboard'
-import { useWebSocket } from '@/composables/websocket'
+<script lang="ts">
+import { defineComponent, ref } from 'vue'
+import AdminLayout from '@/components/layout/AdminLayout.vue'
 
-const dashboardStore = useDashboardStore()
-const { connectWebSocket, disconnectWebSocket } = useWebSocket()
-
-const metrics = ref([])
-const errorTrendData = ref([])
-const serviceHealth = ref([])
-const recentErrors = ref([])
-const loading = ref(true)
-
-// WebSocket connection for real-time updates
-const setupRealTimeUpdates = () => {
-  connectWebSocket('ws://localhost:8080/ws/dashboard', {
-    onMessage: (data) => {
-      updateDashboardData(JSON.parse(data))
-    },
-    onError: (error) => {
-      console.error('WebSocket error:', error)
+export default defineComponent({
+  name: 'PipelineSteps',
+  components: { AdminLayout },
+  setup() {
+    const buildTool = ref('')
+    const envVars = ref([
+      { name: 'API_KEY', value: 'your_api_key_here' },
+      { name: 'DATABASE_URL', value: 'your_database_url_here' },
+      { name: 'ENVIRONMENT', value: 'production' }
+    ])
+    
+    const addEnvVar = () => {
+      envVars.value.push({ name: '', value: '' })
     }
-  })
-}
+    
+    const removeEnvVar = (index: number) => {
+      envVars.value.splice(index, 1)
+    }
 
-// Update dashboard with real-time data
-const updateDashboardData = (data) => {
-  metrics.value = data.metrics
-  errorTrendData.value = data.errorTrend
-  serviceHealth.value = data.serviceHealth
-  recentErrors.value = data.recentErrors
-  loading.value = false
-}
-
-// Handle error selection for detailed view
-const handleErrorSelection = (errorId) => {
-  dashboardStore.setSelectedError(errorId)
-  // Navigate to error details view
-  router.push(`/errors/${errorId}`)
-}
-
-// Lifecycle hooks
-onMounted(async () => {
-  await dashboardStore.loadInitialData()
-  setupRealTimeUpdates()
-})
-
-onUnmounted(() => {
-  disconnectWebSocket()
+    return { buildTool, envVars, addEnvVar, removeEnvVar }
+  }
 })
 </script>
+\end{lstlisting}
 
-<style scoped>
-.dashboard-container {
-  padding: 20px;
-  max-width: 1200px;
-  margin: 0 auto;
+\textbf{Redis Cache Implementation:}
+
+\begin{lstlisting}[language=Go, caption=Redis Cache Service, label=lst:redis_cache]
+package cache
+
+import (
+	"context"
+	"github.com/medabbassi/go_server/pkg/config"
+	"github.com/redis/go-redis/v9"
+	"log"
+	"time"
+)
+
+var cacheClient *redis.Client
+var ctx = context.Background()
+
+func InitCache(cfg *config.Config) {
+	cacheClient = redis.NewClient(&redis.Options{
+		Addr: cfg.REDIS, // Use the same config field for Redis address
+	})
+	_, err := cacheClient.Ping(ctx).Result()
+	if err != nil {
+		log.Fatalf("Redis connection error: %v", err)
+	}
 }
 
-.metrics-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  margin-bottom: 30px;
+func CacheSet(key, value string, ttl int32) {
+	err := cacheClient.Set(ctx, key, value, time.Duration(ttl)*time.Second).Err()
+	if err != nil {
+		log.Printf("Cache set error: %v", err)
+	}
 }
 
-.charts-section {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 20px;
-  margin-bottom: 30px;
+func CacheGet(key string) (string, error) {
+	val, err := cacheClient.Get(ctx, key).Result()
+	if err == redis.Nil {
+		return "", nil // Key does not exist
+	}
+	if err != nil {
+		return "", err
+	}
+	return val, nil
 }
-
-.recent-errors {
-  background: white;
-  border-radius: 8px;
-  padding: 20px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-</style>
 \end{lstlisting}
 
 \subsubsection{Database Schema Implementation}
@@ -330,7 +452,109 @@ CREATE TRIGGER update_errors_updated_at
     EXECUTE FUNCTION update_updated_at_column();
 \end{lstlisting}
 
-\subsection{Development Challenges and Solutions}
+\subsection{Additional Application Features}
+
+The ErrorZen platform includes several additional features that enhance the overall error management experience:
+
+\subsubsection{User Authentication and Security}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth,height=0.5\textheight,keepaspectratio]{rapport/screenshots/Screenshot_signin.png}
+\caption{Secure Sign-in Interface with Multi-factor Authentication}
+\label{fig:signin}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth,height=0.5\textheight,keepaspectratio]{rapport/screenshots/Screenshot_signup.png}
+\caption{User Registration and Account Setup}
+\label{fig:signup}
+\end{figure}
+
+The authentication system provides secure access control with features including:
+\begin{itemize}
+\item Multi-factor authentication (MFA) support
+\item JWT-based session management
+\item Role-based access control (RBAC)
+\item Password strength validation
+\item Account verification and recovery
+\end{itemize}
+
+\subsubsection{Project Management and Organization}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth,height=0.5\textheight,keepaspectratio]{rapport/screenshots/Screenshot_project_list.png}
+\caption{Project Management Dashboard}
+\label{fig:project_list}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth,height=0.5\textheight,keepaspectratio]{rapport/screenshots/Screenshot_project_secret.png}
+\caption{Project Secrets and Environment Management}
+\label{fig:project_secrets}
+\end{figure}
+
+The project management interface enables:
+\begin{itemize}
+\item Multi-project organization and hierarchy
+\item Environment-specific configurations
+\item Secure secrets management
+\item Team collaboration and permissions
+\item Project-level analytics and reporting
+\end{itemize}
+
+\subsubsection{Third-party Integrations}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth,height=0.5\textheight,keepaspectratio]{rapport/screenshots/Screenshot_integrations.png}
+\caption{Third-party Service Integrations}
+\label{fig:integrations}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth,height=0.5\textheight,keepaspectratio]{rapport/screenshots/Screenshot_sonar_cloud.png}
+\caption{SonarCloud Integration for Code Quality Analysis}
+\label{fig:sonar_integration}
+\end{figure}
+
+The platform supports various integrations including:
+\begin{itemize}
+\item SonarCloud for code quality analysis
+\item GitHub/GitLab for version control integration
+\item Slack/Teams for notification delivery
+\item CI/CD pipeline integrations
+\item Cloud provider monitoring services
+\end{itemize}
+
+\subsubsection{Security and Compliance}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth,height=0.5\textheight,keepaspectratio]{rapport/screenshots/Screenshot _security.png}
+\caption{Security Settings and Compliance Dashboard}
+\label{fig:security}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth,height=0.5\textheight,keepaspectratio]{rapport/screenshots/Screenshot_billing.png}
+\caption{Billing and Subscription Management}
+\label{fig:billing}
+\end{figure}
+
+Security and compliance features include:
+\begin{itemize}
+\item Data encryption at rest and in transit
+\item Audit logging and compliance reporting
+\item GDPR and SOC2 compliance support
+\item Automated security scanning
+\item Flexible subscription and billing management
+\end{itemize}
 
 \subsubsection{Challenge 1: Real-time Data Synchronization}
 
