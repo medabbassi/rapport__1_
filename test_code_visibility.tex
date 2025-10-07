@@ -1,0 +1,59 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{xcolor}
+\usepackage{lmodern}
+\usepackage{listings}
+
+% Configure listings for code snippets
+\lstset{
+    basicstyle=\ttfamily\footnotesize,
+    backgroundcolor=\color{gray!10},
+    frame=single,
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    keywordstyle=\color{blue}\bfseries,
+    commentstyle=\color{green!60!black},
+    stringstyle=\color{red},
+    breaklines=true,
+    breakatwhitespace=true,
+    tabsize=2,
+    showspaces=false,
+    showstringspaces=false,
+    captionpos=b
+}
+
+% Define Go language
+\lstdefinelanguage{Go}{
+    keywords={func, package, import, return, var, if, for},
+    sensitive=true,
+    comment=[l]{//},
+    morecomment=[s]{/*}{*/},
+    morestring=[b]",
+    morestring=[b]'
+}
+
+\begin{document}
+
+\section{Code Test}
+
+This is a test to see if code snippets are visible:
+
+\begin{lstlisting}[language=Go, caption=Test Go Code]
+package main
+
+import "fmt"
+
+func main() {
+    fmt.Println("Hello, World!")
+    // This is a comment
+    var x = 42
+    if x > 0 {
+        fmt.Println("Positive number")
+    }
+}
+\end{lstlisting}
+
+\end{document}

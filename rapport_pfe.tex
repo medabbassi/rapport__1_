@@ -24,8 +24,11 @@
 \usepackage{hyperref}
 \usepackage{bookmark}
 
-% Times New Roman font as per regulations
+% Times New Roman font for main text as per regulations
 \usepackage{times}
+
+% Latin Modern font for code snippets only
+\usepackage{lmodern}
 
 % Set line spacing to 1.15 as per regulations
 \usepackage{setspace}
@@ -40,6 +43,66 @@
 \setlength{\arrayrulewidth}{0.5pt}
 \setlength{\tabcolsep}{6pt}
 
+% Add listings package for code display
+\usepackage{listings}
+\usepackage{xcolor}
+
+% Configure listings for code snippets
+\lstset{
+    basicstyle=\fontfamily{lmtt}\selectfont\footnotesize,
+    backgroundcolor=\color{gray!10},
+    frame=single,
+    numbers=left,
+    numberstyle=\tiny\color{gray}\fontfamily{lmtt}\selectfont,
+    keywordstyle=\color{blue}\bfseries\fontfamily{lmtt}\selectfont,
+    commentstyle=\color{green!60!black}\fontfamily{lmtt}\selectfont,
+    stringstyle=\color{red}\fontfamily{lmtt}\selectfont,
+    breaklines=true,
+    breakatwhitespace=true,
+    tabsize=2,
+    showspaces=false,
+    showstringspaces=false,
+    captionpos=b,
+    aboveskip=10pt,
+    belowskip=10pt,
+    escapeinside={\%*}{*)}
+}
+
+% Define Go language
+\lstdefinelanguage{Go}{
+    keywords={break, default, func, interface, select, case, defer, go, map, struct, chan, else, goto, package, switch, const, fallthrough, if, range, type, continue, for, import, return, var},
+    ndkeywords={bool, byte, complex64, complex128, error, float32, float64, int, int8, int16, int32, int64, rune, string, uint, uint8, uint16, uint32, uint64, uintptr, true, false, iota, nil},
+    sensitive=true,
+    comment=[l]{//},
+    morecomment=[s]{/*}{*/},
+    morestring=[b]",
+    morestring=[b]',
+    morestring=[b]`
+}
+
+% Define JavaScript language
+\lstdefinelanguage{JavaScript}{
+    keywords={const, let, var, function, return, if, else, for, while, do, break, continue, switch, case, default, try, catch, finally, throw, new, this, typeof, instanceof, in, of, async, await, import, export, from, as, class, extends, super},
+    ndkeywords={Array, Object, String, Number, Boolean, Function, Date, RegExp, Math, JSON, Promise, Map, Set},
+    sensitive=true,
+    comment=[l]{//},
+    morecomment=[s]{/*}{*/},
+    morestring=[b]",
+    morestring=[b]',
+    morestring=[b]`
+}
+
+% Define SQL language
+\lstdefinelanguage{SQL}{
+    keywords={CREATE, TABLE, SELECT, FROM, WHERE, INSERT, UPDATE, DELETE, DROP, ALTER, INDEX, PRIMARY, KEY, FOREIGN, REFERENCES, NOT, NULL, DEFAULT, UNIQUE, CHECK, CONSTRAINT},
+    ndkeywords={VARCHAR, INT, INTEGER, TEXT, BOOLEAN, TIMESTAMP, UUID, JSONB},
+    sensitive=false,
+    comment=[l]{--},
+    morecomment=[s]{/*}{*/},
+    morestring=[b]',
+    morestring=[b]"
+}
+
 % Figure and table numbering format as per regulations (Tab. 1, Fig. 1, etc.)
 \captionsetup[table]{name=Tab.}
 \captionsetup[figure]{name=Fig.}
@@ -50,60 +113,7 @@
 \newcommand{\definition}[1]{\fbox{\parbox{0.9\textwidth}{#1}}}
 \newcommand{\essential}[1]{\textbf{#1}}
 
-\usepackage{listings}
-\usepackage{xcolor}
 \usepackage{enumerate}
-
-% Configure listings for code snippets
-\lstset{
-    basicstyle=\ttfamily\footnotesize,
-    commentstyle=\color{green!40!black},
-    keywordstyle=\color{blue},
-    stringstyle=\color{red},
-    numbers=left,
-    numberstyle=\tiny\color{gray},
-    stepnumber=1,
-    numbersep=8pt,
-    showspaces=false,
-    showstringspaces=false,
-    showtabs=false,
-    frame=single,
-    rulecolor=\color{black},
-    tabsize=2,
-    captionpos=b,
-    breaklines=true,
-    breakatwhitespace=false,
-    escapeinside={\%*}{*)},
-    backgroundcolor=\color{gray!10}
-}
-
-% Define custom language for JavaScript/Vue.js
-\lstdefinelanguage{JavaScript}{
-  keywords={const, let, var, function, return, if, else, for, while, do, break, continue, switch, case, default, try, catch, finally, throw, new, this, typeof, instanceof, in, of, async, await, import, export, from, as, class, extends, super, static, get, set},
-  ndkeywords={Array, Object, String, Number, Boolean, Function, Date, RegExp, Math, JSON, Promise, Map, Set, WeakMap, WeakSet},
-  sensitive=true,
-  comment=[l]{//},
-  morecomment=[s]{/*}{*/},
-  morestring=[b]",
-  morestring=[b]',
-  morestring=[b]`
-}
-
-% Define custom language for Docker
-\lstdefinelanguage{Docker}{
-  keywords={FROM, RUN, CMD, LABEL, EXPOSE, ENV, ADD, COPY, ENTRYPOINT, VOLUME, USER, WORKDIR, ARG, ONBUILD, STOPSIGNAL, HEALTHCHECK, SHELL},
-  keywordstyle=\color{blue}\bfseries,
-  ndkeywords={},
-  ndkeywordstyle=\color{darkgray}\bfseries,
-  identifierstyle=\color{black},
-  sensitive=false,
-  comment=[l]{\#},
-  morecomment=[s]{/*}{*/},
-  commentstyle=\color{purple}\ttfamily,
-  stringstyle=\color{red}\ttfamily,
-  morestring=[b]',
-  morestring=[b]"
-}
 
 % Set default figure placement
 \def\fps@figure{htbp}

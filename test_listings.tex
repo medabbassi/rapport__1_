@@ -1,0 +1,31 @@
+\documentclass{article}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\lstset{
+    basicstyle=\ttfamily\footnotesize,
+    numbers=left,
+    frame=single,
+    backgroundcolor=\color{gray!10}
+}
+
+\lstdefinelanguage{Go}{
+  keywords={func, package, import, return, type},
+  sensitive=true,
+  comment=[l]{//},
+  morestring=[b]"
+}
+
+\begin{document}
+
+\begin{lstlisting}[language=Go, caption=Test Go Code]
+package main
+
+import "fmt"
+
+func main() {
+    fmt.Println("Hello, World!")
+}
+\end{lstlisting}
+
+\end{document}
