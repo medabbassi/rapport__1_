@@ -126,31 +126,21 @@ This analysis of Sentry and Dynatrace highlights critical gaps in current error 
 
 \subsection{Technology Choices Justification}
 
-The platform will be built with:
+The ErrorZen platform requires a robust and scalable technology stack capable of handling real-time error processing, intelligent analysis, and seamless integration with modern development workflows. After careful evaluation of available technologies and frameworks, we selected a combination of tools that balance performance, maintainability, and extensibility.
 
-\begin{itemize}
-\item \textbf{Backend:} Go/Python/Node.js, PostgreSQL/MongoDB, gRPC/Rest API for communication between services
-\item \textbf{Frontend:} Vue.js with REST API client for frontend integration
-\item \textbf{Artificial Intelligence:} Models based on deepseek api for automatic error correction
-\item \textbf{DevOps:} CI/CD via GitHub Actions/Jenkins, deployment with Docker and Kubernetes on AWS
-\end{itemize}
+For the backend architecture, we chose Go as our primary programming language because of its exceptional performance characteristics and built-in concurrency model. Go's goroutines and channels make it ideal for real-time error processing where multiple error streams must be handled simultaneously without blocking operations. Additionally, Go's compiled nature ensures low latency and efficient resource utilization, which are critical when processing high volumes of error events. Python complements Go in our architecture by handling event-driven tasks and providing seamless integration with AI/ML services, particularly for interfacing with the DeepSeek API. Python's asynchronous I/O capabilities through asyncio make it well-suited for managing AI model interactions without introducing performance bottlenecks.
 
-\begin{table}[H]
-\centering
-\caption{Technology Stack Justification}
-\footnotesize
-\begin{tabular}{|p{3cm}|p{3.5cm}|p{7.5cm}|}
-\hline
-\textbf{Component} & \textbf{Technology Selected} & \textbf{Why Chosen? (Advantages Over Alternatives)} \\ \hline
-Backend Language & Go (Primary) & Go: High performance, concurrency (ideal for real-time error processing). Python: Async I/O for event-driven tasks, AI/ML integration ease \\ \hline
-Database & PostgreSQL (Primary), MongoDB & PostgreSQL: ACID compliance, scalability, JSON support. MongoDB: Flexible schema for unstructured error logs \\ \hline
-API Communication & gRPC (Internal), REST (External) & gRPC: Low-latency, high-throughput microservices communication. REST: Simplicity for client integrations \\ \hline
-Frontend & Vue.js + REST API Client & Vue.js: Lightweight, reactive UI for dashboards. REST API Client: Efficient state management \\ \hline
-AI/ML Framework & PyTorch (Primary), TensorFlow & PyTorch: Dynamic graphs, better for iterative AI model tuning. TensorFlow: Backup for production-scale deployments \\ \hline
-DevOps CI/CD & GitHub Actions (Primary), Jenkins (Legacy) & GitHub Actions: Native Git integration, faster workflows. Jenkins: Fallback for complex pipelines \\ \hline
-Deployment & Docker + Kubernetes (AWS/GCP) & Docker: Consistency across environments. Kubernetes: Auto-scaling for error spike handling. AWS/GCP: Global reliability \\ \hline
-\end{tabular}
-\end{table}
+Regarding data storage, we implemented a dual-database strategy to optimize for different data characteristics. PostgreSQL serves as our primary database because it provides ACID compliance, ensuring data consistency and reliability for critical application state and user information. PostgreSQL's excellent scalability and native JSON support allow us to store structured data efficiently while maintaining the flexibility to handle semi-structured metadata. We complement PostgreSQL with MongoDB for storing unstructured error logs and stack traces, where MongoDB's flexible schema architecture allows us to adapt to varying error formats across different programming languages and frameworks without requiring schema migrations.
+
+For inter-service communication, we adopted a hybrid API approach. Internally, we use gRPC for microservices communication because it provides low-latency, high-throughput data exchange through Protocol Buffers, which is essential for real-time error processing pipelines. gRPC's efficient binary serialization reduces network overhead and improves overall system performance. For external client integrations, we expose REST APIs because of their simplicity, widespread adoption, and excellent compatibility with various programming languages and platforms. This dual approach allows us to optimize internal performance while maintaining ease of integration for external users.
+
+The frontend is built using Vue.js, which we selected for its lightweight nature and reactive component model. Vue.js enables us to create responsive, real-time dashboards that update instantly as new errors are detected and processed. Its progressive framework design allows us to scale complexity as needed without over-engineering simple components. We integrate the frontend with our backend services using a REST API client that manages state efficiently and provides a clean separation between presentation and business logic.
+
+For artificial intelligence and machine learning capabilities, we chose to leverage the DeepSeek API rather than maintaining custom ML models. This decision was driven by several factors: DeepSeek's advanced language model capabilities enable sophisticated error analysis and automated correction suggestions that would require significant resources to develop in-house. By using an API-based approach, we eliminate the overhead of training, maintaining, and scaling custom ML infrastructure, allowing us to focus our development efforts on core platform features. DeepSeek's continuously updated models also ensure that our error analysis capabilities improve over time without requiring manual model updates.
+
+Our DevOps and CI/CD strategy centers on GitHub Actions as the primary automation platform because of its native integration with Git repositories and streamlined workflow execution. GitHub Actions allows us to implement continuous integration and deployment pipelines that automatically test and deploy code changes, reducing manual intervention and accelerating release cycles. We maintain Jenkins as a fallback option for handling complex legacy pipelines and scenarios that require more sophisticated build orchestration.
+
+For deployment and infrastructure, we adopted a containerized approach using Docker and Kubernetes. Docker ensures consistency across development, testing, and production environments by packaging applications with all their dependencies, eliminating the common "works on my machine" problem. Kubernetes provides the orchestration layer that enables auto-scaling capabilities, which are essential for handling sudden error spikes during production incidents. We deploy our infrastructure on AWS and GCP, leveraging their global reliability, comprehensive managed services, and multi-region availability to ensure high uptime and low latency for users worldwide.
 
 \subsection{Summary}
 

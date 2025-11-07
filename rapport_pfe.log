@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.10.2)  6 OCT 2025 00:56
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.10.2)  5 NOV 2025 20:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -49,7 +49,32 @@ Package: iftex 2024/12/12 v1.0g TeX engine tests
 \Gm@layoutvoffset=\dimen149
 \Gm@dimlist=\toks18
 )
-(/usr/local/texlive/2025basic/texmf-dist/tex/latex/base/inputenc.sty
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/pdflscape/pdflscape.sty
+Package: pdflscape 2022-10-27 v0.13 Display of landscape pages in PDF
+
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/pdflscape/pdflscape-nometada
+ta.sty
+Package: pdflscape-nometadata 2022-10-28 v0.13 Display of landscape pages in PD
+F (HO)
+ (/usr/local/texlive/2025basic/texmf-dist/tex/latex/graphics/lscape.sty
+Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
+
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
+)
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 106.
+
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2024/04/13 v1.2c Graphics/color driver for pdftex
+)))
+Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
+)) (/usr/local/texlive/2025basic/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2024/02/08 v1.3d Input encoding file
 \inpenc@prehook=\toks19
 \inpenc@posthook=\toks20
@@ -65,9 +90,6 @@ File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package xcolor Info: Driver file: pdftex.def on input line 274.
 
-(/usr/local/texlive/2025basic/texmf-dist/tex/latex/graphics-def/pdftex.def
-File: pdftex.def 2024/04/13 v1.2c Graphics/color driver for pdftex
-)
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/graphics/mathcolor.ltx)
 Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1349.
 Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1353.
@@ -160,21 +182,10 @@ LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 ))
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
-
-(/usr/local/texlive/2025basic/texmf-dist/tex/latex/graphics/graphics.sty
-Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
-
-(/usr/local/texlive/2025basic/texmf-dist/tex/latex/graphics/trig.sty
-Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
-)
-(/usr/local/texlive/2025basic/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
-File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
-)
-Package graphics Info: Driver file: pdftex.def on input line 106.
-)
 \Gin@req@height=\dimen159
 \Gin@req@width=\dimen160
-) (/usr/local/texlive/2025basic/texmf-dist/tex/latex/float/float.sty
+)
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count285
 \float@exts=\toks26
@@ -544,7 +555,7 @@ Package: titlesec 2025/01/04 v2.17 Sectioning titles
 \titlewidthlast=\dimen197
 \titlewidthfirst=\dimen198
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 148.
+Package hyperref Info: Option `colorlinks' set `true' on input line 149.
 
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
 Package: fancyhdr 2025/02/07 v5.2 Extensive control of page headers and footers
@@ -565,8 +576,8 @@ Package: fancyhdr 2025/02/07 v5.2 Extensive control of page headers and footers
 \f@nch@widthR=\skip110
 \@temptokenb=\toks34
 )
-LaTeX Font Info:    Trying to load font information for T1+lmr on input line 16
-9.
+LaTeX Font Info:    Trying to load font information for T1+lmr on input line 17
+0.
 
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
@@ -579,24 +590,24 @@ File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
 ) (./rapport_pfe.aux)
 \openout1 = `rapport_pfe.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 169.
-LaTeX Font Info:    ... okay on input line 169.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 169.
-LaTeX Font Info:    ... okay on input line 169.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 169.
-LaTeX Font Info:    ... okay on input line 169.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 169.
-LaTeX Font Info:    ... okay on input line 169.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 169.
-LaTeX Font Info:    ... okay on input line 169.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 169.
-LaTeX Font Info:    ... okay on input line 169.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 169.
-LaTeX Font Info:    ... okay on input line 169.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 169.
-LaTeX Font Info:    ... okay on input line 169.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 169.
-LaTeX Font Info:    ... okay on input line 169.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 170.
+LaTeX Font Info:    ... okay on input line 170.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 170.
+LaTeX Font Info:    ... okay on input line 170.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 170.
+LaTeX Font Info:    ... okay on input line 170.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 170.
+LaTeX Font Info:    ... okay on input line 170.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 170.
+LaTeX Font Info:    ... okay on input line 170.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 170.
+LaTeX Font Info:    ... okay on input line 170.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 170.
+LaTeX Font Info:    ... okay on input line 170.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 170.
+LaTeX Font Info:    ... okay on input line 170.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 170.
+LaTeX Font Info:    ... okay on input line 170.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -664,45 +675,45 @@ Package caption Info: longtable package is loaded.
 Package: ltcaption 2021/01/08 v1.4c longtable captions (AR)
 )
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring ON on input line 169.
+Package hyperref Info: Link coloring ON on input line 170.
 \c@lstlisting=\count331
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 1
-73.
+74.
 
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OML+lmm on input line 1
-73.
+74.
 
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-173.
+174.
 
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-173.
+174.
 
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <14.4> on input line 173.
+(Font)              <14.4> on input line 174.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 173.
+(Font)              <10> on input line 174.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 173.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 173
+(Font)              <7> on input line 174.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 174
 .
 
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 173
+LaTeX Font Info:    Trying to load font information for U+msb on input line 174
 .
 
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -714,7 +725,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 {/usr/local/texlive/2025basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/us
 r/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}]
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 1
-85.
+86.
 
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
@@ -749,7 +760,7 @@ File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 
 
 [10] (./sections/00_acknowledgments.tex
-<rapport/media/esprit_logo.png, id=398, 596.2275pt x 299.1175pt>
+<rapport/media/esprit_logo.png, id=390, 596.2275pt x 299.1175pt>
 File: rapport/media/esprit_logo.png Graphic file (type png)
 <use rapport/media/esprit_logo.png>
 Package pdftex.def Info: rapport/media/esprit_logo.png  used on input line 12.
@@ -820,7 +831,7 @@ Underfull \hbox (badness 1960) in paragraph at lines 97--97
 []|\T1/lmr/m/n/10.95 Core In-fras-truc-ture Setup: Back-end (Go/-
  []
 
-<rapport/media/image4.png, id=451, 1139.457pt x 537.207pt>
+<rapport/media/image4.png, id=443, 1139.457pt x 537.207pt>
 File: rapport/media/image4.png Graphic file (type png)
 <use rapport/media/image4.png>
 Package pdftex.def Info: rapport/media/image4.png  used on input line 111.
@@ -832,12 +843,12 @@ Package pdftex.def Info: rapport/media/image4.png  used on input line 111.
 [24 <./rapport/media/image4.png>]
 
 [25] (./sections/03_literature_review.tex
-<rapport/media/image1.png, id=468, 1445.4pt x 813.0375pt>
+<rapport/media/image1.png, id=460, 1445.4pt x 813.0375pt>
 File: rapport/media/image1.png Graphic file (type png)
 <use rapport/media/image1.png>
 Package pdftex.def Info: rapport/media/image1.png  used on input line 17.
 (pdftex.def)             Requested size: 364.19667pt x 204.85924pt.
-<rapport/media/image3.png, id=469, 1180.41pt x 969.6225pt>
+<rapport/media/image3.png, id=461, 1180.41pt x 969.6225pt>
 File: rapport/media/image3.png Graphic file (type png)
 <use rapport/media/image3.png>
 Package pdftex.def Info: rapport/media/image3.png  used on input line 24.
@@ -847,7 +858,7 @@ Package pdftex.def Info: rapport/media/image3.png  used on input line 24.
 [26 <./rapport/media/image1.png>]
 
 [27 <./rapport/media/image3.png (PNG copy)>]
-<rapport/media/image5.png, id=479, 1445.4pt x 812.28468pt>
+<rapport/media/image5.png, id=471, 1445.4pt x 812.28468pt>
 File: rapport/media/image5.png Graphic file (type png)
 <use rapport/media/image5.png>
 Package pdftex.def Info: rapport/media/image5.png  used on input line 57.
@@ -893,68 +904,30 @@ tes di-rectly with CI/CD
 
 
 [30]
-Overfull \hbox (12.06766pt too wide) in paragraph at lines 135--136
-[]\T1/lmr/bx/n/14.4 DevOps: \T1/lmr/m/n/14.4 CI/CD via GitHub Ac-tion-s/-Jenk-i
-ns, de-ploy-ment with Docker
- []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 144--144
-[]|\T1/lmr/bx/n/10 Technology Se-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 146--146
-[]|\T1/lmr/m/n/10 PostgreSQL (Pri-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 147--147
-[]|\T1/lmr/m/n/10 API Com-mu-ni-ca-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 147--147
-[]|\T1/lmr/m/n/10 gRPC (In-ter-nal),
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 149--149
-[]|\T1/lmr/m/n/10 PyTorch (Pri-mary),
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 150--150
-[]|\T1/lmr/m/n/10 GitHub Ac-tions
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 150--150
-\T1/lmr/m/n/10 (Pri-mary), Jenk-ins
- []
-
-
-Underfull \hbox (badness 2245) in paragraph at lines 150--150
-\T1/lmr/m/n/10 work-flows. Jenk-ins: Fall-back for com-plex
+[31]
+Overfull \hbox (7.62363pt too wide) in paragraph at lines 135--136
+\T1/lmr/m/n/14.4 low-latency, high-throughput data ex-change through Pro-to-col
+ Buffers, which
  []
 
 
 
-[31])
+[32])
 
-[32]
+[33]
 
-[33] (./sections/04_requirements.tex
-
-[34]
+[34] (./sections/04_requirements.tex
 
 [35]
+
+[36]
 Overfull \hbox (12.30563pt too wide) in paragraph at lines 99--100
 \T1/lmr/m/n/14.4 bile/re-mote de-vel-op-ers with poor con-nec-tiv-ity. Ra-tio-n
 ale: Post-greSQL's
  []
 
-<rapport/media/userscasglobal.png, id=515, 834.11626pt x 1402.23875pt>
+<rapport/media/userscasglobal.png, id=511, 834.11626pt x 1402.23875pt>
 File: rapport/media/userscasglobal.png Graphic file (type png)
 <use rapport/media/userscasglobal.png>
 Package pdftex.def Info: rapport/media/userscasglobal.png  used on input line 1
@@ -962,8 +935,8 @@ Package pdftex.def Info: rapport/media/userscasglobal.png  used on input line 1
 (pdftex.def)             Requested size: 318.66948pt x 535.72339pt.
 
 
-[36]
-<rapport/media/diag_class_global.png, id=520, 2400.97pt x 1179.40625pt>
+[37]
+<rapport/media/diag_class_global.png, id=517, 2400.97pt x 1179.40625pt>
 File: rapport/media/diag_class_global.png Graphic file (type png)
 <use rapport/media/diag_class_global.png>
 Package pdftex.def Info: rapport/media/diag_class_global.png  used on input lin
@@ -971,8 +944,8 @@ e 120.
 (pdftex.def)             Requested size: 455.24411pt x 223.62161pt.
 
 
-[37 <./rapport/media/userscasglobal.png>]
-<rapport/media/diag_deploy.png, id=527, 955.57pt x 468.75125pt>
+[38 <./rapport/media/userscasglobal.png>]
+<rapport/media/diag_deploy.png, id=524, 955.57pt x 468.75125pt>
 File: rapport/media/diag_deploy.png Graphic file (type png)
 <use rapport/media/diag_deploy.png>
 Package pdftex.def Info: rapport/media/diag_deploy.png  used on input line 129.
@@ -1010,32 +983,81 @@ Overfull \hbox (6.09444pt too wide) in paragraph at lines 140--161
 
 
 
-[38 <./rapport/media/diag_class_global.png> <./rapport/media/diag_deploy.png>])
+[39 <./rapport/media/diag_class_global.png> <./rapport/media/diag_deploy.png>])
 
 
-[39]
+[40]
 
-[40] (./sections/05_design.tex
-<rapport/media/communication_diag.png, id=542, 1187.43625pt x 548.0475pt>
+[41] (./sections/05_design.tex
+<rapport/media/communication_diag.png, id=540, 1187.43625pt x 548.0475pt>
 File: rapport/media/communication_diag.png Graphic file (type png)
 <use rapport/media/communication_diag.png>
 Package pdftex.def Info: rapport/media/communication_diag.png  used on input li
 ne 13.
 (pdftex.def)             Requested size: 364.19667pt x 168.08665pt.
-<rapport/media/erd.png, id=543, 7132.6475pt x 7243.06pt>
+
+
+[42 <./rapport/media/communication_diag.png>]
+
+Package geometry Warning: `paperwidth': not available in `\newgeometry'; skippe
+d.
+
+
+Package geometry Warning: `paperheight': not available in `\newgeometry'; skipp
+ed.
+
+*geometry* verbose mode - [ newgeometry ] result:
+* driver: pdftex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(28.45274pt, 540.60239pt, 28.45274pt)
+* v-part:(T,H,B)=(28.45274pt, 788.14136pt, 28.45274pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=540.60239pt
+* \textheight=788.14136pt
+* \oddsidemargin=-43.81725pt
+* \evensidemargin=-43.81725pt
+* \topmargin=-80.81725pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=12.0pt
+* \footskip=30.0pt
+* \marginparwidth=35.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+<rapport/media/erd.png, id=547, 7132.6475pt x 7243.06pt>
 File: rapport/media/erd.png Graphic file (type png)
 <use rapport/media/erd.png>
-Package pdftex.def Info: rapport/media/erd.png  used on input line 22.
-(pdftex.def)             Requested size: 455.24411pt x 462.19487pt.
+Package pdftex.def Info: rapport/media/erd.png  used on input line 26.
+(pdftex.def)             Requested size: 505.64879pt x 513.47618pt.
 
 
-[41 <./rapport/media/communication_diag.png>]
+[43
 
-[42 <./rapport/media/erd.png>])
 
-[43]
 
-[44] (./sections/06_sprints.tex
+ <./rapport/media/erd.png>])
+
+[44
+
+
+
+]
+
+[45] (./sections/06_sprints.tex
 Overfull \hbox (128.07169pt too wide) in paragraph at lines 18--18
 []|[]|  
  []
@@ -1073,7 +1095,7 @@ Package pdftex.def Info: rapport/media/sprint1_usecase.png  used on input line
 (pdftex.def)             Requested size: 318.66551pt x 111.76866pt.
 
 
-[45]
+[46]
 <rapport/media/sprint1_sequence1.png, id=570, 914.41624pt x 646.415pt>
 File: rapport/media/sprint1_sequence1.png Graphic file (type png)
 <use rapport/media/sprint1_sequence1.png>
@@ -1088,9 +1110,9 @@ e 93.
 (pdftex.def)             Requested size: 318.66914pt x 241.36302pt.
 
 
-[46 <./rapport/media/sprint1_usecase.png> <./rapport/media/sprint1_sequence1.pn
+[47 <./rapport/media/sprint1_usecase.png> <./rapport/media/sprint1_sequence1.pn
 g>]
-<rapport/media/sprint1_activity.png, id=578, 873.2625pt x 992.70876pt>
+<rapport/media/sprint1_activity.png, id=579, 873.2625pt x 992.70876pt>
 File: rapport/media/sprint1_activity.png Graphic file (type png)
 <use rapport/media/sprint1_activity.png>
 Package pdftex.def Info: rapport/media/sprint1_activity.png  used on input line
@@ -1098,30 +1120,28 @@ Package pdftex.def Info: rapport/media/sprint1_activity.png  used on input line
 (pdftex.def)             Requested size: 273.14703pt x 310.50853pt.
 
 
-[47 <./rapport/media/sprint1_sequence2.png>]
+[48 <./rapport/media/sprint1_sequence2.png> <./rapport/media/sprint1_activity.p
+ng>]
 Overfull \hbox (20.44615pt too wide) in paragraph at lines 121--121
 []|[]|  
  []
 
-
-
-[48 <./rapport/media/sprint1_activity.png>]
-<rapport/media/sprint2_usecase.png, id=590, 843.15pt x 459.7175pt>
+<rapport/media/sprint2_usecase.png, id=586, 843.15pt x 459.7175pt>
 File: rapport/media/sprint2_usecase.png Graphic file (type png)
 <use rapport/media/sprint2_usecase.png>
 Package pdftex.def Info: rapport/media/sprint2_usecase.png  used on input line 
 152.
 (pdftex.def)             Requested size: 318.67636pt x 173.75449pt.
-<rapport/media/sprint2_sequence1.png, id=591, 872.25874pt x 662.475pt>
+
+
+[49 <./rapport/media/sprint2_usecase.png>]
+<rapport/media/sprint2_sequence1.png, id=596, 872.25874pt x 662.475pt>
 File: rapport/media/sprint2_sequence1.png Graphic file (type png)
 <use rapport/media/sprint2_sequence1.png>
 Package pdftex.def Info: rapport/media/sprint2_sequence1.png  used on input lin
 e 161.
 (pdftex.def)             Requested size: 318.67125pt x 242.02881pt.
-
-
-[49 <./rapport/media/sprint2_usecase.png>]
-<rapport/media/sprint2_sequence2.png, id=598, 947.54pt x 794.97pt>
+<rapport/media/sprint2_sequence2.png, id=597, 947.54pt x 794.97pt>
 File: rapport/media/sprint2_sequence2.png Graphic file (type png)
 <use rapport/media/sprint2_sequence2.png>
 Package pdftex.def Info: rapport/media/sprint2_sequence2.png  used on input lin
@@ -1131,7 +1151,7 @@ e 170.
 
 [50 <./rapport/media/sprint2_sequence1.png> <./rapport/media/sprint2_sequence2.
 png>]
-<rapport/media/sprint2_activity.png, id=605, 576.1525pt x 1394.20876pt>
+<rapport/media/sprint2_activity.png, id=604, 576.1525pt x 1394.20876pt>
 File: rapport/media/sprint2_activity.png Graphic file (type png)
 <use rapport/media/sprint2_activity.png>
 Package pdftex.def Info: rapport/media/sprint2_activity.png  used on input line
@@ -1145,13 +1165,13 @@ Overfull \hbox (10.25555pt too wide) in paragraph at lines 198--198
 
 
 [51 <./rapport/media/sprint2_activity.png>]
-<rapport/media/sprint3_usecase.png, id=611, 1347.0325pt x 837.1275pt>
+<rapport/media/sprint3_usecase.png, id=610, 1347.0325pt x 837.1275pt>
 File: rapport/media/sprint3_usecase.png Graphic file (type png)
 <use rapport/media/sprint3_usecase.png>
 Package pdftex.def Info: rapport/media/sprint3_usecase.png  used on input line 
 222.
 (pdftex.def)             Requested size: 318.66975pt x 198.04066pt.
-<rapport/media/sprint3_sequence1.png, id=612, 1244.65pt x 997.7275pt>
+<rapport/media/sprint3_sequence1.png, id=611, 1244.65pt x 997.7275pt>
 File: rapport/media/sprint3_sequence1.png Graphic file (type png)
 <use rapport/media/sprint3_sequence1.png>
 Package pdftex.def Info: rapport/media/sprint3_sequence1.png  used on input lin
@@ -1160,23 +1180,22 @@ e 231.
 
 
 [52 <./rapport/media/sprint3_usecase.png>]
-<rapport/media/sprint3_sequence2.png, id=618, 1071.00125pt x 1191.45125pt>
+<rapport/media/sprint3_sequence2.png, id=619, 1071.00125pt x 1191.45125pt>
 File: rapport/media/sprint3_sequence2.png Graphic file (type png)
 <use rapport/media/sprint3_sequence2.png>
 Package pdftex.def Info: rapport/media/sprint3_sequence2.png  used on input lin
 e 240.
 (pdftex.def)             Requested size: 221.10918pt x 245.9762pt.
-
-
-[53 <./rapport/media/sprint3_sequence1.png> <./rapport/media/sprint3_sequence2.
-png>]
-<rapport/media/sprint3_activity.png, id=625, 1411.2725pt x 1542.76375pt>
+<rapport/media/sprint3_activity.png, id=620, 1411.2725pt x 1542.76375pt>
 File: rapport/media/sprint3_activity.png Graphic file (type png)
 <use rapport/media/sprint3_activity.png>
 Package pdftex.def Info: rapport/media/sprint3_activity.png  used on input line
  249.
 (pdftex.def)             Requested size: 273.1405pt x 298.58958pt.
 
+
+[53 <./rapport/media/sprint3_sequence1.png> <./rapport/media/sprint3_sequence2.
+png>]
 Overfull \hbox (2.47037pt too wide) in paragraph at lines 253--254
 []\T1/lmr/bx/n/14.4 Summary: \T1/lmr/m/n/14.4 This ac-tiv-ity di-a-gram out-lin
 es the com-plete De-vOps pipeline
@@ -1192,22 +1211,22 @@ Overfull \hbox (18.51276pt too wide) in paragraph at lines 274--274
 []|[]|  
  []
 
-
-
-[54 <./rapport/media/sprint3_activity.png>]
-<rapport/media/sprint4_usecase.png, id=631, 1526.70375pt x 677.53125pt>
+<rapport/media/sprint4_usecase.png, id=627, 1526.70375pt x 677.53125pt>
 File: rapport/media/sprint4_usecase.png Graphic file (type png)
 <use rapport/media/sprint4_usecase.png>
 Package pdftex.def Info: rapport/media/sprint4_usecase.png  used on input line 
 287.
 (pdftex.def)             Requested size: 318.66042pt x 141.41734pt.
-<rapport/media/sprint4_sequence1.png, id=632, 1321.93875pt x 791.95876pt>
+
+
+[54 <./rapport/media/sprint3_activity.png>]
+<rapport/media/sprint4_sequence1.png, id=634, 1321.93875pt x 791.95876pt>
 File: rapport/media/sprint4_sequence1.png Graphic file (type png)
 <use rapport/media/sprint4_sequence1.png>
 Package pdftex.def Info: rapport/media/sprint4_sequence1.png  used on input lin
 e 296.
 (pdftex.def)             Requested size: 318.66359pt x 190.9078pt.
-<rapport/media/sprint4_sequence2.png, id=633, 1200.485pt x 956.57375pt>
+<rapport/media/sprint4_sequence2.png, id=635, 1200.485pt x 956.57375pt>
 File: rapport/media/sprint4_sequence2.png Graphic file (type png)
 <use rapport/media/sprint4_sequence2.png>
 Package pdftex.def Info: rapport/media/sprint4_sequence2.png  used on input lin
@@ -1217,7 +1236,7 @@ e 305.
 
 [55 <./rapport/media/sprint4_usecase.png> <./rapport/media/sprint4_sequence1.pn
 g>]
-<rapport/media/sprint4_activity.png, id=641, 1283.79625pt x 1290.8225pt>
+<rapport/media/sprint4_activity.png, id=644, 1283.79625pt x 1290.8225pt>
 File: rapport/media/sprint4_activity.png Graphic file (type png)
 <use rapport/media/sprint4_activity.png>
 Package pdftex.def Info: rapport/media/sprint4_activity.png  used on input line
@@ -1236,7 +1255,7 @@ Overfull \hbox (19.79442pt too wide) in paragraph at lines 344--344
 []|[]|  
  []
 
-<rapport/media/sprint5_usecase.png, id=648, 867.24pt x 766.865pt>
+<rapport/media/sprint5_usecase.png, id=651, 867.24pt x 766.865pt>
 File: rapport/media/sprint5_usecase.png Graphic file (type png)
 <use rapport/media/sprint5_usecase.png>
 Package pdftex.def Info: rapport/media/sprint5_usecase.png  used on input line 
@@ -1245,23 +1264,23 @@ Package pdftex.def Info: rapport/media/sprint5_usecase.png  used on input line
 
 
 [57]
-<rapport/media/sprint5_sequence1.png, id=653, 1331.97626pt x 750.805pt>
+<rapport/media/sprint5_sequence1.png, id=657, 1331.97626pt x 750.805pt>
 File: rapport/media/sprint5_sequence1.png Graphic file (type png)
 <use rapport/media/sprint5_sequence1.png>
 Package pdftex.def Info: rapport/media/sprint5_sequence1.png  used on input lin
 e 403.
 (pdftex.def)             Requested size: 318.66461pt x 179.62405pt.
-
-
-[58 <./rapport/media/sprint5_usecase.png> <./rapport/media/sprint5_sequence1.pn
-g>]
-<rapport/media/sprint5_sequence2.png, id=660, 1333.98375pt x 837.1275pt>
+<rapport/media/sprint5_sequence2.png, id=658, 1333.98375pt x 837.1275pt>
 File: rapport/media/sprint5_sequence2.png Graphic file (type png)
 <use rapport/media/sprint5_sequence2.png>
 Package pdftex.def Info: rapport/media/sprint5_sequence2.png  used on input lin
 e 412.
 (pdftex.def)             Requested size: 318.65637pt x 199.96947pt.
-<rapport/media/sprint5_activity.png, id=661, 519.9425pt x 1489.565pt>
+
+
+[58 <./rapport/media/sprint5_usecase.png> <./rapport/media/sprint5_sequence1.pn
+g>]
+<rapport/media/sprint5_activity.png, id=666, 519.9425pt x 1489.565pt>
 File: rapport/media/sprint5_activity.png Graphic file (type png)
 <use rapport/media/sprint5_activity.png>
 Package pdftex.def Info: rapport/media/sprint5_activity.png  used on input line
@@ -1292,7 +1311,7 @@ Overfull \hbox (23.15486pt too wide) in paragraph at lines 478--478
 
 
 [60 <./rapport/media/sprint5_activity.png>]
-<rapport/media/sprint6_usecase.png, id=672, 876.27374pt x 877.2775pt>
+<rapport/media/sprint6_usecase.png, id=677, 876.27374pt x 877.2775pt>
 File: rapport/media/sprint6_usecase.png Graphic file (type png)
 <use rapport/media/sprint6_usecase.png>
 Package pdftex.def Info: rapport/media/sprint6_usecase.png  used on input line 
@@ -1301,7 +1320,7 @@ Package pdftex.def Info: rapport/media/sprint6_usecase.png  used on input line
 
 
 [61]
-<rapport/media/sprint6_sequence1.png, id=678, 888.31876pt x 834.11626pt>
+<rapport/media/sprint6_sequence1.png, id=684, 888.31876pt x 834.11626pt>
 File: rapport/media/sprint6_sequence1.png Graphic file (type png)
 <use rapport/media/sprint6_sequence1.png>
 Package pdftex.def Info: rapport/media/sprint6_sequence1.png  used on input lin
@@ -1309,24 +1328,23 @@ e 506.
 (pdftex.def)             Requested size: 261.95688pt x 245.97307pt.
 
 
-[62 <./rapport/media/sprint6_usecase.png>]
-<rapport/media/sprint6_sequence2.png, id=684, 1002.74625pt x 1072.005pt>
+[62 <./rapport/media/sprint6_usecase.png> <./rapport/media/sprint6_sequence1.pn
+g>]
+<rapport/media/sprint6_sequence2.png, id=692, 1002.74625pt x 1072.005pt>
 File: rapport/media/sprint6_sequence2.png Graphic file (type png)
 <use rapport/media/sprint6_sequence2.png>
 Package pdftex.def Info: rapport/media/sprint6_sequence2.png  used on input lin
 e 515.
 (pdftex.def)             Requested size: 230.07596pt x 245.9671pt.
-
-
-[63 <./rapport/media/sprint6_sequence1.png> <./rapport/media/sprint6_sequence2.
-png>]
-<rapport/media/sprint6_activity.png, id=691, 657.45625pt x 1452.42625pt>
+<rapport/media/sprint6_activity.png, id=693, 657.45625pt x 1452.42625pt>
 File: rapport/media/sprint6_activity.png Graphic file (type png)
 <use rapport/media/sprint6_activity.png>
 Package pdftex.def Info: rapport/media/sprint6_activity.png  used on input line
  524.
 (pdftex.def)             Requested size: 190.8681pt x 421.65823pt.
 
+
+[63 <./rapport/media/sprint6_sequence2.png>]
 Overfull \hbox (6.55634pt too wide) in paragraph at lines 552--552
 []|[]|  
  []
@@ -1339,7 +1357,7 @@ Overfull \hbox (61.11586pt too wide) in paragraph at lines 570--570
 
 
 [64 <./rapport/media/sprint6_activity.png>]
-<rapport/media/sprint7_usecase.png, id=697, 602.25pt x 787.94376pt>
+<rapport/media/sprint7_usecase.png, id=704, 602.25pt x 787.94376pt>
 File: rapport/media/sprint7_usecase.png Graphic file (type png)
 <use rapport/media/sprint7_usecase.png>
 Package pdftex.def Info: rapport/media/sprint7_usecase.png  used on input line 
@@ -1348,7 +1366,7 @@ Package pdftex.def Info: rapport/media/sprint7_usecase.png  used on input line
 
 
 [65]
-<rapport/media/sprint7_sequence1.png, id=702, 936.49875pt x 880.28876pt>
+<rapport/media/sprint7_sequence1.png, id=710, 936.49875pt x 880.28876pt>
 File: rapport/media/sprint7_sequence1.png Graphic file (type png)
 <use rapport/media/sprint7_sequence1.png>
 Package pdftex.def Info: rapport/media/sprint7_sequence1.png  used on input lin
@@ -1356,24 +1374,23 @@ e 598.
 (pdftex.def)             Requested size: 261.67485pt x 245.96875pt.
 
 
-[66 <./rapport/media/sprint7_usecase.png>]
-<rapport/media/sprint7_sequence2.png, id=708, 1095.09125pt x 1085.05376pt>
+[66 <./rapport/media/sprint7_usecase.png> <./rapport/media/sprint7_sequence1.pn
+g>]
+<rapport/media/sprint7_sequence2.png, id=718, 1095.09125pt x 1085.05376pt>
 File: rapport/media/sprint7_sequence2.png Graphic file (type png)
 <use rapport/media/sprint7_sequence2.png>
 Package pdftex.def Info: rapport/media/sprint7_sequence2.png  used on input lin
 e 607.
 (pdftex.def)             Requested size: 248.23967pt x 245.96434pt.
-
-
-[67 <./rapport/media/sprint7_sequence1.png> <./rapport/media/sprint7_sequence2.
-png>]
-<rapport/media/sprint7_activity.png, id=717, 712.6625pt x 1462.46375pt>
+<rapport/media/sprint7_activity.png, id=719, 712.6625pt x 1462.46375pt>
 File: rapport/media/sprint7_activity.png Graphic file (type png)
 <use rapport/media/sprint7_activity.png>
 Package pdftex.def Info: rapport/media/sprint7_activity.png  used on input line
  616.
 (pdftex.def)             Requested size: 205.48152pt x 421.67125pt.
 
+
+[67 <./rapport/media/sprint7_sequence2.png>]
 
 [68 <./rapport/media/sprint7_activity.png>]
 
@@ -1387,7 +1404,7 @@ Overfull \hbox (27.2205pt too wide) in paragraph at lines 15--16
 tion, au-to-mated CI/CD pipelines 
  []
 
-<rapport/screenshots/Screenshot_dashboard.png, id=735, 1426.32875pt x 752.8125p
+<rapport/screenshots/Screenshot_dashboard.png, id=745, 1426.32875pt x 752.8125p
 t>
 File: rapport/screenshots/Screenshot_dashboard.png Graphic file (type png)
 <use rapport/screenshots/Screenshot_dashboard.png>
@@ -1400,10 +1417,7 @@ Overfull \hbox (1.95831pt too wide) in paragraph at lines 30--31
  sys-tem health,
  []
 
-
-
-[72 <./rapport/screenshots/Screenshot_dashboard.png>]
-<rapport/screenshots/Screenshot_error_detection.png, id=741, 1426.32875pt x 752
+<rapport/screenshots/Screenshot_error_detection.png, id=746, 1426.32875pt x 752
 .8125pt>
 File: rapport/screenshots/Screenshot_error_detection.png Graphic file (type png
 )
@@ -1411,7 +1425,10 @@ File: rapport/screenshots/Screenshot_error_detection.png Graphic file (type png
 Package pdftex.def Info: rapport/screenshots/Screenshot_error_detection.png  us
 ed on input line 42.
 (pdftex.def)             Requested size: 409.70723pt x 216.24237pt.
-<rapport/screenshots/Screenshot_project_config.png, id=742, 1426.32875pt x 752.
+
+
+[72 <./rapport/screenshots/Screenshot_dashboard.png>]
+<rapport/screenshots/Screenshot_project_config.png, id=753, 1426.32875pt x 752.
 8125pt>
 File: rapport/screenshots/Screenshot_project_config.png Graphic file (type png)
 
@@ -1421,18 +1438,16 @@ d on input line 59.
 (pdftex.def)             Requested size: 409.70723pt x 216.24237pt.
 
 
-[73 <./rapport/screenshots/Screenshot_error_detection.png>]
-<rapport/screenshots/Screenshot_ai_usage.png, id=749, 1426.32875pt x 752.8125pt
+[73 <./rapport/screenshots/Screenshot_error_detection.png> <./rapport/screensho
+ts/Screenshot_project_config.png>]
+<rapport/screenshots/Screenshot_ai_usage.png, id=761, 1426.32875pt x 752.8125pt
 >
 File: rapport/screenshots/Screenshot_ai_usage.png Graphic file (type png)
 <use rapport/screenshots/Screenshot_ai_usage.png>
 Package pdftex.def Info: rapport/screenshots/Screenshot_ai_usage.png  used on i
 nput line 76.
 (pdftex.def)             Requested size: 409.70723pt x 216.24237pt.
-
-
-[74 <./rapport/screenshots/Screenshot_project_config.png>]
-<rapport/screenshots/Screenshot _pipline.png, id=755, 1426.32875pt x 752.8125pt
+<rapport/screenshots/Screenshot _pipline.png, id=762, 1426.32875pt x 752.8125pt
 >
 File: rapport/screenshots/Screenshot _pipline.png Graphic file (type png)
 <use rapport/screenshots/Screenshot _pipline.png>
@@ -1441,71 +1456,52 @@ nput line 93.
 (pdftex.def)             Requested size: 409.70723pt x 216.24237pt.
 
 
-[75 <./rapport/screenshots/Screenshot_ai_usage.png>]
-Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 114.
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1
-14.
+[74 <./rapport/screenshots/Screenshot_ai_usage.png>]
 
-(/usr/local/texlive/2025basic/texmf-dist/tex/latex/lm/t1lmtt.fd
-File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 115.
-
-
-[76 <./rapport/screenshots/Screenshot _pipline.png>]
-
-[77]
-
-[78]
-
-[79]
-<rapport/screenshots/Screenshot_signin.png, id=914, 1426.32875pt x 752.8125pt>
+[75 <./rapport/screenshots/Screenshot _pipline.png>]
+<rapport/screenshots/Screenshot_signin.png, id=773, 1426.32875pt x 752.8125pt>
 File: rapport/screenshots/Screenshot_signin.png Graphic file (type png)
 <use rapport/screenshots/Screenshot_signin.png>
 Package pdftex.def Info: rapport/screenshots/Screenshot_signin.png  used on inp
-ut line 314.
+ut line 126.
 (pdftex.def)             Requested size: 364.19872pt x 192.2231pt.
-
-
-[80]
-<rapport/screenshots/Screenshot_integrations.png, id=943, 1426.32875pt x 752.81
+<rapport/screenshots/Screenshot_integrations.png, id=774, 1426.32875pt x 752.81
 25pt>
 File: rapport/screenshots/Screenshot_integrations.png Graphic file (type png)
 <use rapport/screenshots/Screenshot_integrations.png>
 Package pdftex.def Info: rapport/screenshots/Screenshot_integrations.png  used 
-on input line 327.
+on input line 139.
 (pdftex.def)             Requested size: 409.70723pt x 216.24237pt.
-<rapport/screenshots/Screenshot_sonar_cloud.png, id=944, 1426.32875pt x 752.812
+
+
+[76 <./rapport/screenshots/Screenshot_signin.png>]
+<rapport/screenshots/Screenshot_sonar_cloud.png, id=780, 1426.32875pt x 752.812
 5pt>
 File: rapport/screenshots/Screenshot_sonar_cloud.png Graphic file (type png)
 <use rapport/screenshots/Screenshot_sonar_cloud.png>
 Package pdftex.def Info: rapport/screenshots/Screenshot_sonar_cloud.png  used o
-n input line 334.
+n input line 146.
 (pdftex.def)             Requested size: 409.70723pt x 216.24237pt.
 
-
-[81 <./rapport/screenshots/Screenshot_signin.png> <./rapport/screenshots/Screen
-shot_integrations.png>]
-Overfull \hbox (4.72493pt too wide) in paragraph at lines 344--345
+Overfull \hbox (4.72493pt too wide) in paragraph at lines 156--157
 []\T1/lmr/m/n/14.4 ErrorZen is de-ployed us-ing Docker con-tainer-iza-tion with
  CI/CD pipelines,
  []
 
-)
 
-[82 <./rapport/screenshots/Screenshot_sonar_cloud.png>]
 
-[83] (./sections/08_conclusion.tex
+[77 <./rapport/screenshots/Screenshot_integrations.png> <./rapport/screenshots/
+Screenshot_sonar_cloud.png>])
+
+[78]
+
+[79] (./sections/08_conclusion.tex
 Overfull \hbox (0.11569pt too wide) in paragraph at lines 17--18
 []\T1/lmr/bx/n/14.4 Enterprise Se-cu-rity: \T1/lmr/m/n/14.4 Im-ple-mented AES-2
 56 en-cryp-tion and GDPR-
  []
 
 
-
-[84]
 Overfull \hbox (10.73439pt too wide) in paragraph at lines 29--30
 []\T1/lmr/bx/n/14.4 Developer Ex-pe-ri-ence: \T1/lmr/m/n/14.4 Uni-fied dash-boa
 rd elim-i-nated con-text switch-
@@ -1513,13 +1509,21 @@ rd elim-i-nated con-text switch-
 
 
 
-[85]
+[80]
 
-[86])
+[81])
 
-[87]
+[82]
 
-[88] (./sections/09_bibliography.tex
+[83]
+
+[84] (./sections/09_bibliography.tex
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1
+3.
+
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/lm/t1lmtt.fd
+File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
 Overfull \hbox (11.57101pt too wide) in paragraph at lines 11--14
 \T1/lmr/m/n/14.4 The Go Team. \T1/lmr/m/it/14.4 The Go Pro-gram-ming Lan-guage 
 Doc-u-men-ta-tion\T1/lmr/m/n/14.4 . Google,
@@ -1527,7 +1531,7 @@ Doc-u-men-ta-tion\T1/lmr/m/n/14.4 . Google,
 
 
 
-[89]
+[85]
 Overfull \hbox (2.59467pt too wide) in paragraph at lines 64--66
 \T1/lmr/m/n/14.4 Fielding, Roy Thomas. \T1/lmr/m/it/14.4 Ar-chi-tec-tural Style
 s and the De-sign of Network-
@@ -1539,11 +1543,9 @@ Overfull \hbox (78.17807pt too wide) in paragraph at lines 82--85
 . com / articles / practical-[]test-[]pyramid .
  []
 
+)
 
-
-[90])
-
-[91] (./rapport_pfe.aux)
+[86] (./rapport_pfe.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
@@ -1554,28 +1556,105 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
- 17231 strings out of 474662
- 275761 string characters out of 5751109
- 747941 words of memory out of 5000000
- 39553 multiletter control sequences out of 15000+600000
- 648427 words of font info for 99 fonts, out of 8000000 for 9000
+ 16630 strings out of 474662
+ 270852 string characters out of 5751109
+ 690843 words of memory out of 5000000
+ 39089 multiletter control sequences out of 15000+600000
+ 644163 words of font info for 94 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
- 75i,12n,79p,881b,2086s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></u
-sr/local/texlive/2025basic/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/lo
-cal/texlive/2025basic/texmf-dist/fonts/type1/public/lm/lmbx8.pfb></usr/local/te
-xlive/2025basic/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/
-2025basic/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2025ba
-sic/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2025basic/tex
-mf-dist/fonts/type1/public/lm/lmri12.pfb></usr/local/texlive/2025basic/texmf-di
-st/fonts/type1/public/lm/lmtk10.pfb></usr/local/texlive/2025basic/texmf-dist/fo
-nts/type1/public/lm/lmtt10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/t
-ype1/public/lm/lmtt12.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/
-public/lm/lmtt8.pfb>
-Output written on rapport_pfe.pdf (91 pages, 6908932 bytes).
+ 89i,12n,95p,894b,539s stack positions out of 10000i,1000n,20000p,200000b,200000s
+
+pdfTeX warning (dest): name{table.caption.51} has been referenced but does not 
+exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{table.caption.46} has been referenced but does not 
+exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{table.caption.41} has been referenced but does not 
+exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{table.caption.36} has been referenced but does not 
+exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{table.caption.31} has been referenced but does not 
+exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{table.caption.26} has been referenced but does not 
+exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{table.caption.21} has been referenced but does not 
+exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{table.caption.16} has been referenced but does not 
+exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{table.caption.12} has been referenced but does not 
+exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{table.caption.8} has been referenced but does not e
+xist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{figure.caption.59} has been referenced but does not
+ exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{figure.caption.50} has been referenced but does not
+ exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{figure.caption.45} has been referenced but does not
+ exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{figure.caption.40} has been referenced but does not
+ exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{figure.caption.35} has been referenced but does not
+ exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{figure.caption.30} has been referenced but does not
+ exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{figure.caption.25} has been referenced but does not
+ exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{figure.caption.20} has been referenced but does not
+ exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{figure.caption.14} has been referenced but does not
+ exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{figure.caption.11} has been referenced but does not
+ exist, replaced by a fixed one
+
+</usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr
+/local/texlive/2025basic/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/loca
+l/texlive/2025basic/texmf-dist/fonts/type1/public/lm/lmbx8.pfb></usr/local/texl
+ive/2025basic/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/20
+25basic/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2025basi
+c/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2025basic/texmf
+-dist/fonts/type1/public/lm/lmri12.pfb></usr/local/texlive/2025basic/texmf-dist
+/fonts/type1/public/lm/lmtt12.pfb>
+Output written on rapport_pfe.pdf (86 pages, 6806272 bytes).
 PDF statistics:
- 1510 PDF objects out of 1728 (max. 8388607)
- 1290 compressed objects within 13 object streams
- 432 named destinations out of 1000 (max. 500000)
- 1135 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1294 PDF objects out of 1440 (max. 8388607)
+ 1087 compressed objects within 11 object streams
+ 289 named destinations out of 1000 (max. 500000)
+ 1111 words of extra memory for PDF output out of 10000 (max. 10000000)
 
