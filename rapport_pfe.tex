@@ -108,6 +108,14 @@
 \captionsetup[table]{name=Tab.}
 \captionsetup[figure]{name=Fig.}
 
+% Customize List of Figures to use "Fig" prefix
+\renewcommand{\cftfigpresnum}{Fig.~}
+\renewcommand{\cftfignumwidth}{3em}
+
+% Customize List of Tables to use "Tab" prefix
+\renewcommand{\cfttabpresnum}{Tab.~}
+\renewcommand{\cfttabnumwidth}{3em}
+
 % Content emphasis formatting as per regulations
 % Examples in italics, definitions can be framed, essential elements in bold
 \newcommand{\example}[1]{\textit{#1}}
