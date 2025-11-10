@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.10.2)  10 NOV 2025 04:15
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.10.2)  10 NOV 2025 04:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -888,16 +888,16 @@ Package hyperref Info: Link coloring ON on input line 173.
 <page_1.pdf, id=4, 597.55246pt x 845.07718pt>
 File: page_1.pdf Graphic file (type pdf)
 <use page_1.pdf>
-Package pdftex.def Info: page_1.pdf  used on input line 176.
+Package pdftex.def Info: page_1.pdf  used on input line 177.
 (pdftex.def)             Requested size: 597.551pt x 845.07512pt.
 <page_1.pdf, id=6, page=1, 597.55246pt x 845.07718pt>
 File: page_1.pdf Graphic file (type pdf)
 <use page_1.pdf, page 1>
-Package pdftex.def Info: page_1.pdf , page1 used on input line 176.
+Package pdftex.def Info: page_1.pdf , page1 used on input line 177.
 (pdftex.def)             Requested size: 597.551pt x 845.07512pt.
 File: page_1.pdf Graphic file (type pdf)
 <use page_1.pdf, page 1>
-Package pdftex.def Info: page_1.pdf , page1 used on input line 176.
+Package pdftex.def Info: page_1.pdf , page1 used on input line 177.
 (pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
 
 
@@ -907,17 +907,17 @@ Package pdftex.def Info: page_1.pdf , page1 used on input line 176.
 r/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}]
 File: page_1.pdf Graphic file (type pdf)
 <use page_1.pdf, page 1>
-Package pdftex.def Info: page_1.pdf , page1 used on input line 176.
+Package pdftex.def Info: page_1.pdf , page1 used on input line 177.
 (pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
 File: page_1.pdf Graphic file (type pdf)
 <use page_1.pdf, page 1>
-Package pdftex.def Info: page_1.pdf , page1 used on input line 176.
+Package pdftex.def Info: page_1.pdf , page1 used on input line 177.
 (pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
 
 
 File: page_1.pdf Graphic file (type pdf)
 <use page_1.pdf, page 1>
-Package pdftex.def Info: page_1.pdf , page1 used on input line 176.
+Package pdftex.def Info: page_1.pdf , page1 used on input line 177.
 (pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
 [2
 
@@ -925,36 +925,36 @@ Package pdftex.def Info: page_1.pdf , page1 used on input line 176.
 <page_3.pdf, id=35, 597.55246pt x 845.07718pt>
 File: page_3.pdf Graphic file (type pdf)
 <use page_3.pdf>
-Package pdftex.def Info: page_3.pdf  used on input line 177.
+Package pdftex.def Info: page_3.pdf  used on input line 178.
 (pdftex.def)             Requested size: 597.551pt x 845.07512pt.
 <page_3.pdf, id=37, page=1, 597.55246pt x 845.07718pt>
 File: page_3.pdf Graphic file (type pdf)
 <use page_3.pdf, page 1>
-Package pdftex.def Info: page_3.pdf , page1 used on input line 177.
+Package pdftex.def Info: page_3.pdf , page1 used on input line 178.
 (pdftex.def)             Requested size: 597.551pt x 845.07512pt.
 File: page_3.pdf Graphic file (type pdf)
 <use page_3.pdf, page 1>
-Package pdftex.def Info: page_3.pdf , page1 used on input line 177.
+Package pdftex.def Info: page_3.pdf , page1 used on input line 178.
 (pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
 File: page_3.pdf Graphic file (type pdf)
 <use page_3.pdf, page 1>
-Package pdftex.def Info: page_3.pdf , page1 used on input line 177.
+Package pdftex.def Info: page_3.pdf , page1 used on input line 178.
 (pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
 File: page_3.pdf Graphic file (type pdf)
 <use page_3.pdf, page 1>
-Package pdftex.def Info: page_3.pdf , page1 used on input line 177.
+Package pdftex.def Info: page_3.pdf , page1 used on input line 178.
 (pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
 
 
 File: page_3.pdf Graphic file (type pdf)
 <use page_3.pdf, page 1>
-Package pdftex.def Info: page_3.pdf , page1 used on input line 177.
+Package pdftex.def Info: page_3.pdf , page1 used on input line 178.
 (pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
 [3
 
  <./page_3.pdf>]
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 1
-89.
+90.
 
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
@@ -1818,33 +1818,33 @@ Overfull \hbox (78.17807pt too wide) in paragraph at lines 82--85
 <page_2.pdf, id=894, 597.55246pt x 845.07718pt>
 File: page_2.pdf Graphic file (type pdf)
 <use page_2.pdf>
-Package pdftex.def Info: page_2.pdf  used on input line 354.
+Package pdftex.def Info: page_2.pdf  used on input line 355.
 (pdftex.def)             Requested size: 597.551pt x 845.07512pt.
 <page_2.pdf, id=896, page=1, 597.55246pt x 845.07718pt>
 File: page_2.pdf Graphic file (type pdf)
 <use page_2.pdf, page 1>
-Package pdftex.def Info: page_2.pdf , page1 used on input line 354.
+Package pdftex.def Info: page_2.pdf , page1 used on input line 355.
 (pdftex.def)             Requested size: 597.551pt x 845.07512pt.
 File: page_2.pdf Graphic file (type pdf)
 <use page_2.pdf, page 1>
-Package pdftex.def Info: page_2.pdf , page1 used on input line 354.
+Package pdftex.def Info: page_2.pdf , page1 used on input line 355.
 (pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
 
 
 [93]
 File: page_2.pdf Graphic file (type pdf)
 <use page_2.pdf, page 1>
-Package pdftex.def Info: page_2.pdf , page1 used on input line 354.
+Package pdftex.def Info: page_2.pdf , page1 used on input line 355.
 (pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
 File: page_2.pdf Graphic file (type pdf)
 <use page_2.pdf, page 1>
-Package pdftex.def Info: page_2.pdf , page1 used on input line 354.
+Package pdftex.def Info: page_2.pdf , page1 used on input line 355.
 (pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
 
 
 File: page_2.pdf Graphic file (type pdf)
 <use page_2.pdf, page 1>
-Package pdftex.def Info: page_2.pdf , page1 used on input line 354.
+Package pdftex.def Info: page_2.pdf , page1 used on input line 355.
 (pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
 [94
 
@@ -1853,10 +1853,6 @@ Package pdftex.def Info: page_2.pdf , page1 used on input line 354.
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
  ) 
 Here is how much of TeX's memory you used:
  17447 strings out of 474662
@@ -1875,7 +1871,7 @@ sr/local/texlive/2025basic/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/loc
 al/texlive/2025basic/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texl
 ive/2025basic/texmf-dist/fonts/type1/public/lm/lmri12.pfb></usr/local/texlive/2
 025basic/texmf-dist/fonts/type1/public/lm/lmtt12.pfb>
-Output written on rapport_pfe.pdf (94 pages, 7396891 bytes).
+Output written on rapport_pfe.pdf (94 pages, 7396794 bytes).
 PDF statistics:
  1336 PDF objects out of 1440 (max. 8388607)
  1094 compressed objects within 11 object streams
