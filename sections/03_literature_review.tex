@@ -26,29 +26,9 @@ Several platforms and tools have been developed to address error/bug logging and
 \label{fig:sentry_design}
 \end{figure}
 
-The Sentry platform is a popular error monitoring and performance tracking tool used by developers to diagnose, fix, and optimise applications. Below are some of its \textbf{pros} and \textbf{cons}:
+During my research, I spent considerable time evaluating Sentry because it's one of the most popular error monitoring platforms developers actually use. Sentry excels at real-time error monitoring, quickly detecting crashes and exceptions then alerting developers immediately. I was impressed by its wide language support covering JavaScript, Python, Ruby, Java, Go, PHP, .NET, and more -- this matters because teams often work with multiple languages. The error reports are genuinely detailed, providing stack traces, environment data, and user context that make debugging much easier. Performance monitoring capabilities track latency and bottlenecks, though this isn't Sentry's strongest feature. Integration support with GitHub, Slack, Jira, and other DevOps tools streamlines workflows nicely. I appreciated that Sentry offers an open-source, self-hosted option for teams who need complete control over their data. The UI is legitimately user-friendly with intuitive filtering and search capabilities. Release tracking that correlates errors with specific code deployments is particularly valuable for understanding when issues were introduced.
 
-\textbf{Pros:}
-\begin{itemize}
-\item Real-Time Error Monitoring -- Quickly detects and alerts developers about crashes and exceptions
-\item Wide Language Support -- Works with JavaScript, Python, Ruby, Java, Go, PHP, .NET, and more
-\item Detailed Error Reports -- Provides stack traces, environment data, and user context for debugging
-\item Performance Monitoring -- Tracks latency, slow transactions, and bottlenecks in applications
-\item Integrations -- Supports GitHub, Slack, Jira, and other DevOps tools for streamlined workflows
-\item Open-Source Option -- A self-hosted version is available for greater control over data
-\item User-Friendly UI -- Intuitive dashboard with filtering and search capabilities
-\item Release Tracking -- Correlates errors with specific code deployments
-\end{itemize}
-
-\textbf{Cons:}
-\begin{itemize}
-\item Cost for High Volume -- Can become expensive for large-scale applications with many events
-\item Limited Free Tier -- The free plan has restricted features and event limits
-\item Complex Setup for Self-Hosting -- Requires maintenance and infrastructure if deployed on-premise
-\item No Built-In APM (Advanced Performance Monitoring) -- Lags behind competitors like Datadog in full APM capabilities
-\item Steep Learning Curve -- Some features (like performance tracing) may require deeper configuration
-\item Limited Log Management -- Primarily focused on errors, not a full log analytics solution
-\end{itemize}
+However, Sentry has significant limitations I couldn't ignore. Cost becomes prohibitive for high-volume applications -- the pricing model penalizes success as your application grows and generates more events. The free tier is quite limited, restricting both features and event counts in ways that make it impractical for serious use. Self-hosting, while available, requires substantial maintenance and infrastructure investment. Sentry lacks built-in advanced performance monitoring, falling behind competitors like Datadog in full APM capabilities. Some features have a steep learning curve -- performance tracing in particular requires deeper configuration knowledge. Finally, Sentry is primarily focused on errors rather than being a comprehensive log analytics solution, so you'll still need separate tools for broader observability.
 
 \subsubsection{Dynatrace}
 
@@ -59,26 +39,11 @@ The Sentry platform is a popular error monitoring and performance tracking tool 
 \label{fig:dynatrace_schema}
 \end{figure}
 
-Dynatrace is an AI-powered, full-stack observability platform that provides application performance monitoring (APM), infrastructure monitoring, real-user monitoring (RUM), and cloud automation. It's known for its automatic and intelligent insights, making it a favourite for enterprises.
+I also thoroughly evaluated Dynatrace, which represents the enterprise end of the observability spectrum. Dynatrace is an AI-powered, full-stack observability platform offering APM, infrastructure monitoring, real-user monitoring, and cloud automation. It's particularly popular with large enterprises who need comprehensive monitoring at scale.
 
-\textbf{Pros:}
-\begin{itemize}
-\item AI-Powered Root Cause Analysis (Davis AI) -- Automatically detects anomalies, pinpoints failures, and suggests fixes
-\item Full-Stack Observability -- Tracks applications, microservices, containers, cloud infra, databases, and network performance in one place
-\item Automatic Discovery \& Dependency Mapping -- Dynamically maps application dependencies without manual configuration
-\item Real User Monitoring (RUM) \& Synthetic Monitoring -- Tracks real user experience (browser/mobile) and simulates synthetic transactions
-\item Cloud-Native \& Multi-Cloud Support -- Works seamlessly with AWS, Azure, GCP, and hybrid environments
-\end{itemize}
+Dynatrace's strengths are impressive. The Davis AI engine automatically detects anomalies, pinpoints failures, and suggests fixes with minimal human intervention -- this AI-powered root cause analysis genuinely works well. Full-stack observability means you can track applications, microservices, containers, cloud infrastructure, databases, and network performance all in one place. Automatic discovery and dependency mapping dynamically maps your entire application architecture without requiring manual configuration, which is remarkable when you consider how complex modern distributed systems have become. Real user monitoring tracks actual browser and mobile experiences, while synthetic monitoring simulates transactions to catch issues proactively. Cloud-native multi-cloud support works seamlessly across AWS, Azure, GCP, and hybrid environments.
 
-\textbf{Cons:}
-\begin{itemize}
-\item Very Expensive -- One of the most costly APM tools, making it less accessible for SMBs
-\item Complex Setup \& Learning Curve -- Overwhelming for beginners due to its advanced features
-\item Limited Customisation in Dashboards -- Some users find dashboarding less flexible compared to Grafana or Datadog
-\item Heavy Resource Consumption (On-Premise) -- Self-hosted deployments require significant infrastructure
-\item No Built-In Log Management (Requires Grail) -- Log analytics is a separate module (Dynatrace Grail), adding to costs
-\item Vendor Lock-In Risk -- Proprietary agents and data models make migration difficult
-\end{itemize}
+However, Dynatrace's limitations are equally significant. The cost is extraordinary -- it's one of the most expensive APM tools on the market, putting it out of reach for small and medium-sized businesses. Setup complexity and the learning curve are overwhelming for beginners because the platform does so much. Dashboard customization is surprisingly limited compared to tools like Grafana or Datadog, which frustrated me during evaluation. Self-hosted deployments consume heavy resources, requiring significant infrastructure investment. Log management isn't built in -- it's a separate module called Dynatrace Grail that adds even more to the already high costs. Finally, vendor lock-in risk is real because proprietary agents and data models make migrating away from Dynatrace extremely difficult.
 
 \subsection{Comparison of Existing Solutions}
 
@@ -105,24 +70,9 @@ Best For & Dev teams need error tracking & Enterprises needing AI-driven APM \\ 
 
 \subsection{Why ErrorZen Will Outperform Existing Solutions}
 
-This analysis of Sentry and Dynatrace highlights critical gaps in current error monitoring and observability tools, reinforcing the need for a custom, AI-driven solution like ErrorZen. While traditional platforms excel in specific areas (Sentry for error tracking, Dynatrace for APM), they suffer from:
+After thoroughly analyzing Sentry and Dynatrace, I identified critical gaps that existing tools don't adequately address. While these platforms excel in specific areas -- Sentry for straightforward error tracking, Dynatrace for comprehensive APM -- they share fundamental limitations that frustrated me as a developer. Automation is limited to detection and alerting; you still manually triage issues and write fixes. Scalability becomes problematic when dealing with high-frequency errors, especially given Sentry's pricing model. DevOps and CI/CD integration requires manual intervention at key points rather than being truly seamless. Even Dynatrace's vaunted AI only analyzes and alerts -- it doesn't actually remediate issues, which delays resolution.
 
-\begin{itemize}
-\item Limited automation (manual triaging, no auto-fixing)
-\item Poor scalability for high-frequency errors
-\item No seamless DevOps/CI/CD integration (requiring manual intervention)
-\item Lack of AI-powered remediation delaying root cause analysis
-\end{itemize}
-
-\textbf{How ErrorZen Solves These Challenges:}
-
-\begin{itemize}
-\item \textbf{AI-Powered Auto-Correction:} Unlike Sentry (manual debugging) or Dynatrace (AI alerts only), ErrorZen proactively fixes errors using machine learning, slashing MTTR
-\item \textbf{End-to-End DevOps Automation:} Integrates directly with CI/CD pipelines to auto-test and deploy patches, eliminating manual steps that Dynatrace and Sentry can't address
-\item \textbf{Unified Cross-Platform Monitoring:} Tracks frontend, backend, and mobile in one dashboard, while competitors silo data (e.g., Sentry lacks infra insights)
-\item \textbf{Real-Time Notifications \& Collaboration:} Combines Slack/email alerts with actionable fixes, unlike passive Dynatrace alerts or Sentry's basic notifications
-\item \textbf{Scalable \& Cost-Effective:} Avoid Dynatrace's enterprise pricing and Sentry's volume limits via optimised event processing
-\end{itemize}
+I designed ErrorZen specifically to solve these challenges in ways existing tools don't. The AI-powered auto-correction capability is fundamentally different from what Sentry or Dynatrace offer. While Sentry requires manual debugging and Dynatrace only provides AI alerts, ErrorZen uses machine learning to proactively generate and apply fixes, dramatically reducing mean time to resolution. I built end-to-end DevOps automation that integrates directly with CI/CD pipelines to automatically test and deploy patches without manual intervention -- this eliminates steps that neither Dynatrace nor Sentry can address. ErrorZen provides unified cross-platform monitoring that tracks frontend, backend, and mobile in one coherent dashboard, while competitors tend to silo data. Sentry lacks infrastructure insights, and Dynatrace's comprehensive view comes at enterprise prices. Real-time notifications combine Slack and email alerts with actionable fixes, going beyond Dynatrace's passive alerts or Sentry's basic notifications. Finally, ErrorZen's architecture scales cost-effectively, avoiding both Dynatrace's prohibitive enterprise pricing and Sentry's volume-based limits through optimized event processing.
 
 \subsection{Technology Choices Justification}
 
@@ -144,12 +94,4 @@ For deployment and infrastructure, we adopted a containerized approach using Doc
 
 \subsection{Summary}
 
-The literature and technology review provided essential insights into:
-
-\begin{itemize}
-\item The current state of the market
-\item Common limitations in existing systems
-\item Best practices in selecting modern, scalable technologies
-\end{itemize}
-
-This helped shape a solution that is both technically sound and aligned with the client's real-world needs.
+Conducting this literature and technology review was invaluable for understanding where ErrorZen needed to fit in the ecosystem. I gained clear insights into the current market state, recognizing both the strengths of established players and the gaps they leave unfilled. Understanding common limitations in existing systems helped me avoid repeating their mistakes while building on their successes. Researching best practices in selecting modern, scalable technologies informed every architectural decision I made throughout the project. This foundational research ensured I built a solution that's not only technically sound but also aligned with real-world needs that developers actually experience in production environments.

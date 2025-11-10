@@ -12,41 +12,23 @@ These requirements describe the main functionalities that the system must offer.
 
 \subsubsection{Error Detection and Handling}
 
-\begin{itemize}
-\item Capture real-time errors from the frontend, backend and mobile
-\item Centralise errors in an interactive dashboard
-\item Filter and categorise errors according to their criticality
-\end{itemize}
+I needed the system to capture errors in real-time regardless of where they occurred -- whether in a React frontend, a Go backend service, or a Flutter mobile application. The goal was to centralize all these errors in one interactive dashboard where developers could see everything at a glance. I also wanted intelligent filtering and categorization based on criticality, so teams could focus on critical production issues first while less urgent warnings didn't get lost in the noise.
 
 \subsubsection{AI Error Analysis and Correction}
 
-\begin{itemize}
-\item Automatically analyse detected errors
-\item Propose adapted solutions based on artificial intelligence
-\item Generate unit tests to validate corrections before their integration
-\end{itemize}
+The platform needed to automatically analyze every error that came through, understanding not just what failed but why it failed. I wanted AI-powered intelligence that could propose context-appropriate solutions, taking into account the specific codebase, error type, and historical patterns. Importantly, I also required the system to generate unit tests that would validate corrections before they ever touched the codebase, ensuring automated fixes wouldn't introduce new problems.
 
 \subsubsection{DevOps Automation}
 
-\begin{itemize}
-\item Trigger automated tests after correction
-\item Deploy patched code through a CI/CD pipeline without manual intervention
-\item Ensure follow-up of corrections and production releases
-\end{itemize}
+I wanted complete automation from error detection through deployment. When a correction is ready, the system should automatically trigger comprehensive tests to validate the fix. If tests pass, patched code should deploy through our CI/CD pipeline without anyone needing to manually intervene or approve the change. The platform also needed to track corrections through to production releases, giving teams visibility into which fixes are deployed and which are still in progress.
 
 \subsubsection{Integration with Other Tools}
 
-\begin{itemize}
-\item Provide an SDK and plugins to integrate ErrorZen with other technologies (e.g. Firebase Crashlytics, Sentry)
-\item Offer an API to allow businesses to customise the integration
-\end{itemize}
+I recognized that teams already use various tools and platforms, so ErrorZen needed to integrate seamlessly rather than require wholesale replacement. I wanted to provide SDKs and plugins that let teams connect ErrorZen with technologies they're already using, like Firebase Crashlytics or Sentry. Additionally, I needed a flexible API that businesses could use to customize integrations based on their specific workflows and requirements.
 
 \subsubsection{User Interface and Access Management}
 
-\begin{itemize}
-\item Allow developers to view, filter and analyse errors via a dashboard
-\item Manage roles and permissions to secure access to data
-\end{itemize}
+The dashboard needed to be intuitive enough that developers could immediately start viewing, filtering, and analyzing errors without extensive training. I wanted powerful search and filtering capabilities that let teams drill down to specific error patterns or timeframes. Security was equally important, so I needed robust role and permission management that ensured teams could only access data relevant to their projects while keeping sensitive information protected.
 
 \subsection{Non-functional Requirements}
 
@@ -54,43 +36,23 @@ These needs concern system quality, performance and security.
 
 \subsubsection{Performance and Scalability}
 
-\begin{itemize}
-\item Manage a large volume of logs without slowing down
-\item Ensure rapid system response (<200ms for error recovery)
-\item Support a large number of users and integrations without loss of performance
-\end{itemize}
+I set aggressive performance targets because slow error tracking tools defeat their own purpose. The system needed to handle massive volumes of logs -- thousands of errors per second during peak loads -- without degrading performance. I targeted sub-200ms response times for error retrieval because developers shouldn't wait when debugging production issues. The architecture also had to scale horizontally to support growing numbers of users and integrations without any performance degradation, which meant careful attention to database queries, caching strategies, and service communication patterns.
 
 \subsubsection{Security and Compliance}
 
-\begin{itemize}
-\item Encrypt sensitive user and error data
-\item Authenticate and authorise access via OAuth or JWT
-\item Ensure compliance with security standards (e.g. GDPR, ISO 27001)
-\end{itemize}
+Given that error logs often contain sensitive information, security couldn't be an afterthought. I implemented AES-256 encryption for all sensitive user and error data, both in transit and at rest. Authentication and authorization had to be bulletproof, using industry-standard JWT tokens that could integrate with existing OAuth providers. Compliance with regulations like GDPR and standards like ISO 27001 was non-negotiable, especially for enterprise customers who need detailed audit trails and data governance capabilities.
 
 \subsubsection{Availability and Reliability}
 
-\begin{itemize}
-\item Ensure high availability (SLA > 99.9\%)
-\item Implement a backup and recovery mechanism in the event of a failure
-\item Have real-time monitoring to prevent any failure
-\end{itemize}
+An error tracking system that goes down when you need it most is worse than useless, so I committed to maintaining 99.9\% uptime. I implemented comprehensive backup and recovery mechanisms so that data is never lost, even in catastrophic failure scenarios. Real-time monitoring of the platform itself was essential -- using health checks, metrics, and alerts to catch potential issues before they impact users. Essentially, the system needed to be more reliable than the applications it monitors.
 
 \subsubsection{Compatibility and Integration}
 
-\begin{itemize}
-\item Support different environments (Linux, Windows, macOS)
-\item Ensure compatibility with several languages and frameworks (Python, Node.js, Java, Flutter, etc.)
-\item Use REST APIs for efficient communication with the frontend
-\end{itemize}
+Development teams work across diverse environments, so ErrorZen needed to function seamlessly on Linux, Windows, and macOS without platform-specific quirks. Language and framework compatibility was equally critical -- I wanted support for Python, Node.js, Java, Flutter, and other popular technologies so teams wouldn't need to change their stack to use the platform. I chose REST APIs as the primary communication protocol because they're universally understood and provide efficient, straightforward integration with any frontend technology.
 
 \subsubsection{Ease of Use and Maintainability}
 
-\begin{itemize}
-\item Offer an intuitive and accessible interface
-\item Document the API and SDKs for easy integration
-\item Provide technical support and regular updates
-\end{itemize}
+I believe tools should feel natural to use, not require extensive training manuals. The interface needed to be intuitive enough that developers could start using it productively within minutes of first login. Comprehensive documentation for APIs and SDKs was essential -- I've been frustrated too many times by undocumented or poorly documented tools. I also committed to providing ongoing technical support and regular updates, because a platform is only as good as the support behind it when users encounter issues or need new features.
 
 \subsection{Constraints}
 

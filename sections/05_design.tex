@@ -34,14 +34,7 @@ This chapter presents the overall architecture of the system, the main design de
 
 \subsection{Design Principles}
 
-The project followed key software engineering principles:
-
-\begin{itemize}
-\item \textbf{Modularity:} Code is divided into reusable components and services
-\item \textbf{Separation of Concerns:} Frontend, backend, and data layers are separated
-\item \textbf{Security by Design:} All API calls are authenticated; sensitive data is encrypted
-\item \textbf{Scalability:} Designed to scale horizontally by separating backend and database services
-\end{itemize}
+Throughout the design process, I adhered to fundamental software engineering principles that I believe are essential for building maintainable systems. Modularity was paramount -- I divided code into reusable components and services so that changes in one area wouldn't cascade through the entire system. Separation of concerns guided my architectural decisions, keeping frontend presentation logic, backend business logic, and data persistence cleanly separated. This makes reasoning about the system much easier and allows team members to work on different layers without stepping on each other's toes. Security by design wasn't an afterthought; I architected the system from the ground up with security in mind, ensuring all API calls are authenticated and sensitive data is encrypted both in transit and at rest. Scalability was a key consideration because I've seen too many systems that work beautifully at small scale but collapse under real-world load. By separating backend and database services, I designed ErrorZen to scale horizontally, adding more instances as demand grows rather than being limited by single-server constraints.
 
 \subsection{Product Backlog}
 
@@ -68,4 +61,4 @@ The complete backlog contained 35 user stories with estimated efforts ranging fr
 
 \subsection{Summary}
 
-This chapter outlines the system's architecture and design decisions. Technologies were selected to optimise development speed, scalability, and maintainability. UML diagrams and ER models supported a clear technical structure that guided the implementation phase.
+This chapter captures the architectural thinking and design decisions that shaped ErrorZen. Every technology choice I made was deliberate, balancing development speed against scalability and long-term maintainability. I didn't want to build something that works today but becomes a maintenance nightmare tomorrow. The UML diagrams and ER models I created weren't just academic exercises -- they served as blueprints that guided implementation decisions and helped me communicate the system's structure to stakeholders. Having this clear technical foundation made the actual coding phase more focused because the big architectural questions were already answered.

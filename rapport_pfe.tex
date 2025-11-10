@@ -24,6 +24,7 @@
 \usepackage{hhline}
 \usepackage{hyperref}
 \usepackage{bookmark}
+\usepackage{pdfpages}
 
 % Times New Roman font for main text as per regulations
 \usepackage{times}
@@ -169,17 +170,12 @@
 \clubpenalty=10000
 \raggedbottom
 
-% Title page information - 24pt centered as per regulations
-\title{\fontsize{24}{28}\selectfont\textbf{ErrorZen: Intelligent Platform for Automated Error Management}\\[0.5cm]
-\large{Final Year Project Report}}
-\author{Mohamed Abbassi}
-\date{October 2025}
-
 \begin{document}
 
-% Title page
-\maketitle
-\newpage
+% Cover pages
+
+\includepdf[pages={1}]{page_1.pdf}
+\includepdf[pages={1}]{page_3.pdf}
 
 % Personal Acknowledgments Page
 \thispagestyle{empty}
@@ -354,5 +350,8 @@ October 2025
 \newpage
 
 \input{sections/09_bibliography}
+
+% Back cover
+\includepdf[pages={1}]{page_2.pdf}
 
 \end{document}

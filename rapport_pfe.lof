@@ -1,47 +1,47 @@
-\contentsline {figure}{\numberline {1}{\ignorespaces ESPRIT University Logo}}{12}{figure.caption.1}%
-\contentsline {figure}{\numberline {2}{\ignorespaces SITEM Company Logo}}{12}{figure.caption.2}%
-\contentsline {figure}{\numberline {3}{\ignorespaces Gantt Chart - Project Timeline}}{25}{figure.caption.4}%
-\contentsline {figure}{\numberline {4}{\ignorespaces Sentry Architecture Overview}}{27}{figure.caption.5}%
-\contentsline {figure}{\numberline {5}{\ignorespaces Sentry System Design}}{28}{figure.caption.6}%
-\contentsline {figure}{\numberline {6}{\ignorespaces Dynatrace Database Schema}}{29}{figure.caption.7}%
-\contentsline {figure}{\numberline {7}{\ignorespaces Use Case Diagram}}{39}{figure.caption.9}%
-\contentsline {figure}{\numberline {8}{\ignorespaces Class Diagram of the System}}{40}{figure.caption.10}%
-\contentsline {figure}{\numberline {9}{\ignorespaces Deployment Architecture}}{40}{figure.caption.11}%
-\contentsline {figure}{\numberline {10}{\ignorespaces Detailed System Flow}}{43}{figure.caption.13}%
-\contentsline {figure}{\numberline {11}{\ignorespaces Complete Database Design and ER Diagram}}{44}{figure.caption.14}%
-\contentsline {figure}{\numberline {12}{\ignorespaces Sprint 1a - Use Case Diagram}}{48}{figure.caption.17}%
-\contentsline {figure}{\numberline {13}{\ignorespaces Sprint 1b - Sequence Diagram: Authentication Flow}}{48}{figure.caption.18}%
-\contentsline {figure}{\numberline {14}{\ignorespaces Sprint 1c - Sequence Diagram: Database Connection}}{49}{figure.caption.19}%
-\contentsline {figure}{\numberline {15}{\ignorespaces Sprint 1d - Activity Diagram: Project Setup Process}}{49}{figure.caption.20}%
-\contentsline {figure}{\numberline {16}{\ignorespaces Sprint 2a - Use Case Diagram}}{51}{figure.caption.22}%
-\contentsline {figure}{\numberline {17}{\ignorespaces Sprint 2b - Sequence Diagram: Dashboard Data Flow}}{51}{figure.caption.23}%
-\contentsline {figure}{\numberline {18}{\ignorespaces Sprint 2c - Sequence Diagram: Error Log Retrieval}}{52}{figure.caption.24}%
-\contentsline {figure}{\numberline {19}{\ignorespaces Sprint 2d - Activity Diagram: Real-Time Error Monitoring}}{53}{figure.caption.25}%
-\contentsline {figure}{\numberline {20}{\ignorespaces Sprint 3a - Use Case Diagram}}{54}{figure.caption.27}%
-\contentsline {figure}{\numberline {21}{\ignorespaces Sprint 3b - Sequence Diagram: CI/CD Pipeline Execution}}{55}{figure.caption.28}%
-\contentsline {figure}{\numberline {22}{\ignorespaces Sprint 3c - Sequence Diagram: Pipeline Monitoring}}{55}{figure.caption.29}%
-\contentsline {figure}{\numberline {23}{\ignorespaces Sprint 3d - Activity Diagram: DevOps Pipeline Setup}}{56}{figure.caption.30}%
-\contentsline {figure}{\numberline {24}{\ignorespaces Sprint 4a - Use Case Diagram}}{57}{figure.caption.32}%
-\contentsline {figure}{\numberline {25}{\ignorespaces Sprint 4b - Sequence Diagram: AI Model Integration}}{57}{figure.caption.33}%
-\contentsline {figure}{\numberline {26}{\ignorespaces Sprint 4c - Sequence Diagram: Automated Code Fixes}}{58}{figure.caption.34}%
-\contentsline {figure}{\numberline {27}{\ignorespaces Sprint 4d - Activity Diagram: Error Classification \& AI Fixes}}{59}{figure.caption.35}%
-\contentsline {figure}{\numberline {28}{\ignorespaces Sprint 5a - Use Case Diagram}}{61}{figure.caption.37}%
-\contentsline {figure}{\numberline {29}{\ignorespaces Sprint 5b - Sequence Diagram: Notification System Flow}}{61}{figure.caption.38}%
-\contentsline {figure}{\numberline {30}{\ignorespaces Sprint 5c - Sequence Diagram: Alert Rules Management}}{62}{figure.caption.39}%
-\contentsline {figure}{\numberline {31}{\ignorespaces Sprint 5d - Activity Diagram: Alerting \& Notifications}}{63}{figure.caption.40}%
-\contentsline {figure}{\numberline {32}{\ignorespaces Sprint 6a - Use Case Diagram}}{65}{figure.caption.42}%
-\contentsline {figure}{\numberline {33}{\ignorespaces Sprint 6b - Sequence Diagram: Data Encryption Process}}{65}{figure.caption.43}%
-\contentsline {figure}{\numberline {34}{\ignorespaces Sprint 6c - Sequence Diagram: Payment Processing}}{66}{figure.caption.44}%
-\contentsline {figure}{\numberline {35}{\ignorespaces Sprint 6d - Activity Diagram: Data Protection \& Payments}}{67}{figure.caption.45}%
-\contentsline {figure}{\numberline {36}{\ignorespaces Sprint 7a - Use Case Diagram}}{69}{figure.caption.47}%
-\contentsline {figure}{\numberline {37}{\ignorespaces Sprint 7b - Sequence Diagram: SDK Integration}}{69}{figure.caption.48}%
-\contentsline {figure}{\numberline {38}{\ignorespaces Sprint 7c - Sequence Diagram: Service Activation}}{70}{figure.caption.49}%
-\contentsline {figure}{\numberline {39}{\ignorespaces Sprint 7d - Activity Diagram: SDK Development \& Documentation}}{71}{figure.caption.50}%
-\contentsline {figure}{\numberline {40}{\ignorespaces ErrorZen Main Dashboard - Real-time Error Monitoring}}{75}{figure.caption.52}%
-\contentsline {figure}{\numberline {41}{\ignorespaces Error Detection and AI-Powered Analysis}}{76}{figure.caption.53}%
-\contentsline {figure}{\numberline {42}{\ignorespaces Project Configuration and Management}}{76}{figure.caption.54}%
-\contentsline {figure}{\numberline {43}{\ignorespaces AI Usage Analytics and Performance Metrics}}{77}{figure.caption.55}%
-\contentsline {figure}{\numberline {44}{\ignorespaces CI/CD Pipeline Configuration Interface}}{78}{figure.caption.56}%
-\contentsline {figure}{\numberline {45}{\ignorespaces Secure Authentication Interface}}{79}{figure.caption.57}%
-\contentsline {figure}{\numberline {46}{\ignorespaces Third-party Service Integrations}}{80}{figure.caption.58}%
-\contentsline {figure}{\numberline {47}{\ignorespaces SonarCloud Integration for Code Quality Analysis}}{80}{figure.caption.59}%
+\contentsline {figure}{\numberline {1}{\ignorespaces ESPRIT University Logo}}{13}{figure.caption.1}%
+\contentsline {figure}{\numberline {2}{\ignorespaces SITEM Company Logo}}{13}{figure.caption.2}%
+\contentsline {figure}{\numberline {3}{\ignorespaces Gantt Chart - Project Timeline}}{27}{figure.caption.4}%
+\contentsline {figure}{\numberline {4}{\ignorespaces Sentry Architecture Overview}}{29}{figure.caption.5}%
+\contentsline {figure}{\numberline {5}{\ignorespaces Sentry System Design}}{30}{figure.caption.6}%
+\contentsline {figure}{\numberline {6}{\ignorespaces Dynatrace Database Schema}}{31}{figure.caption.7}%
+\contentsline {figure}{\numberline {7}{\ignorespaces Use Case Diagram}}{42}{figure.caption.9}%
+\contentsline {figure}{\numberline {8}{\ignorespaces Class Diagram of the System}}{43}{figure.caption.10}%
+\contentsline {figure}{\numberline {9}{\ignorespaces Deployment Architecture}}{43}{figure.caption.11}%
+\contentsline {figure}{\numberline {10}{\ignorespaces Detailed System Flow}}{46}{figure.caption.13}%
+\contentsline {figure}{\numberline {11}{\ignorespaces Complete Database Design and ER Diagram}}{47}{figure.caption.14}%
+\contentsline {figure}{\numberline {12}{\ignorespaces Sprint 1a - Use Case Diagram}}{52}{figure.caption.17}%
+\contentsline {figure}{\numberline {13}{\ignorespaces Sprint 1b - Sequence Diagram: Authentication Flow}}{52}{figure.caption.18}%
+\contentsline {figure}{\numberline {14}{\ignorespaces Sprint 1c - Sequence Diagram: Database Connection}}{53}{figure.caption.19}%
+\contentsline {figure}{\numberline {15}{\ignorespaces Sprint 1d - Activity Diagram: Project Setup Process}}{53}{figure.caption.20}%
+\contentsline {figure}{\numberline {16}{\ignorespaces Sprint 2a - Use Case Diagram}}{55}{figure.caption.22}%
+\contentsline {figure}{\numberline {17}{\ignorespaces Sprint 2b - Sequence Diagram: Dashboard Data Flow}}{55}{figure.caption.23}%
+\contentsline {figure}{\numberline {18}{\ignorespaces Sprint 2c - Sequence Diagram: Error Log Retrieval}}{56}{figure.caption.24}%
+\contentsline {figure}{\numberline {19}{\ignorespaces Sprint 2d - Activity Diagram: Real-Time Error Monitoring}}{57}{figure.caption.25}%
+\contentsline {figure}{\numberline {20}{\ignorespaces Sprint 3a - Use Case Diagram}}{58}{figure.caption.27}%
+\contentsline {figure}{\numberline {21}{\ignorespaces Sprint 3b - Sequence Diagram: CI/CD Pipeline Execution}}{59}{figure.caption.28}%
+\contentsline {figure}{\numberline {22}{\ignorespaces Sprint 3c - Sequence Diagram: Pipeline Monitoring}}{59}{figure.caption.29}%
+\contentsline {figure}{\numberline {23}{\ignorespaces Sprint 3d - Activity Diagram: DevOps Pipeline Setup}}{60}{figure.caption.30}%
+\contentsline {figure}{\numberline {24}{\ignorespaces Sprint 4a - Use Case Diagram}}{61}{figure.caption.32}%
+\contentsline {figure}{\numberline {25}{\ignorespaces Sprint 4b - Sequence Diagram: AI Model Integration}}{61}{figure.caption.33}%
+\contentsline {figure}{\numberline {26}{\ignorespaces Sprint 4c - Sequence Diagram: Automated Code Fixes}}{62}{figure.caption.34}%
+\contentsline {figure}{\numberline {27}{\ignorespaces Sprint 4d - Activity Diagram: Error Classification \& AI Fixes}}{63}{figure.caption.35}%
+\contentsline {figure}{\numberline {28}{\ignorespaces Sprint 5a - Use Case Diagram}}{65}{figure.caption.37}%
+\contentsline {figure}{\numberline {29}{\ignorespaces Sprint 5b - Sequence Diagram: Notification System Flow}}{65}{figure.caption.38}%
+\contentsline {figure}{\numberline {30}{\ignorespaces Sprint 5c - Sequence Diagram: Alert Rules Management}}{66}{figure.caption.39}%
+\contentsline {figure}{\numberline {31}{\ignorespaces Sprint 5d - Activity Diagram: Alerting \& Notifications}}{67}{figure.caption.40}%
+\contentsline {figure}{\numberline {32}{\ignorespaces Sprint 6a - Use Case Diagram}}{69}{figure.caption.42}%
+\contentsline {figure}{\numberline {33}{\ignorespaces Sprint 6b - Sequence Diagram: Data Encryption Process}}{69}{figure.caption.43}%
+\contentsline {figure}{\numberline {34}{\ignorespaces Sprint 6c - Sequence Diagram: Payment Processing}}{70}{figure.caption.44}%
+\contentsline {figure}{\numberline {35}{\ignorespaces Sprint 6d - Activity Diagram: Data Protection \& Payments}}{71}{figure.caption.45}%
+\contentsline {figure}{\numberline {36}{\ignorespaces Sprint 7a - Use Case Diagram}}{73}{figure.caption.47}%
+\contentsline {figure}{\numberline {37}{\ignorespaces Sprint 7b - Sequence Diagram: SDK Integration}}{73}{figure.caption.48}%
+\contentsline {figure}{\numberline {38}{\ignorespaces Sprint 7c - Sequence Diagram: Service Activation}}{74}{figure.caption.49}%
+\contentsline {figure}{\numberline {39}{\ignorespaces Sprint 7d - Activity Diagram: SDK Development \& Documentation}}{75}{figure.caption.50}%
+\contentsline {figure}{\numberline {40}{\ignorespaces ErrorZen Main Dashboard - Real-time Error Monitoring}}{79}{figure.caption.52}%
+\contentsline {figure}{\numberline {41}{\ignorespaces Error Detection and AI-Powered Analysis}}{80}{figure.caption.53}%
+\contentsline {figure}{\numberline {42}{\ignorespaces Project Configuration and Management}}{81}{figure.caption.54}%
+\contentsline {figure}{\numberline {43}{\ignorespaces AI Usage Analytics and Performance Metrics}}{82}{figure.caption.55}%
+\contentsline {figure}{\numberline {44}{\ignorespaces CI/CD Pipeline Configuration Interface}}{82}{figure.caption.56}%
+\contentsline {figure}{\numberline {45}{\ignorespaces Secure Authentication Interface}}{84}{figure.caption.57}%
+\contentsline {figure}{\numberline {46}{\ignorespaces Third-party Service Integrations}}{84}{figure.caption.58}%
+\contentsline {figure}{\numberline {47}{\ignorespaces SonarCloud Integration for Code Quality Analysis}}{85}{figure.caption.59}%
