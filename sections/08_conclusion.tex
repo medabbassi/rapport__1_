@@ -8,11 +8,18 @@ The ErrorZen project successfully delivered an intelligent platform for automate
 
 \subsection{Key Achievements}
 
-I'm proud of what ErrorZen accomplished across these seven sprints. Real-time error detection now works seamlessly across frontend, backend, and mobile platforms, consistently responding in under 200ms even under heavy load. The AI-powered auto-correction capability, built on the DeepSeek API, genuinely provides intelligent error analysis and suggests fixes that developers actually use. I achieved true DevOps automation with a zero-manual CI/CD pipeline using GitHub Actions and Kubernetes -- from error detection through fix deployment, the entire process runs without human intervention when appropriate. The dashboard interface turned out exactly as I envisioned -- intuitive, powerful, built with Vue.js, and providing real-time monitoring that gives teams immediate visibility into system health. Multi-platform support through SDKs for Node.js and Flutter/Dart means teams can integrate ErrorZen regardless of their technology stack, and the comprehensive documentation makes integration straightforward. Enterprise security requirements are fully met with AES-256 encryption and GDPR-compliant logging that satisfies even the strictest compliance requirements. The scalable architecture I built on Go and PostgreSQL proves its worth daily, handling high-volume error streams without breaking a sweat.
+Key achievements: <200ms error detection across all platforms, AI-powered auto-correction via DeepSeek, zero-manual CI/CD with GitHub Actions + Kubernetes, intuitive Vue.js dashboard, multi-platform SDKs (Node.js, Flutter/Dart), AES-256 encryption + GDPR compliance, and scalable Go + PostgreSQL architecture.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth,keepaspectratio]{rapport/media/dashboard_main.png}
+\caption{ErrorZen Platform Achievements}
+\label{fig:achievements}
+\end{figure}
 
 \subsection{Technical Impact}
 
-The project delivered measurable improvements that validate the entire approach. Mean time to resolution dropped by approximately 70\% thanks to AI-powered auto-correction -- issues that used to take hours or days to diagnose and fix now get resolved in minutes. Development velocity increased by about 30\% because automated testing and deployment eliminated waiting time and manual handoffs. The open-source technology stack I chose significantly reduced licensing costs compared to enterprise solutions like Dynatrace, making ErrorZen accessible to teams with limited budgets. Perhaps most importantly for daily work, the unified dashboard eliminated the constant context switching between multiple monitoring tools that used to fragment developers' attention and slow down troubleshooting.
+Measurable impact: 70\% reduction in resolution time, 30\% velocity increase, significantly reduced licensing costs vs Dynatrace, and eliminated context switching between tools.
 
 \subsection{Methodology Validation}
 
@@ -57,11 +64,11 @@ Several areas have been identified for future enhancement:
 
 \subsubsection{Technical Lessons}
 
-This project taught me valuable lessons I'll carry into future work. Go's concurrency model proved absolutely ideal for building real-time systems -- goroutines and channels make handling thousands of simultaneous connections almost trivially easy compared to traditional threading models. PostgreSQL's reliability features, especially write-ahead logging, are absolutely crucial for production systems where data loss isn't acceptable. I learned that AI integration requires carefully balancing latency and accuracy -- sometimes a slightly less accurate but faster model provides better user experience than perfect analysis that takes too long. Finally, I discovered that no matter how good your SDK is, without proper documentation nobody will use it. Clear, example-driven documentation isn't nice to have, it's essential.
+Technical lessons: Go's concurrency ideal for real-time systems, PostgreSQL WAL crucial for reliability, balance AI latency vs accuracy for UX, and comprehensive documentation essential for SDK adoption.
 
 \subsubsection{Project Management Lessons}
 
-On the project management side, I learned that RAD methodology really does accelerate development significantly when you apply it properly -- the key is maintaining discipline around timeboxing and not letting technical perfection become the enemy of working software. Regular stakeholder communication prevented scope creep that could have derailed the project -- weekly check-ins kept everyone aligned on priorities. Automated testing proved non-negotiable for maintaining quality at the development pace I was targeting -- manual testing would have been a bottleneck that destroyed the benefits of rapid development. Continuous deployment enabled faster feedback and iteration cycles, turning deployment from a scary event into a routine, low-risk operation.
+Management lessons: RAD accelerates development with proper timeboxing, regular stakeholder communication prevents scope creep, automated testing maintains quality at speed, and continuous deployment enables fast iteration.
 
 \subsection{Final Remarks}
 

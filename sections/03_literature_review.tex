@@ -26,9 +26,9 @@ Several platforms and tools have been developed to address error/bug logging and
 \label{fig:sentry_design}
 \end{figure}
 
-During my research, I spent considerable time evaluating Sentry because it's one of the most popular error monitoring platforms developers actually use. Sentry excels at real-time error monitoring, quickly detecting crashes and exceptions then alerting developers immediately. I was impressed by its wide language support covering JavaScript, Python, Ruby, Java, Go, PHP, .NET, and more -- this matters because teams often work with multiple languages. The error reports are genuinely detailed, providing stack traces, environment data, and user context that make debugging much easier. Performance monitoring capabilities track latency and bottlenecks, though this isn't Sentry's strongest feature. Integration support with GitHub, Slack, Jira, and other DevOps tools streamlines workflows nicely. I appreciated that Sentry offers an open-source, self-hosted option for teams who need complete control over their data. The UI is legitimately user-friendly with intuitive filtering and search capabilities. Release tracking that correlates errors with specific code deployments is particularly valuable for understanding when issues were introduced.
+Sentry excels at real-time error monitoring with wide language support (JavaScript, Python, Ruby, Java, Go, PHP, .NET), detailed error reports with stack traces, DevOps integrations (GitHub, Slack, Jira), and user-friendly UI with release tracking.
 
-However, Sentry has significant limitations I couldn't ignore. Cost becomes prohibitive for high-volume applications -- the pricing model penalizes success as your application grows and generates more events. The free tier is quite limited, restricting both features and event counts in ways that make it impractical for serious use. Self-hosting, while available, requires substantial maintenance and infrastructure investment. Sentry lacks built-in advanced performance monitoring, falling behind competitors like Datadog in full APM capabilities. Some features have a steep learning curve -- performance tracing in particular requires deeper configuration knowledge. Finally, Sentry is primarily focused on errors rather than being a comprehensive log analytics solution, so you'll still need separate tools for broader observability.
+\textbf{Limitations:} Prohibitive costs for high-volume apps, limited free tier, maintenance-heavy self-hosting, lacks advanced APM, steep learning curve, narrow focus on errors only.
 
 \subsubsection{Dynatrace}
 
@@ -39,11 +39,16 @@ However, Sentry has significant limitations I couldn't ignore. Cost becomes proh
 \label{fig:dynatrace_schema}
 \end{figure}
 
-I also thoroughly evaluated Dynatrace, which represents the enterprise end of the observability spectrum. Dynatrace is an AI-powered, full-stack observability platform offering APM, infrastructure monitoring, real-user monitoring, and cloud automation. It's particularly popular with large enterprises who need comprehensive monitoring at scale.
+Dynatrace is an enterprise-grade AI-powered observability platform with Davis AI for root cause analysis, full-stack monitoring (applications, microservices, containers, infrastructure), automatic dependency mapping, real user monitoring, and multi-cloud support (AWS, Azure, GCP).
 
-Dynatrace's strengths are impressive. The Davis AI engine automatically detects anomalies, pinpoints failures, and suggests fixes with minimal human intervention -- this AI-powered root cause analysis genuinely works well. Full-stack observability means you can track applications, microservices, containers, cloud infrastructure, databases, and network performance all in one place. Automatic discovery and dependency mapping dynamically maps your entire application architecture without requiring manual configuration, which is remarkable when you consider how complex modern distributed systems have become. Real user monitoring tracks actual browser and mobile experiences, while synthetic monitoring simulates transactions to catch issues proactively. Cloud-native multi-cloud support works seamlessly across AWS, Azure, GCP, and hybrid environments.
+\textbf{Limitations:} Extraordinarily expensive, complex setup, limited customization, resource-heavy, separate log management (Dynatrace Grail), and strong vendor lock-in.
 
-However, Dynatrace's limitations are equally significant. The cost is extraordinary -- it's one of the most expensive APM tools on the market, putting it out of reach for small and medium-sized businesses. Setup complexity and the learning curve are overwhelming for beginners because the platform does so much. Dashboard customization is surprisingly limited compared to tools like Grafana or Datadog, which frustrated me during evaluation. Self-hosted deployments consume heavy resources, requiring significant infrastructure investment. Log management isn't built in -- it's a separate module called Dynatrace Grail that adds even more to the already high costs. Finally, vendor lock-in risk is real because proprietary agents and data models make migrating away from Dynatrace extremely difficult.
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\textwidth,keepaspectratio]{rapport/media/image6.png}
+\caption{Competitive Analysis: ErrorZen vs Existing Solutions}
+\label{fig:comparison}
+\end{figure}
 
 \subsection{Comparison of Existing Solutions}
 
@@ -74,23 +79,22 @@ After thoroughly analyzing Sentry and Dynatrace, I identified critical gaps that
 
 I designed ErrorZen specifically to solve these challenges in ways existing tools don't. The AI-powered auto-correction capability is fundamentally different from what Sentry or Dynatrace offer. While Sentry requires manual debugging and Dynatrace only provides AI alerts, ErrorZen uses machine learning to proactively generate and apply fixes, dramatically reducing mean time to resolution. I built end-to-end DevOps automation that integrates directly with CI/CD pipelines to automatically test and deploy patches without manual intervention -- this eliminates steps that neither Dynatrace nor Sentry can address. ErrorZen provides unified cross-platform monitoring that tracks frontend, backend, and mobile in one coherent dashboard, while competitors tend to silo data. Sentry lacks infrastructure insights, and Dynatrace's comprehensive view comes at enterprise prices. Real-time notifications combine Slack and email alerts with actionable fixes, going beyond Dynatrace's passive alerts or Sentry's basic notifications. Finally, ErrorZen's architecture scales cost-effectively, avoiding both Dynatrace's prohibitive enterprise pricing and Sentry's volume-based limits through optimized event processing.
 
-\subsection{Technology Choices Justification}
+\subsection{Technology Selection}
 
-The ErrorZen platform requires a robust and scalable technology stack capable of handling real-time error processing, intelligent analysis, and seamless integration with modern development workflows. After careful evaluation of available technologies and frameworks, we selected a combination of tools that balance performance, maintainability, and extensibility.
+\textbf{Backend:} Go (concurrency, performance), Python (AI integration)\\
+\textbf{Data:} PostgreSQL (ACID compliance), MongoDB (flexible logs)\\
+\textbf{APIs:} gRPC (internal, low-latency), REST (external, simplicity)\\
+\textbf{Frontend:} Vue.js (reactive, real-time dashboards)\\
+\textbf{AI:} DeepSeek API (sophisticated analysis without ML overhead)\\
+\textbf{DevOps:} GitHub Actions (primary), Jenkins (legacy support)\\
+\textbf{Infrastructure:} Docker + Kubernetes (auto-scaling), AWS + GCP (global reliability)
 
-For the backend architecture, we chose Go as our primary programming language because of its exceptional performance characteristics and built-in concurrency model. Go's goroutines and channels make it ideal for real-time error processing where multiple error streams must be handled simultaneously without blocking operations. Additionally, Go's compiled nature ensures low latency and efficient resource utilization, which are critical when processing high volumes of error events. Python complements Go in our architecture by handling event-driven tasks and providing seamless integration with AI/ML services, particularly for interfacing with the DeepSeek API. Python's asynchronous I/O capabilities through asyncio make it well-suited for managing AI model interactions without introducing performance bottlenecks.
-
-Regarding data storage, we implemented a dual-database strategy to optimize for different data characteristics. PostgreSQL serves as our primary database because it provides ACID compliance, ensuring data consistency and reliability for critical application state and user information. PostgreSQL's excellent scalability and native JSON support allow us to store structured data efficiently while maintaining the flexibility to handle semi-structured metadata. We complement PostgreSQL with MongoDB for storing unstructured error logs and stack traces, where MongoDB's flexible schema architecture allows us to adapt to varying error formats across different programming languages and frameworks without requiring schema migrations.
-
-For inter-service communication, we adopted a hybrid API approach. Internally, we use gRPC for microservices communication because it provides low-latency, high-throughput data exchange through Protocol Buffers, which is essential for real-time error processing pipelines. gRPC's efficient binary serialization reduces network overhead and improves overall system performance. For external client integrations, we expose REST APIs because of their simplicity, widespread adoption, and excellent compatibility with various programming languages and platforms. This dual approach allows us to optimize internal performance while maintaining ease of integration for external users.
-
-The frontend is built using Vue.js, which we selected for its lightweight nature and reactive component model. Vue.js enables us to create responsive, real-time dashboards that update instantly as new errors are detected and processed. Its progressive framework design allows us to scale complexity as needed without over-engineering simple components. We integrate the frontend with our backend services using a REST API client that manages state efficiently and provides a clean separation between presentation and business logic.
-
-For artificial intelligence and machine learning capabilities, we chose to leverage the DeepSeek API rather than maintaining custom ML models. This decision was driven by several factors: DeepSeek's advanced language model capabilities enable sophisticated error analysis and automated correction suggestions that would require significant resources to develop in-house. By using an API-based approach, we eliminate the overhead of training, maintaining, and scaling custom ML infrastructure, allowing us to focus our development efforts on core platform features. DeepSeek's continuously updated models also ensure that our error analysis capabilities improve over time without requiring manual model updates.
-
-Our DevOps and CI/CD strategy centers on GitHub Actions as the primary automation platform because of its native integration with Git repositories and streamlined workflow execution. GitHub Actions allows us to implement continuous integration and deployment pipelines that automatically test and deploy code changes, reducing manual intervention and accelerating release cycles. We maintain Jenkins as a fallback option for handling complex legacy pipelines and scenarios that require more sophisticated build orchestration.
-
-For deployment and infrastructure, we adopted a containerized approach using Docker and Kubernetes. Docker ensures consistency across development, testing, and production environments by packaging applications with all their dependencies, eliminating the common "works on my machine" problem. Kubernetes provides the orchestration layer that enables auto-scaling capabilities, which are essential for handling sudden error spikes during production incidents. We deploy our infrastructure on AWS and GCP, leveraging their global reliability, comprehensive managed services, and multi-region availability to ensure high uptime and low latency for users worldwide.
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth,keepaspectratio]{rapport/media/grpc-icon-color.png}
+\caption{gRPC Communication Architecture}
+\label{fig:grpc}
+\end{figure}
 
 \subsection{Summary}
 

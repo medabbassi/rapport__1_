@@ -7,21 +7,35 @@
 
 In today's software development landscape, error management represents one of the most critical challenges facing development teams and organizations. The complexity of modern applications, combined with the increasing demand for rapid deployment cycles, has created an environment where effective error detection, analysis, and resolution are essential for maintaining system reliability and user satisfaction.
 
-Traditional error management approaches suffer from several fundamental limitations. Manual error detection relies heavily on user reports or periodic system checks, often resulting in delayed identification of critical issues. The diagnostic process requires significant human expertise and time investment, as developers must manually analyze logs, trace execution paths, and identify root causes. Furthermore, the resolution phase typically involves manual code modifications, testing, and deployment procedures that can introduce additional delays and potential for human error.
+Traditional error management suffers from manual detection, time-consuming diagnosis, and manual fixes -- all leading to delays and potential errors.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth,keepaspectratio]{rapport/media/error_analysis.png}
+\caption{Traditional vs AI-Powered Error Management}
+\label{fig:error_comparison}
+\end{figure}
 
 \subsection{Research Problem and Objectives}
 
 This final year project addresses the fundamental question: \essential{How can artificial intelligence and automated DevOps integration be leveraged to create an intelligent platform capable of autonomous error detection, analysis, and resolution in modern software applications?}
 
-As a developer, I designed ErrorZen to solve the problems I've experienced firsthand in production environments. The primary objective was to create an intelligent error management platform that brings together several critical capabilities into one cohesive system. I wanted real-time error detection that works seamlessly across all application layers -- whether it's a backend API failure, a frontend JavaScript exception, or a mobile app crash. Beyond just detecting errors, I integrated AI-powered analysis that doesn't just tell you what went wrong, but actually suggests fixes and generates the code needed to resolve issues. The platform integrates directly with CI/CD pipelines, so when a fix is ready, it can automatically test and deploy without manual intervention. I also built a comprehensive notification system that alerts the right team members through their preferred channels, whether that's Slack, email, or webhooks. Finally, I included powerful monitoring and analytics capabilities so teams can identify patterns and prevent issues before they become critical problems.
+ErrorZen solves real production problems through: real-time error detection across all layers, AI-powered analysis with automated fixes, direct CI/CD integration for automated deployment, multi-channel notifications (Slack, email, webhooks), and pattern monitoring to prevent issues.
 
 \subsection{Scope and Methodology}
 
-Throughout this project, I followed a systematic approach to platform development, employing Agile methodologies with iterative sprint-based implementation. The work encompassed both theoretical research and hands-on development. I started by thoroughly analyzing existing error management solutions like Sentry and Dynatrace to understand their limitations and identify opportunities for improvement. This research informed my design decisions as I architected an intelligent error management platform from the ground up. I then implemented AI-powered error detection and analysis algorithms, experimenting with different approaches until I found what worked best. Integration with modern DevOps tools and CI/CD pipelines was crucial, so I spent significant time ensuring seamless connectivity with GitHub Actions, Jenkins, and container orchestration platforms. I developed real-time notification and monitoring systems that provide immediate feedback when issues arise. Finally, I validated everything through extensive practical testing and performance evaluation to ensure the platform could handle real-world production workloads.
+Development followed Agile sprints combining research and implementation: analyzing existing solutions (Sentry, Dynatrace), architecting the platform, implementing AI-powered detection, integrating DevOps tools (GitHub Actions, Jenkins), and validating through extensive testing.
 
 \subsection{Technical Architecture Overview}
 
-I built the ErrorZen platform using modern technologies that I carefully selected for their specific strengths. For the backend, I chose Go (Golang) because its concurrency model is perfect for handling thousands of error events simultaneously -- it's incredibly fast and efficient. I structured it as microservices communicating via gRPC, which gives us both performance and scalability. On the frontend, I went with Vue.js because it's lightweight and its reactivity model makes building real-time dashboards straightforward. For data storage, PostgreSQL was the obvious choice for its reliability and ACID compliance, while Redis handles caching to keep response times lightning-fast. The AI integration leverages DeepSeek models, which provide sophisticated error analysis without the overhead of maintaining our own ML infrastructure. I containerized everything with Docker and set up GitHub Actions for CI/CD automation, making deployments smooth and repeatable. Finally, I built comprehensive real-time dashboards that give developers full visibility into system health and error patterns.
+Technology stack: Go backend with gRPC microservices, Vue.js frontend, PostgreSQL + Redis for data, DeepSeek AI integration, Docker containerization, and GitHub Actions CI/CD.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\textwidth,keepaspectratio]{rapport/media/diag_deploy.png}
+\caption{ErrorZen Technology Stack}
+\label{fig:tech_stack}
+\end{figure}
 
 \subsection{Report Organization and Chapter Overview}
 
@@ -53,18 +67,6 @@ The ErrorZen platform represents what I believe is a significant leap forward in
 
 I set out to design and develop ErrorZen as an intelligent platform that would genuinely automate error management across web and mobile applications. My main goal was to create something that would handle the entire error lifecycle without constant human intervention. I wanted automatic error detection happening in real time across every platform -- whether errors occur in a React frontend, a Go backend service, or a Flutter mobile app. But detection alone wasn't enough; I needed the system to automatically analyze these errors and correct anomalies using artificial intelligence models that could understand context and suggest appropriate fixes. I also focused heavily on DevOps integration because I wanted testing and deployment to happen automatically after patches are applied -- no more manual intervention or waiting for the next deployment window. I built everything around a centralized, interactive dashboard where errors are visualized clearly, using REST APIs and gRPC to ensure communication is both fast and efficient. Finally, I made sure notifications reach development teams instantly through whatever tools they actually use, whether that's Slack, email, or custom webhooks.
 
-\subsection{Agile Methodology: Why Scrum/RAD?}
+\subsection{Project Sprints Overview}
 
-I chose to follow a RAD (Rapid Application Development) approach combined with Agile-Scrum principles because I needed to deliver value quickly while maintaining flexibility for changes. This methodology let me iterate fast and gather feedback continuously throughout the development process. For the technology stack, I selected tools that would give me both performance and developer productivity. The backend runs on Go with PostgreSQL as the database, using both gRPC and REST APIs for service communication -- gRPC for internal services where speed matters, and REST for external integrations where simplicity is key. I built the frontend with Vue.js, which integrates beautifully with REST APIs and lets me create responsive, real-time interfaces without unnecessary complexity. For the AI capabilities, I integrated with the DeepSeek API rather than building custom models from scratch, which saved enormous amounts of time while still giving me sophisticated error analysis and correction. On the DevOps side, I set up CI/CD pipelines using GitHub Actions and Jenkins, containerized everything with Docker, and deployed to Kubernetes on AWS for production-grade scalability and reliability.
-
-\subsection{Expected Results}
-
-I expected this project to deliver tangible, measurable improvements in how teams handle errors. The main outcome I was aiming for was a significant reduction in error correction time -- instead of hours or days to identify, diagnose, and fix issues, I wanted to bring that down to minutes. I also wanted to improve overall application reliability through self-correction capabilities and automated testing that runs before any fix reaches production. By automating the entire DevOps cycle from error detection through fix deployment, I believed we could dramatically accelerate the production process. And perhaps most importantly for daily work, I wanted an intuitive interface that lets developers track and manage errors in real time without needing to jump between multiple tools or dig through log files.
-
-Ultimately, ErrorZen represents my vision for how error handling should work in modern software development. By automating DevOps cycles and optimizing error management, the platform reduces the burden on developers while simultaneously improving software quality -- a win-win situation that I believe will change how teams approach error management.
-
-\subsection{Overview of Sprints}
-
-I organized the project into 7 two-week sprints, each focused on delivering specific functionality. In Sprint 1, I established the project foundation -- setting up the Go backend, configuring PostgreSQL, implementing authentication, and defining the overall architecture. Sprint 2 was all about getting real-time error capture working, building the initial dashboard MVP, and making sure monitoring capabilities were functional. During Sprint 3, I focused on DevOps foundations, establishing CI/CD pipelines, containerizing services with Docker, and building out the automation infrastructure. Sprint 4 brought in the AI capabilities -- integrating DeepSeek for error analysis and implementing automated correction features. In Sprint 5, I developed the comprehensive notification system, connecting with Slack, email, and webhooks so teams get alerted immediately when issues arise. Sprint 6 was dedicated to security and business features, implementing data encryption, GDPR compliance, and billing functionality. Finally, Sprint 7 focused on developer experience, creating SDKs for Node.js and Flutter/Dart along with comprehensive documentation.
-
-Across these 7 sprints, I invested 510 hours of development work, completing 29 main user stories. I maintained detailed backlog planning, held daily standups (even if just documenting progress), and conducted sprint reviews after each iteration. This Agile structure gave me measurable progress milestones while keeping flexibility to adapt when requirements evolved or I discovered better approaches during development.
+7 sprints over 14 weeks delivered: Sprint 1 (foundation), Sprint 2 (error capture), Sprint 3 (DevOps), Sprint 4 (AI integration), Sprint 5 (notifications), Sprint 6 (security), Sprint 7 (SDKs). Total: 510 hours, 29 user stories completed.

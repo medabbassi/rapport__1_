@@ -4,9 +4,7 @@
 
 \subsection{Overview of Agile and Scrum}
 
-Agile is a flexible software development methodology that emphasises iterative progress, collaboration, and user feedback. Scrum is a widely used Agile framework characterised by short, time-boxed development cycles called sprints, daily team meetings, and continuous delivery of value.
-
-In this project, Scrum was adopted to manage changing requirements and ensure a structured yet adaptable development process.
+Agile and Scrum emphasize short cycles, collaboration, and rapid feedback. I used Scrum to manage changing requirements and keep development structured but flexible.
 
 \subsection{Adapting Scrum Roles in a RAD Context}
 
@@ -20,36 +18,37 @@ In a traditional Scrum team, roles are clearly defined:
 
 \subsubsection*{My RAD (Rapid Application Development) Adaptation (Solo/Small Team)}
 
-Working in a fast-paced, iterative RAD environment where speed and client feedback are critical, I had to merge multiple traditional Scrum roles to maximize efficiency. As both Product Owner and RAD Analyst, I maintained direct collaboration with stakeholders to capture requirements just-in-time and dynamically adjusted the backlog based on emerging priorities. I drove MVP-focused prioritization, integrating client feedback immediately after each prototype demonstration. I relied heavily on visual tools like Miro and clickable mockups because they enabled rapid requirement validation without lengthy documentation cycles.
+In a solo RAD context, I merged Scrum roles for speed and direct feedback. I acted as Product Owner, Scrum Master, and Developer, quickly adjusting priorities and validating requirements using tools like Miro and Figma. Technical spikes were strictly timeboxed, and I automated testing and CI/CD for fast delivery. This approach reduced delays and improved ownership.
 
-Wearing the Scrum Master and Technical Coordinator hat, I facilitated all ceremonies myself, using relative effort points for solo planning poker and conducting focused retrospectives to continuously improve my process. I managed risks and blockers proactively, strictly timeboxing technical spikes to 2 hours maximum to prevent analysis paralysis. I also leveraged RAD tools and code generators wherever they could accelerate development without sacrificing quality.
-
-As the Full-Stack Developer and Integrator, I implemented features with a focus on delivering working software quickly, using technical spikes for proof-of-concepts when exploring new approaches. I automated testing and CI/CD pipelines to validate each increment in real-time, catching issues early. Documentation evolved incrementally through living docs -- I updated the README.md with every commit rather than leaving it for the end.
-
-This hybrid approach delivered concrete benefits. Time-to-market was significantly faster because I eliminated the synchronization delays that occur when handing off between roles. I had greater flexibility to pivot based on client feedback, which is fundamental to RAD methodology. Most importantly, I developed stronger ownership across the entire development lifecycle because I was responsible for every aspect from requirements through deployment.
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth,keepaspectratio]{rapport/media/communication_diag.png}
+\caption{RAD/Scrum Hybrid Workflow}
+\label{fig:rad_scrum}
+\end{figure}
 
 \subsection{Scrum Ceremonies}
 
-I adapted traditional Scrum ceremonies to fit my solo development context while maintaining their value. Sprint Planning sessions at the start of each two-week cycle were where I defined clear sprint goals and carefully selected which backlog items I could realistically complete. I kept these focused and timeboxed to avoid overcommitting. Daily Stand-ups became my morning ritual where I documented progress and identified any blockers -- even working solo, this practice kept me accountable and helped me spot issues early. Sprint Reviews were opportunities to demonstrate completed features to stakeholders when available, or conduct thorough self-evaluations when working independently, ensuring each feature truly met requirements. Sprint Retrospectives at the end of each sprint were perhaps the most valuable ceremony, where I honestly assessed what went well, what didn't, and what specific improvements I would implement in the next sprint.
+I adapted Scrum ceremonies for solo work: Sprint Planning set clear goals, daily stand-ups tracked progress, and reviews/retrospectives ensured continuous improvement.
 
 \subsection{Tools Used}
 
-I selected tools that would maximize my productivity without adding unnecessary complexity. For project management, Trello gave me visual sprint boards and backlog organization that I could update quickly. Version control was naturally Git with GitHub, which also provided excellent collaboration features for code reviews and issue tracking. I kept documentation in Notion and Google Docs because they're accessible anywhere and support real-time collaboration. For design and wireframing, I used Figma for UI mockups and Draw.io for technical diagrams -- both offered the right balance of power and simplicity. My development environment included VS Code for most coding, GoLand when working on complex Go services, Android Studio for mobile development, PgAdmin for database management, and Docker Desktop for container orchestration. Each tool was chosen specifically because it solved a real need in my workflow.
+I used Trello for sprint boards, GitHub for code, Notion for docs, Figma for UI, and Draw.io for diagrams. VS Code, GoLand, and Docker covered development and deployment needs.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth,keepaspectratio]{rapport/media/image2.png}
+\caption{Development Tools and Technologies}
+\label{fig:dev_tools}
+\end{figure}
 
 \subsection{Sprint Length and Structure}
 
-Each sprint lasted \textbf{two weeks} and followed this structure:
-
-\begin{itemize}
-\item Day 1: Sprint Planning
-\item Day 2--12: Development + Daily Stand-ups
-\item Day 13: Sprint Review (demo or milestone check)
-\item Day 14: Sprint Retrospective
-\end{itemize}
+Each sprint lasted two weeks: planning, daily development, review, and retrospective.
 
 \subsection{Project Timeline}
 
-A total of \textbf{7 sprints} were conducted, as shown in the timeline below:
+The project ran for 7 sprints, summarized below:
 
 \begin{table}[H]
 \centering

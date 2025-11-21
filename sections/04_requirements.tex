@@ -12,15 +12,22 @@ These requirements describe the main functionalities that the system must offer.
 
 \subsubsection{Error Detection and Handling}
 
-I needed the system to capture errors in real-time regardless of where they occurred -- whether in a React frontend, a Go backend service, or a Flutter mobile application. The goal was to centralize all these errors in one interactive dashboard where developers could see everything at a glance. I also wanted intelligent filtering and categorization based on criticality, so teams could focus on critical production issues first while less urgent warnings didn't get lost in the noise.
+Real-time error capture across all platforms (React, Go, Flutter) centralized in an interactive dashboard with intelligent filtering by criticality.
 
 \subsubsection{AI Error Analysis and Correction}
 
-The platform needed to automatically analyze every error that came through, understanding not just what failed but why it failed. I wanted AI-powered intelligence that could propose context-appropriate solutions, taking into account the specific codebase, error type, and historical patterns. Importantly, I also required the system to generate unit tests that would validate corrections before they ever touched the codebase, ensuring automated fixes wouldn't introduce new problems.
+Automatic AI analysis identifying root causes, proposing context-aware solutions, and generating unit tests to validate fixes.
 
 \subsubsection{DevOps Automation}
 
-I wanted complete automation from error detection through deployment. When a correction is ready, the system should automatically trigger comprehensive tests to validate the fix. If tests pass, patched code should deploy through our CI/CD pipeline without anyone needing to manually intervene or approve the change. The platform also needed to track corrections through to production releases, giving teams visibility into which fixes are deployed and which are still in progress.
+Full automation: error detection → testing → CI/CD deployment → production tracking, all without manual intervention.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\textwidth,keepaspectratio]{rapport/media/notification_config.png}
+\caption{Automated Deployment Pipeline}
+\label{fig:auto_deploy}
+\end{figure}
 
 \subsubsection{Integration with Other Tools}
 
